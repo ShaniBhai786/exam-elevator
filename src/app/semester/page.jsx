@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react"
 import Link from "next/link"
 import styles from "../../app/utills.module.css"
 import LoginError from "../components/LoginError"
+import Loading from "../components/Loading"
 
 const Page = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(null)
@@ -14,9 +15,8 @@ const Page = () => {
 
   const semesters = [1,2,3,4,5,6,7,8]
 
-  // ⏳ Prevent flicker / SSR mismatch
   if (isLoggedIn === null) {
-    return <p>Loading...</p>
+    return <Loading />
   }
 
   if (!isLoggedIn) {
