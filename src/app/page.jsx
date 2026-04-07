@@ -12,14 +12,14 @@ const Main = () => {
     setIsLoggedIn(!!user)
   }, [])
 
-  if (isLoggedIn === null) {
-    return <Loading />
-  }
+  // if (isLoggedIn === null) {
+  //   return <Loading />
+  // }
 
   return (
-    <div>
+    <>
       {isLoggedIn ? <Home /> : <Login onLogin = {() => setIsLoggedIn(true)}/>}
-    </div>
+    </>
   )
 }
 

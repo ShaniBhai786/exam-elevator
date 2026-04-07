@@ -6,10 +6,13 @@ import LoginError from "../components/LoginError"
 import Loading from "../components/Loading"
 
 const Page = () => {
+  const [masterUser, setMasterUser] = useState("")
   const [isLoggedIn, setIsLoggedIn] = useState(null)
 
   useEffect(() => {
     const user = localStorage.getItem("user")
+    const masterUser = localStorage.getItem("masterUser")
+    setMasterUser(masterUser)
     setIsLoggedIn(!!user)
   }, [])
 
@@ -25,7 +28,12 @@ const Page = () => {
 
   return (
     <div className={styles.semestersDiv}>
-      <h1>BSCS All Semesters</h1>
+      <h1>BSCS all Semesters</h1>
+      <div className={styles.userDiv}>
+        <p>Master User: </p>
+        {/* <hr /> */}
+        <span>{masterUser}</span>
+      </div>
 
       <div className={styles.class}>
         {semesters.map((value) => (

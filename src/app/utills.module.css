@@ -1,13 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bpmf+Huninn&family=Poller+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
 .navbar {
+  
   display: grid;
   position: sticky;
   grid-template-columns: auto 1fr auto;
   padding: 15px 40px;
-  background: linear-gradient(135deg, #223561, #1e293b);
+  /* background: linear-gradient(135deg, #223561, #1e293b); */
+  background-color: #004d40;
   color: white;
   border-radius: 12px;
   margin: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 25px #00796b;
+  backdrop-filter: blur(100px);
 }
 
 .logoSection {
@@ -33,7 +38,7 @@
 
 .links {
   text-decoration: none;
-  color: #cbd5f5;
+  color: aliceblue;
   font-size: 15px;
   font-weight: 500;
   position: relative;
@@ -54,7 +59,7 @@
   left: 0;
   width: 0%;
   height: 2px;
-  background: #4f46e5;
+  background: #00796b;
   transition: 0.3s;
 }
 
@@ -65,7 +70,7 @@
   justify-self: center;
 }
 .heroBtn button {
-  background: #4f46e5;
+  background: #00796b;
   color: white;
   border: none;
   padding: 8px 18px;
@@ -73,10 +78,12 @@
   cursor: pointer;
   transition: 0.3s;
   font-weight: 500;
+  transition: all 0.2s ease-in-out;
 }
 
 .heroBtn button:hover {
-  background: #6366f1;
+  background: #004d40;
+  filter: drop-shadow(2px 2px 10px #0ad0b9);
   transform: translateY(-2px);
 }
 
@@ -96,10 +103,13 @@
 
 /* ======================== Login Page ======================== */
 .loginContainer {
-  height: 100vh;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  /* background: linear-gradient(135deg, #25659e, #092628); */
+  /* background-color: linear-gradient(135deg, #e0f7fa, #ffffff); */
 }
 
 .loginCard {
@@ -152,14 +162,14 @@
 .inputIconEye{
   position: absolute;
   right: 12px;
-  color: #3a8dde;
+  color: #00796b;
   font-size: 16px;
   cursor: pointer;
 }
 
 .inputGroup input {
   width: 100%;
-  padding: 10px 105px 10px 45px;
+  padding: 10px 45px 10px 45px;
   border-radius: 8px;
   border: 1px solid #1e293b;
   outline: none;
@@ -184,7 +194,7 @@
   color: #ff4d4f;
   font-size: 12px;
   text-align: left;
-  transform: translateY(-32px);
+  transform: translateY(32px);
   left: 2px;
   transition: opacity 0.3s ease, transform 0.3s ease;
   animation: error 0.1s ease-in-out 3;
@@ -220,14 +230,18 @@
 }
 
 .signupText {
-  margin-top: 15px;
-  font-size: 13px;
+  margin-top: 5px;
+  font-size: 14px;
 }
 
 .signupText span {
   color: #4facfe;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 600;
+}
+.signupText span:hover {
+  color: #3a8dde;
+  text-decoration: underline;
 }
 
 .socialLogin {
@@ -276,36 +290,93 @@
   align-items: center;
   flex-direction: column;
 }
+.userDiv{
+  display: flex;
+  position: absolute;
+  flex-direction: row;
+  right: 5%;
+  top: 0%;
+  width: auto;
+  background-color: #004d40;
+  padding: 20px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  animation: masterUser 0.7s ease-in-out infinite;
+}
+@keyframes masterUser {
+  0%{
+    transform: translateY(0px);
+  }
+    50%{
+      transform: translateY(-5px);
+    }
+    100%{
+      transform: translateY(0px);
+  }
+}
+.userDiv p{
+  font-size: 13px;
+  color: #10edd3;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-right: 5px;
+}
+.userDiv span{
+  color: #10edd3;
+  letter-spacing: 1px;
+  font-family: cursive;
+  font-weight: 900;
+}
+.userDiv hr{
+  width: 100%;
+  border: 0.5px solid #10edd3;
+  margin: 2px 0;
+}
+
 .class{
   display: flex;
   position: relative;
   width: 90%;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  gap: 10px;
+  gap: 15px;
+  background-color: #004d4056;
+  padding: 40px;
+  border-radius: 12px;
 }
 .semesters{
   display: flex;
   padding: 20px;
   width: 131px;
   height: 121px;
-  border: 1px solid #223561;
+  /* border: 1px solid #223561; */
   border-radius: 5px;
-  background-color: #223561;
+  background-color: #004d40;
   color: #fff;
   font-size: 15px;
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 .semesters:hover{
   scale: 1.06;
-  background-color: #4facfe;
-  color: #1e293b;
-  box-shadow: 0 0 10px #3a8dde;
+  background-color: #08a895;
+  color: #004d40;
+  outline: 1px solid #0ad0b9;
+  box-shadow: 0 0 10px #004d40;
 }
-
+.semestersDiv h1{
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: 400;
+  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+  /* font-family: "Bpmf Huninn", sans-serif; */
+  font-family: "Archivo Black", sans-serif;
+  color: #004d40;
+}
 /* ==============================Profile =========================== */
 .profileContainer{
   display: flex;
@@ -323,6 +394,22 @@
   box-shadow: 1px 1px 10px #3a8dde;
 }
 
+.userInfo{
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.image{
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+}
+.profileName{
+  color: #004d40;
+  font-size: 20px;
+}
 
 .profileContainer {
   max-width: 400px;
@@ -330,7 +417,7 @@
   padding: 40px;
   background: linear-gradient(135deg, #f9f9f9, #e0f7fa);
   border-radius: 20px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 15px 40px #00796b;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
   transition: all 0.3s ease-in-out;
@@ -338,24 +425,9 @@
 
 .profileContainer:hover {
   transform: translateY(-5px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 20px 50px #00796b;
 }
 
-.profileContainer h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  color: #00796b;
-  text-align: center;
-}
-
-.profileContainer p {
-  font-size: 1.1rem;
-  line-height: 1.2;
-  margin-bottom: 15px;
-  color: #555;
-  text-align: justify;
-}
 
 .profileContainer button {
   display: block;
@@ -531,7 +603,7 @@
   min-height: 100vh;
   padding: 40px;
   background: linear-gradient(135deg, #e0f7fa, #ffffff);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 }
 
 .hero {
@@ -612,7 +684,7 @@
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 15px 40px #00796b33;
+  box-shadow: 0 0px 20px #004d40;
 }
 
 .card h3 {
@@ -623,4 +695,125 @@
 .card p {
   color: #555;
   font-size: 0.95rem;
+}
+
+/* ==================== Register Page=================== */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  font-family: Arial, sans-serif;
+  padding: 10px 0px;
+  /* background-color: #00796b; */
+}
+
+.formBox {
+  background: #ffffff;
+  padding: 40px;
+  width: 90%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.formBox h1 {
+  text-align: center;
+  margin-bottom: 0px;
+  font-size: 25px;
+  font-family: "Alfa Slab One", cursive;
+  /* font-weight: bolder; */
+  text-transform: capitalize;
+  color: #00796b;
+}
+.formBox h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #202020;
+}
+.form{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  flex-direction: column;
+}
+.inputsDiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  column-gap: 20px;
+  flex-wrap: wrap;
+}
+.inputGroup {
+  position: relative;
+  margin-bottom: 26px;
+  width: 20rem;
+  /* background-color: #00796b; */
+}
+
+.input {
+  width: 100%;
+  padding: 1px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+  transition: 0.3s;
+  color: #333;
+}
+
+.input:focus {
+  border-color: #4facfe;
+}
+
+.inputGroup label {
+  position: absolute;
+  top: -9px;
+  left: 12px;
+  background: #fff;
+  padding: 0 6px;
+  font-size: 12px;
+  color: #666;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  width: 90%;
+}
+
+.btn {
+  width: 15rem;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.reset {
+  color: #fff;
+  background: #b71c1c;
+}
+
+.reset:hover {
+  background: #7f0000;
+}
+
+.submit {
+  background: #00796b;
+  color: #fff;
+}
+
+.submit:hover {
+  background: #004d40;
 }

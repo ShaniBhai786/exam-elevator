@@ -1,7 +1,18 @@
 "use client"
 import styles from "../utills.module.css"
+import Image from "next/image"
+import React, { useEffect, useState } from "react"
+import logo from "@/logo.jpeg"
 
 const Profile = ({setIsProfileOpen}) => {
+  const [masterUser, setMasterUser] = useState("")
+  useEffect(() => {
+    const masterUser = localStorage.getItem("masterUser")
+    console.log("Master User:", masterUser) // Debugging log
+  if (masterUser) {
+    setMasterUser(masterUser)
+  }
+  })
     const handleLogOut = () => {
       const user = localStorage.getItem("user")
       if (!user) {
@@ -15,9 +26,10 @@ const Profile = ({setIsProfileOpen}) => {
   return (
       <div className={styles.profileContainer}>
         <i className={`fa fa-close ${styles.close}`} onClick={()=>setIsProfileOpen(false)}></i>
-        <h1>Profile Page</h1>
-        <p>Welcome to your profile! Here you can view and edit your personal information, manage your account settings, and access your activity history.</p>
-        <p>Feel free to explore the various sections of your profile to customize your experience and stay updated with your activities.</p>
+        <div className={styles.userInfo}>
+          <Image src={logo} className={styles.image} alt="profile" />
+          <h3 className={styles.profileName}>{masterUser}</h3>
+        </div>
         <button onClick={handleLogOut}>LogOut</button>
     </div>
   )

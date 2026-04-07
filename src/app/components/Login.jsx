@@ -4,6 +4,7 @@ import styles from "../utills.module.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useRef, useState } from "react";
 import * as Yup from "yup";
+import Link from "next/link"
 
 const Login = ({onLogin}) => {
   const [isLogin, setIsLogin] = useState(false)
@@ -96,7 +97,7 @@ const Login = ({onLogin}) => {
         </Formik>
 
         <p className={styles.signupText}>
-          Don't have an account? <span>Sign up</span>
+          Don't have an account? <Link href="/register"><span>Register</span></Link>
         </p>
 
         <div className={styles.socialLogin}>
