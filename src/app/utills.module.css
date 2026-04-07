@@ -402,13 +402,14 @@
   align-items: center;
 }
 .image{
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   border-radius: 100%;
 }
 .profileName{
   color: #004d40;
-  font-size: 20px;
+  font-size: 15px;
+  font-weight: 600;
 }
 
 .profileContainer {
@@ -601,8 +602,8 @@
 /* ================ HOME PAGE ========================= */
 .homeContainer {
   min-height: 100vh;
-  padding: 40px;
-  background: linear-gradient(135deg, #e0f7fa, #ffffff);
+  padding: 20px;
+  /* background: linear-gradient(135deg, #e0f7fa, #ffffffb7); */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 }
 
@@ -610,14 +611,15 @@
   text-align: center;
   max-width: 700px;
   margin: 0 auto;
-  padding: 50px 20px;
+  padding: 0px 20px;
 }
 
 .hero h1 {
   font-size: 3rem;
   font-weight: 700;
-  color: #00796b;
+  color: #004d40;
   margin-bottom: 20px;
+  filter: drop-shadow(0 0 10px #75f3de);
 }
 
 .hero p {
@@ -670,11 +672,11 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 .card {
-  background: white;
+  background: #004d40;
   padding: 25px;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
@@ -689,11 +691,12 @@
 
 .card h3 {
   margin-bottom: 10px;
-  color: #00796b;
+  color: #10edd3;
+  font-weight: 600;
 }
 
 .card p {
-  color: #555;
+  color: #ffff;
   font-size: 0.95rem;
 }
 
