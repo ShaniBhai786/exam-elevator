@@ -7,7 +7,6 @@ const Home = () => {
   return (
     <div className={styles.homeContainer}>
       
-      {/* Hero Section */}
       <div className={styles.hero}>
         <h1>Welcome to uniSoft Exam Elevator  🚀</h1>
         <p>

@@ -31,7 +31,6 @@ const Page = () => {
       <h1>BSCS all Semesters</h1>
       <div className={styles.userDiv}>
         <p>Master User: </p>
-        {/* <hr /> */}
         <span>{masterUser}</span>
       </div>
 
