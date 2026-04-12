@@ -9,6 +9,27 @@ const PaperFormat = ({ shortQuestions = [], longQuestions = [], setDisplay, subj
   const handlePrint = () => {
     window.print()
   }
+  const handleSave = () => {
+  const paper = {
+    id: Date.now(),
+    subject,
+    shortQuestions,
+    longQuestions,
+    noSQs,
+    noLQs,
+    shortMarks,
+    longMarks,
+    date: new Date().toLocaleString(),
+  };
+
+  const existing = JSON.parse(localStorage.getItem("papers")) || [];
+
+  const updated = [...existing, paper];
+
+  localStorage.setItem("papers", JSON.stringify(updated));
+
+  alert("Paper Saved ✅");
+};
   return (
     <div className={styles.paperWrapper}>
         <i className={`fa fa-close ${styles.closeIcon} `} onClick={() => setDisplay(false)}>close</i>
@@ -63,6 +84,7 @@ const PaperFormat = ({ shortQuestions = [], longQuestions = [], setDisplay, subj
           )}
         </div>
           <button onClick={handlePrint} className={styles.printBtn}>Print</button>
+          <button onClick={handleSave}>Save</button>
       </div>
     </div>
   );

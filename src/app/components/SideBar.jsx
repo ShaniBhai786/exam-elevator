@@ -19,7 +19,7 @@ const SideBar = () => {
         </div>
         <div className={styles.sideMenu} >
             <Link href="/semester" className={styles.sideButtons}><i className='fa fa-print'></i><div className={styles.sideLinks}><p>Generate Paper</p></div></Link>
-            <Link href="/semester" className={styles.sideButtons}><i className='fa fa-save'></i><div className={styles.sideLinks}><p>Saved Papers</p></div></Link>
+            <Link href="/saved-papers" className={styles.sideButtons}><i className='fa fa-save'></i><div className={styles.sideLinks}><p>Saved Papers</p></div></Link>
             <Link href="/semester" className={styles.sideButtons}><i className='fa fa-gear'></i><div className={styles.sideLinks}><p>Default Settings</p></div></Link>
             <Link href="/semester" className={styles.sideButtons}><i className='fa fa-print'></i><div className={styles.sideLinks}  ><p>Generate</p></div></Link>
             <Link href="/semester" className={styles.sideButtons}><i className='fa fa-print'></i><div className={styles.sideLinks}  ><p>Generate</p></div></Link>
