@@ -1,11 +1,21 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../../utills.module.css'
+import PaperFormat from './PaperFormat'
 
 const Generator = ({semesterSeven, subject}) => {
     const [shortQuestions, setShortQuestions] = useState([])
     const [longQuestions, setLongQuestions] = useState([])
+    const [display, setDisplay] = useState(false)
+    const [noSQs, setNoSQs] = useState(0)
+    const [noLQs, setNoLQs] = useState(0)
+    const [shortMarks, setShortMarks] = useState(null)
+    const [longMarks, setLongMarks] = useState(null)
+    useEffect(() => {
+        setNoSQs(shortQuestions.length)
+        setNoLQs(longQuestions.length)
+    },[shortQuestions, longQuestions])
     const handleChange = (e, category) => {
         let value = e.target.value;
         if (category === "short") {
@@ -26,8 +36,9 @@ const Generator = ({semesterSeven, subject}) => {
         }
     }
   return (
+      <>
       <div className={styles.generator}>
-        <h2>Short Questions</h2>
+        <div className={styles.selected}><h2>Short Questions</h2> <span className={styles.select}>Selected: {noSQs}</span></div>
         {/* <p>Slected Short: <strong>{shortQuestions}</strong></p> */}
         {/* <p>Slected Long: <strong>{longQuestions}</strong></p> */}
       {
@@ -42,6 +53,7 @@ const Generator = ({semesterSeven, subject}) => {
                                     <>
                                     <input type="checkbox" value={item.question} name={item.question} id={item.question} onChange={(e) => handleChange(e, "short")} />
                                     <label htmlFor={item.question} className={styles.question}>{item.question} <span className={styles.year}>Year: {item.year}</span></label>
+                                    {setShortMarks(item.marks)}
                                     </>
                                 )
                             }
@@ -54,7 +66,7 @@ const Generator = ({semesterSeven, subject}) => {
       }
 
       {/* <p>Slected: <strong>{questions.join(",")}</strong></p> */}
-        <h2>Long Questions</h2>
+        <div className={styles.selected}><h2>Long Questions</h2> <span className={styles.select}>Selected: {noLQs}</span></div>
       {
         semesterSeven.filter(item => item.Subject === subject && item.category === "long").map((item, index) => {
             return (
@@ -67,6 +79,7 @@ const Generator = ({semesterSeven, subject}) => {
                                     <>
                                     <input type="checkbox" value={item.question} name={item.question} id={item.question} onChange={(e) => handleChange(e, "long")} />
                                     <label htmlFor={item.question} className={styles.question}>{item.question}<span className={styles.year} >Year: {item.year}</span></label>
+                                    {setLongMarks(item.marks)}
                                     </>
                                 )
                             }
@@ -78,6 +91,9 @@ const Generator = ({semesterSeven, subject}) => {
         })
       }
     </div>
+    <button className={styles.previewBtn} onClick={() => setDisplay(true)}>Preview</button>
+    {display && <PaperFormat shortQuestions={shortQuestions} subject={subject} longQuestions={longQuestions} setDisplay={setDisplay} noLQs={noLQs} noSQs={noSQs} shortMarks={shortMarks} longMarks={longMarks} />}
+      </>
   )
 }
 

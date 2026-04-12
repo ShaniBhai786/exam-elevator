@@ -1167,7 +1167,7 @@ input:checked + .question {
   border: 1px solid rgba(255, 255, 255, 0.3);
   outline: none;
   font-size: 16px;
-  color: #004d40;
+  color: #ffffff;
   font-family: Arial;
   font-weight: 500;
   transition: all 0.3s ease;
@@ -1175,6 +1175,7 @@ input:checked + .question {
 .inputField::placeholder {
   color: #06453b;
   font-size: 15px;
+  font-weight: 600;
 }
 .inputField:focus {
   border-color: #0ea5e9;
@@ -1185,9 +1186,11 @@ input:checked + .question {
   resize: none;
 }
 .error {
-  color: #ff6b6b;
-  font-size: 13px;
-  margin-top: 5px;
+  position: absolute;
+  color: #a50606;
+  font-size: 12px;
+  margin-top: 55px;
+  font-weight: bold;
 }
 
 .submitBtn {
@@ -1280,5 +1283,208 @@ input:checked + .question {
 @media (max-width: 768px) {
   .contactContainer {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ===========Paper Format================= */
+/* ===== PAGE BACKGROUND ===== */
+.paperWrapper {
+  position: absolute;
+  min-height: 100vh;
+  background: #f1f5f9;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+  border-radius: 10px;
+}
+.closeIcon{
+  display: block;
+  position: absolute;
+  left: 2%;
+  top: 2%;
+  font-size: 22px;
+  color: #004d40;
+  cursor: pointer;
+}
+.previewBtn{
+  display: block;
+  position: fixed;
+  right: 2%;
+  bottom: 5%;
+  cursor: pointer;
+  background-color: #00796b;
+  color: #ffff;
+  letter-spacing: 1px;
+  padding: 10px;
+  font-size: 13px;
+  width: 7rem;
+  border-radius: 12px;
+  transition: all 0.1s ease-in-out;
+}
+.previewBtn:hover{
+  scale: 1.05;
+}
+.previewBtn:active{
+  scale: 0.3;
+}
+.li{
+  font-family: 13px;
+  color: #202020;
+}
+/* ===== PAPER SHEET ===== */
+.paperContainer {
+  width: 800px;
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  z-index: 999;
+  /* Paper feel */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+@media print {
+
+  /* Hide everything */
+  body * {
+    visibility: hidden;
+    width: 100%;
+  }
+
+  /* Show only paper */
+  .paperContainer,
+  .paperContainer * {
+    visibility: visible;
+  }
+  .paperWrapper {
+    top: 0%;
+    transform: translateY(-10rem);
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+  /* Position paper properly */
+  .paperContainer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    margin-top: 0;
+    padding: 20px;
+    box-shadow: none;
+  }
+
+  /* Remove unwanted UI */
+  .printBtn {
+    display: none !important;
+  }
+
+  /* Prevent extra pages */
+  html, body {
+    align-items: flex-start;
+    height: 100%;
+    overflow: hidden;
+  }
+}
+.printBtn{
+  display: block;
+  position: relative;
+  background-color: #004d40;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  filter: drop-shadow(0 0 5px black);
+  width: 7rem;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+.printBtn:hover{
+  scale: 1.1;
+}
+.printBtn:active{
+  scale: 0.8;
+}
+/* ===== HEADER ===== */
+.paperHeader {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  text-align: center;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+.headerLogo{
+  display: block;
+  /* position: absolute; */
+  left: 0;
+}
+.headerUtils{
+  display: flex;
+  width: 90%;
+  flex-direction: column;
+}
+.paperHeader h1 {
+  font-size: 28px;
+  margin-bottom: 5px;
+  filter: drop-shadow(1px 1px 35px grey);
+  text-transform: uppercase;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.paperHeader p {
+  font-size: 14px;
+  color: #555;
+}
+.subject{
+  text-transform: capitalize;
+}
+/* ===== SECTION ===== */
+.section {
+  margin-bottom: 30px;
+}
+.selected{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.select{
+  font-size: 17px;
+  color: #0ad0b9;
+  border-left: 5px solid #0ad0b9;
+  padding-left: 10px;
+}
+.paperStatement{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sectionTitle {
+  font-size: 20px;
+  margin-bottom: 15px;
+  border-left: 4px solid #08a895;
+  padding-left: 10px;
+}
+
+/* ===== QUESTIONS ===== */
+.questionList {
+  padding-left: 20px;
+}
+
+
+/* Empty state */
+.empty {
+  color: #999;
+  font-style: italic;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .paperContainer {
+    width: 100%;
+    padding: 20px;
   }
 }
