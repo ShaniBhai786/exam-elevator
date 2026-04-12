@@ -41,7 +41,7 @@ const Generator = ({semesterSeven, subject}) => {
                                 item.category === "short" && (
                                     <>
                                     <input type="checkbox" value={item.question} name={item.question} id={item.question} onChange={(e) => handleChange(e, "short")} />
-                                    <label htmlFor={item.question} className={styles.question}>{item.question} {item.year}</label>
+                                    <label htmlFor={item.question} className={styles.question}>{item.question} <span className={styles.year}>Year: {item.year}</span></label>
                                     </>
                                 )
                             }
@@ -66,7 +66,7 @@ const Generator = ({semesterSeven, subject}) => {
                                 item.category === "long" && (
                                     <>
                                     <input type="checkbox" value={item.question} name={item.question} id={item.question} onChange={(e) => handleChange(e, "long")} />
-                                    <label htmlFor={item.question} className={styles.question}>{item.question}{item.year}</label>
+                                    <label htmlFor={item.question} className={styles.question}>{item.question}<span className={styles.year} >Year: {item.year}</span></label>
                                     </>
                                 )
                             }
