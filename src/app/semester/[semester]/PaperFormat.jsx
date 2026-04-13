@@ -83,8 +83,10 @@ const PaperFormat = ({ shortQuestions = [], longQuestions = [], setDisplay, subj
             </ol>
           )}
         </div>
-          <button onClick={handlePrint} className={styles.printBtn}>Print</button>
-          <button onClick={handleSave}>Save</button>
+          <div className={styles.paperButtonsDiv}>
+            <button onClick={handlePrint} className={styles.printBtn}>Print</button>
+            <button onClick={handleSave} className={styles.saveBtn}>Save</button>
+          </div>
       </div>
     </div>
   );

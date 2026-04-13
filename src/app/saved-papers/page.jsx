@@ -9,14 +9,25 @@ const Page = () => {
   const [papers, setPapers] = useState([])
   const [showPaper, setShowPaper] = useState(false)
   const [selectedPaper, setSelectedPaper] = useState(null)
+  const [deletingId, setDeletingId] = useState(null);
   useEffect(() => {
-    const data = JSON.parse(localStorage.getItem("papers")) || []
+    const data = JSON.parse(localStorage.getItem("papers") || "[]")
     setPapers(data)
   },[])
   const viewSavedPaper = (paperId) => {
     const paper = papers.find(p => p.id === paperId)
     setSelectedPaper(paper)
     setShowPaper(true)
+  }
+  const deletePaper = (paperId) => {
+    setDeletingId(paperId)
+
+    setTimeout(() => {
+      const updatedPapers = papers.filter(p => p.id !== paperId)
+      setPapers(updatedPapers)
+      localStorage.setItem("papers", JSON.stringify(updatedPapers))
+    }, 500)
+    // setDeletingId(null)
   }
   return (
     <>
@@ -25,7 +36,7 @@ const Page = () => {
 
       <div className={styles.grid}>
         {papers.map((item) => (
-          <div key={item.id} className={styles.savedCard}>
+          <div key={item.id} className={`${styles.savedCard} ${deletingId === item.id ? styles.delete : "" }`}>
             <div className={styles.cardTop}>
               <h2>{item.subject}</h2>
               <span>{item.date}</span>
@@ -45,6 +56,7 @@ const Page = () => {
             <button className={styles.viewBtn} onClick={() => viewSavedPaper(item.id)}>
               View Paper
             </button>
+            <button className={styles.deleteBtn} onClick={() => deletePaper(item.id)}>Delete</button>
           </div>
         ))}
       </div>
