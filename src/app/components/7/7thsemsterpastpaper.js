@@ -9,6 +9,7 @@ const semesterSeven = [
     Subject: "numerical computing",
     category: "short",
     marks: 5,
+    session: "spring",
   },
   {
     question: "What is truncation error?",

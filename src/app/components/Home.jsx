@@ -1,17 +1,24 @@
 "use client"
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from "../utills.module.css"
 import Link from "next/link"
 
 const Home = () => {
+  const [data, setData] = useState(null)
+  useEffect(() => {
+    fetch("/api/server")
+      .then(res => res.json())
+      .then(res => setData(res.message))
+  }, [])
   return (
     <div className={styles.homeContainer}>
       
       <div className={styles.hero}>
+        {/* <strong>{data}</strong> */}
         <h1>Welcome to uniSoft Exam Elevator  🚀</h1>
         <p>
           Empowering students with structured learning, semester-wise resources, 
-          and a modern digital experience.
+          and a modern digital experience. 
         </p>
 
         <div className={styles.btnGroup}>

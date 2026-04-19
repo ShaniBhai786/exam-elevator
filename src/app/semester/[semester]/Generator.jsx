@@ -91,7 +91,7 @@ const Generator = ({semesterSeven, subject}) => {
         })
       }
     </div>
-    <button className={styles.previewBtn} onClick={() => setDisplay(true)}>Preview</button>
+    <button className={styles.previewBtn} onClick={() => setDisplay(true)}>Generate</button>
     {display && <PaperFormat shortQuestions={shortQuestions} subject={subject} longQuestions={longQuestions} setDisplay={setDisplay} noLQs={noLQs} noSQs={noSQs} shortMarks={shortMarks} longMarks={longMarks} />}
       </>
   )
