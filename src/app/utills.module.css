@@ -928,7 +928,7 @@ input:checked + .question {
   align-items: center;
   flex-direction: column;
 }
-.inputsDiv{
+.inputsDivReg{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1148,7 +1148,7 @@ input:checked + .question {
   letter-spacing: 1px;
 }
 .inputsDiv {
-  width: 420px;
+  /* width: 420px; */
   padding: 40px;
   border-radius: 15px;
   background: rgba(255, 255, 255, 0.1);

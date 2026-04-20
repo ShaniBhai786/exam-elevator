@@ -6,10 +6,11 @@ import Link from "next/link"
 const Home = () => {
   const [data, setData] = useState(null)
   useEffect(() => {
-    fetch("/api/server")
-      .then(res => res.json())
-      .then(res => setData(res.message))
-  }, [])
+  fetch("/api/server")
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .catch(err => console.error(err));
+}, []);
   return (
     <div className={styles.homeContainer}>
       

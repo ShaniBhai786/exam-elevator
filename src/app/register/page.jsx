@@ -5,36 +5,60 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import styles from "../utills.module.css";
 import Link from "next/link";
+import axios from "axios";
 
 const Register = () => {
   const [passwordDisplay, setPasswordDisplay] = useState("password")
   const [confirmPasswordDisplay, setConfirmPasswordDisplay] = useState("password")
 
   const initialValues = {
-    Contact: "",
-    fullName: "",
+    username: "",
     email: "",
+    fullName: "",
+    Contact: "",
     CNIC: "",
+    userRole: "",
     password: "",
     confirmPassword: "",
-    Profile: ""
+    Profile: "",
+    subscription: ""
   };
 
   const validationSchema = Yup.object({
     Contact: Yup.string().min(11).required("Contact is mandatory"),
+    username: Yup.string().min(5).required("Username is mandatory"),
     fullName: Yup.string().min(3).required("Full Name is mandatory"),
     email: Yup.string().email("Invalid email").required("Email is required"),
     CNIC: Yup.string().min(13).matches(/^\d{5}-\d{7}-\d{1}$/, "Invalid CNIC format").required("CNIC/ B-Form is required"),
     password: Yup.string().min(8).required("Password is required"),
     confirmPassword: Yup.string()
-      .oneOf([Yup.ref("password"), "null"], "Passwords must be match")
+      .oneOf([Yup.ref("password"), null], "Passwords must be match")
       .required("Confirm your password"),
-    Profile: Yup.string().required("Profile Picture is mandatory")  
+    Profile: Yup.string().required("Profile Picture is mandatory"),
+    subscription: Yup.string().required("Mandetory Field"),
+    userRole: Yup.string().required("Mandetory Field"),
   });
 
-  const onSubmit = (values, { resetForm }) => {
+  const registerUser = async (values) => {
+  try {
+    const res = await axios.post("/api/auth/register", values);
+
+    alert("Registration Successful");
+    console.log(res.data);
+
+  } catch (error) {
+    if (error.response) {
+      // backend error
+      alert(error.response.data.message);
+    } else {
+      console.log("Error:", error);
+    }
+  }
+};
+  const onSubmit = async (values, { resetForm }) => {
     alert("Registration Successfully!");
     console.table(values);
+    await registerUser(values)
     resetForm();
     localStorage.setItem("masterUser", values.fullName)
   };
@@ -82,8 +106,9 @@ const Register = () => {
           validationSchema={validationSchema}
           onSubmit={onSubmit}
         >
+          {({resetForm}) => (
           <Form className={styles.form}>
-            <div className={styles.inputsDiv}>
+            <div className={styles.inputsDivReg}>
             <div className={styles.inputGroup}>
               <i className={`fa-solid fa-user ${styles.inputIcon}`}></i>
               <Field  type="text" name="fullName" className={styles.input}  placeholder="Enter Full Name" />
@@ -96,6 +121,13 @@ const Register = () => {
               <Field  type="email" name="email" className={styles.input} placeholder="Enter Email" />
               <label>Email</label>
               <ErrorMessage name="email" component="div" className={styles.errorMessage} />
+            </div>
+
+            <div className={styles.inputGroup}>
+              <i className={`fa-solid fa-user ${styles.inputIcon}`}></i>
+              <Field  type="text" name="username" className={styles.input} placeholder="Enter username" />
+              <label>Username</label>
+              <ErrorMessage name="username" component="div" className={styles.errorMessage} />
             </div>
 
             <div className={styles.inputGroup}>
@@ -124,6 +156,29 @@ const Register = () => {
               </Field>
               <label>CNIC/ B-Form</label>
               <ErrorMessage name="CNIC" component="div" className={styles.errorMessage} />
+            </div>
+
+            <div className={styles.inputGroup}>
+              <i className={`fa-solid fa-user ${styles.inputIcon}`}></i>
+              <Field  as="select" type="text" name="userRole" className={styles.input}>
+                <option value="">Select User Role</option>
+                <option value="admin">Admin</option>
+                <option value="teacher">Teacher</option>
+                <option value="student">Student</option>
+              </Field>
+              <label>User Role</label>
+              <ErrorMessage name="userRole" component="div" className={styles.errorMessage} />
+            </div>
+
+            <div className={styles.inputGroup}>
+              <i className={`fa-solid fa- ${styles.inputIcon}`}></i>
+              <Field  as="select" type="text" name="subscription" className={styles.input} >
+                <option value="">Subscription Status</option>
+                <option value="Verified">Verified</option>
+                <option value="Trial">Trial</option>
+              </Field>
+              <label>Subscription Status</label>
+              <ErrorMessage name="subscription" component="div" className={styles.errorMessage} />
             </div>
 
             <div className={styles.inputGroup}>
@@ -163,7 +218,7 @@ const Register = () => {
             </p>
 
             <div className={styles.buttonGroup}>
-              <button type="reset" className={styles.btn + " " + styles.reset}>
+              <button type="button" onClick={() => resetForm()} className={styles.btn + " " + styles.reset}>
                 Reset
               </button>
               <button type="submit" className={styles.btn + " " + styles.submit}>
@@ -171,6 +226,7 @@ const Register = () => {
               </button>
             </div>
           </Form>
+          )}
         </Formik>
       </div>
     </div>
