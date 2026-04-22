@@ -6,16 +6,19 @@ import Link from "next/link"
 const Home = () => {
   const [data, setData] = useState(null)
   useEffect(() => {
-  fetch("/api/server")
-    .then(res => res.json())
-    .then(data => console.log(data))
-    .catch(err => console.error(err));
+  const user = localStorage.getItem("user");
+
+  if (user) {
+    const parsedUser = JSON.parse(user); 
+    setData(parsedUser);
+  }
 }, []);
   return (
     <div className={styles.homeContainer}>
       
       <div className={styles.hero}>
         {/* <strong>{data}</strong> */}
+        <h2>Welcome: {data?.fullName || "Guest"}</h2>
         <h1>Welcome to uniSoft Exam Elevator  🚀</h1>
         <p>
           Empowering students with structured learning, semester-wise resources, 

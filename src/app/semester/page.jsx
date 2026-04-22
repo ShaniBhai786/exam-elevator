@@ -12,8 +12,10 @@ const Page = () => {
 
   useEffect(() => {
     const user = localStorage.getItem("user");
-    const masterUser = localStorage.getItem("masterUser");
-    setMasterUser(masterUser);
+    const parsedUser = JSON.parse(user)
+    if (parsedUser) {
+      setMasterUser(parsedUser);
+    }
     setIsLoggedIn(!!user);
   }, []);
 
@@ -34,7 +36,7 @@ const Page = () => {
         <h1>BSCS all Semesters</h1>
         <div className={styles.userDiv}>
           <p>Master User: </p>
-          <span>{masterUser}</span>
+          <span>{masterUser.fullName}</span>
         </div>
 
         <div className={styles.class}>

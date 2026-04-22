@@ -8,15 +8,15 @@ const Profile = ({setIsProfileOpen}) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [masterUser, setMasterUser] = useState("")
   useEffect(() => {
-    const masterUser = localStorage.getItem("masterUser")
-  if (masterUser) {
-    setMasterUser(masterUser)
-  }
-  const user = localStorage.getItem("user")
-  if (user) {
+    const user = localStorage.getItem("user")
+    const parsedUser = JSON.parse(user)
+    if (parsedUser) {
+      setMasterUser(parsedUser)
+    }
+  if (parsedUser) {
     setIsLoggedIn(true)
   }
-  })
+  },[])
     const handleLogOut = () => {
       const user = localStorage.getItem("user")
       if (!user) {
@@ -35,7 +35,7 @@ const Profile = ({setIsProfileOpen}) => {
             isLoggedIn ? (
               <>
               <Image src={logo} className={styles.image} alt="profile" />
-          <h3 className={styles.profileName}>{masterUser}</h3>
+          <h3 className={styles.profileName}>{masterUser.fullName}</h3>
               </>
             ) : "user not logged in!"
           }

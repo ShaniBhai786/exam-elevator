@@ -49,11 +49,16 @@ const userSchema = new mongoose.Schema({
     },
     subscription:{
         type: String,
-        enum: ["Verified", "Trail"],
+        enum: ["verified", "trial"],
         required: true
+    },
+    accessToken: {
+        type: String,
+    },
+    refreshToken: {
+        type: String,
     }
-
-
+    
 },{timestamps: true})
 
-export const Users = mongoose.model("Users", userSchema)
+export const User = mongoose.model("User", userSchema) 

@@ -6,10 +6,12 @@ import * as Yup from "yup";
 import styles from "../utills.module.css";
 import Link from "next/link";
 import axios from "axios";
+import Loading from "../components/Loading"
 
 const Register = () => {
   const [passwordDisplay, setPasswordDisplay] = useState("password")
   const [confirmPasswordDisplay, setConfirmPasswordDisplay] = useState("password")
+  const [loading, setLoading] = useState(false)
 
   const initialValues = {
     username: "",
@@ -41,22 +43,28 @@ const Register = () => {
 
   const registerUser = async (values) => {
   try {
+    setLoading(true)
     const res = await axios.post("/api/auth/register", values);
 
-    alert("Registration Successful");
     console.log(res.data);
-
+    alert("Registration Successful");
   } catch (error) {
-    if (error.response) {
-      // backend error
-      alert(error.response.data.message);
-    } else {
-      console.log("Error:", error);
-    }
+  console.log("FULL ERROR:", error);
+  console.log("RESPONSE:", error?.response?.data);
+
+  const message =
+    error?.response?.data?.message ||
+    error.message ||
+    "Something went wrong";
+    setLoading(false)
+
+  alert(message);
+}
+  finally{
+    setLoading(false)
   }
 };
   const onSubmit = async (values, { resetForm }) => {
-    alert("Registration Successfully!");
     console.table(values);
     await registerUser(values)
     resetForm();
@@ -96,6 +104,8 @@ const Register = () => {
   }
 
   return (
+    <>
+    {loading && <Loading />}
     <div className={styles.container}>
       <div className={styles.formBox}>
         <h1>register user!</h1>
@@ -174,8 +184,8 @@ const Register = () => {
               <i className={`fa-solid fa- ${styles.inputIcon}`}></i>
               <Field  as="select" type="text" name="subscription" className={styles.input} >
                 <option value="">Subscription Status</option>
-                <option value="Verified">Verified</option>
-                <option value="Trial">Trial</option>
+                <option value="verified">Verified</option>
+                <option value="trial">Trial</option>
               </Field>
               <label>Subscription Status</label>
               <ErrorMessage name="subscription" component="div" className={styles.errorMessage} />
@@ -230,6 +240,7 @@ const Register = () => {
         </Formik>
       </div>
     </div>
+    </>
   );
 };
 

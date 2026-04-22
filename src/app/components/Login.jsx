@@ -5,6 +5,8 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useRef, useState } from "react";
 import * as Yup from "yup";
 import Link from "next/link"
+import axios from "axios";
+import Loading from "./Loading";
 
 const Login = ({onLogin}) => {
   const [isLogin, setIsLogin] = useState(false)
@@ -22,16 +24,38 @@ const Login = ({onLogin}) => {
       .required("Please enter your password"),
   });
 
-  const onSubmit = (values, { resetForm }) => {
-    if (values.email === "unisoftpvt@gmail.com" && values.password === "uniSoftpvt786@")
-    {
-      alert("Login Successful!");
-      console.log(values);
-      setIsLogin(true)
-      localStorage.setItem("user", isLogin)
-    }
+  const userLogin = async (values) => {
+    try {
+      const res = await axios.post("/api/auth/login", values, {
+      headers: { "Content-Type": "application/json" }
+});
+  const {user, accessToken} = res.data
+  localStorage.setItem("accessToken", accessToken)
+  localStorage.setItem("user", JSON.stringify(user))
+    // alert("Login Successful")
+    // setIsLogin(true)
+    alert(`Welcome: ${user.fullName}`)
+    console.log(res.data);
+onLogin()
+} catch (error) {
+  console.log("FULL ERROR:", error);
+  console.log("RESPONSE:", error?.response?.data);
+  
+  const message =
+  error?.response?.data?.message ||
+  error.message ||
+  "Something went wrong";
+  alert(message)
+}
+finally{
+  setIsLogin(false)
+}
+}
+
+const onSubmit = async (values, { resetForm }) => {
     resetForm();
-    onLogin()
+    setIsLogin(true)
+    userLogin(values)
   };
 
   const eyeRef = useRef()
@@ -51,6 +75,8 @@ const Login = ({onLogin}) => {
   }
 
   return (
+    <>
+    {isLogin && <Loading/>}
     <div className={styles.loginContainer}>
       <div className={styles.loginCard}>
         <h2 className={styles.loginTitle}>
@@ -110,6 +136,7 @@ const Login = ({onLogin}) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
