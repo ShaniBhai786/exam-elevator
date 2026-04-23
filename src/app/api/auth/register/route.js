@@ -55,7 +55,7 @@ export async function POST(req) {
       userRole,
       subscription,
       password: hashedPassword,
-      Profile: imageUrl.secure_url,
+      Profile: imageUrl,
     });
 
     return NextResponse.json(
