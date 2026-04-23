@@ -11,6 +11,8 @@ const generateAccessToken = (user) => {
         userRole: user.userRole,
         CNIC: user.CNIC,
         subscription: user.subscription,
+        Contact: user.Contact,
+        Profile: user.Profile
     },
     JWT_Secret,
     {expiresIn: "1d"}
