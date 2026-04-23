@@ -1,4 +1,7 @@
+export const runtime = "nodejs";
+
 import { NextResponse } from "next/server";
+import { Buffer } from "buffer";
 import { uploadOnCloudinary } from "../../../lib/cloudinary";
 
 export async function POST(req) {
@@ -17,7 +20,7 @@ export async function POST(req) {
 
     return NextResponse.json({
       message: "Uploaded successfully",
-      url: uploadResult,
+      url: uploadResult.secure_url, // ✅ FIXED (IMPORTANT)
     });
 
   } catch (error) {
