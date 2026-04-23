@@ -20,7 +20,7 @@ export async function POST(req) {
 
     return NextResponse.json({
       message: "Uploaded successfully",
-      url: uploadResult.secure_url, // ✅ FIXED (IMPORTANT)
+      url: uploadResult,
     });
 
   } catch (error) {
