@@ -665,6 +665,84 @@ input:checked + .question {
   transform: rotate(360deg);
   scale: 1.1;
 }
+
+.userProfileContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.userProfileCard {
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.imageWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.image {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.name {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.badge {
+  color: #1da1f2;
+  margin-left: 6px;
+  font-size: 18px;
+}
+
+.role {
+  color: #777;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+}
+
+.infoBox {
+  text-align: left;
+  margin-top: 15px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.btnGroup {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.editBtn {
+  flex: 1;
+  padding: 10px;
+  background: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.logoutBtn {
+  flex: 1;
+  padding: 10px;
+  background: #f44336;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
 /* ===================== Loading Spinner ========================= */
 .loading_container{
   display: flex;
