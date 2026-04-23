@@ -589,8 +589,8 @@ input:checked + .question {
   align-items: center;
 }
 .image{
-  width: 60px;
-  height: 60px;
+  width: 90px;
+  height: 90px;
   border-radius: 100%;
 }
 .profileName{
@@ -598,7 +598,15 @@ input:checked + .question {
   font-size: 15px;
   font-weight: 600;
 }
-
+.subscription{
+  color: #006454;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+.userRole{
+  text-transform: capitalize;
+  color: black;
+}
 .profileContainer {
   max-width: 400px;
   margin: 20px auto;

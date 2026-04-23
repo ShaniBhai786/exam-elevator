@@ -2,22 +2,26 @@ import { NextResponse } from "next/server";
 import { connectDB } from "../../../../lib/db";
 import {User} from "../../../../models/User";
 import { hashPassword } from "../../../../lib/hash";
+import { uploadOnCloudinary } from "../../../../lib/cloudinary";
 
 export async function POST(req) {
   try {
-    const body = await req.json();
+    const formData = await req.formData();
 
-    const {
-      username, email, password,
-      fullName, Contact, CNIC,
-      userRole, subscription
-    } = body;
+    const username = formData.get("username");
+    const email = formData.get("email");
+    const password = formData.get("password");
+    const fullName = formData.get("fullName");
+    const Contact = formData.get("Contact");
+    const CNIC = formData.get("CNIC");
+    const userRole = formData.get("userRole");
+    const subscription = formData.get("subscription");
+    const file = formData.get("Profile"); 
 
-    // Validate safely
     if (
       !username || !email || !password ||
       !fullName || !Contact || !CNIC || !userRole ||
-      subscription === undefined
+      !subscription || !file
     ) {
       return NextResponse.json(
         { message: "All fields are required" },
@@ -33,12 +37,14 @@ export async function POST(req) {
 
     if (existingUser) {
       return NextResponse.json(
-        { message: "User already exists with this email or CNIC" },
+        { message: "User already exists" },
         { status: 409 }
       );
     }
 
     const hashedPassword = await hashPassword(password);
+
+    const imageUrl = await uploadOnCloudinary(file);
 
     const user = await User.create({
       username,
@@ -49,16 +55,15 @@ export async function POST(req) {
       userRole,
       subscription,
       password: hashedPassword,
+      Profile: imageUrl,
     });
 
     return NextResponse.json(
-      { message: "User registered successfully" },
-      { status: 201 }
+      { message: "User registered successfully", user },
+      { status: 201 },
     );
 
   } catch (error) {
-    console.error("REGISTER ERROR:", error);
-
     return NextResponse.json(
       { message: error.message },
       { status: 500 }
