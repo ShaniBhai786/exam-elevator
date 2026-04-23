@@ -74,6 +74,7 @@ const Register = () => {
       setLoading(false);
 
       alert(message);
+      console.log(message)
     } finally {
       setLoading(false);
     }
