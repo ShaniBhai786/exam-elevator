@@ -49,6 +49,8 @@ return NextResponse.json(
         userRole: user.userRole,
         CNIC: user.CNIC,
         subscription: user.subscription,
+        Contact: user.Contact,
+        Profile: user.Profile
     },
     accessToken,
     refreshToken,
