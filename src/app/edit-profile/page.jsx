@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import styles from "../utills.module.css";
@@ -8,41 +8,45 @@ import Link from "next/link";
 import axios from "axios";
 import Loading from "../components/Loading";
 
-const Register = () => {
+const EditProfile = () => {
   const [passwordDisplay, setPasswordDisplay] = useState("password");
-  const [confirmPasswordDisplay, setConfirmPasswordDisplay] =
-    useState("password");
   const [loading, setLoading] = useState(false);
+  const [storedUser, setStoredUser] = useState(null);
+  const [initialValues, setInitialValues] = useState(null);
 
-  const initialValues = {
-    username: "",
-    email: "",
-    fullName: "",
-    Contact: "",
-    CNIC: "",
-    userRole: "",
-    password: "",
-    confirmPassword: "",
-    Profile: "",
-    subscription: "",
-  };
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    if (!user) {
+      window.location.assign("/");
+    } else {
+      const parsedUser = JSON.parse(user);
+      setStoredUser(parsedUser);
+      setInitialValues({
+        username: parsedUser.username || "",
+        email: parsedUser.email || "",
+        fullName: parsedUser.fullName || "",
+        Contact: parsedUser.Contact || "",
+        CNIC: parsedUser.CNIC || "",
+        userRole: parsedUser.userRole || "",
+        subscription: parsedUser.subscription || "",
+        password: parsedUser.password || "",
+        Profile: null,
+      });
+    }
+  }, []);
 
   const validationSchema = Yup.object({
-    Contact: Yup.string().min(11).required("Contact is mandatory"),
-    username: Yup.string().min(5).required("Username is mandatory"),
-    fullName: Yup.string().min(3).required("Full Name is mandatory"),
-    email: Yup.string().email("Invalid email").required("Email is required"),
+    Contact: Yup.string().min(11),
+    username: Yup.string().min(5),
+    fullName: Yup.string().min(3),
+    email: Yup.string().email("Invalid email"),
     CNIC: Yup.string()
       .min(13)
-      .matches(/^\d{5}-\d{7}-\d{1}$/, "Invalid CNIC format")
-      .required("CNIC/ B-Form is required"),
-    password: Yup.string().min(8).required("Password is required"),
-    confirmPassword: Yup.string()
-      .oneOf([Yup.ref("password"), null], "Passwords must be match")
-      .required("Confirm your password"),
+      .matches(/^\d{5}-\d{7}-\d{1}$/, "Invalid CNIC format"),
+    password: Yup.string().min(8),
     Profile: Yup.mixed().required("Profile Picture is mandatory"),
-    subscription: Yup.string().required("Mandetory Field"),
-    userRole: Yup.string().required("Mandetory Field"),
+    subscription: Yup.string(),
+    userRole: Yup.string(),
   });
 
   const registerUser = async (values) => {
@@ -61,7 +65,7 @@ const Register = () => {
 
       const res = await axios.post("/api/auth/register", formData);
       localStorage.setItem("user", JSON.stringify(res.data.user));
-      
+
       alert("Registration Successful");
     } catch (error) {
       console.log("FULL ERROR:", error);
@@ -70,11 +74,11 @@ const Register = () => {
       const message =
         error?.response?.data?.message ||
         error.message ||
-        "Something went wrong"; 
+        "Something went wrong";
       setLoading(false);
 
       alert(message);
-      console.log(message)
+      console.log(message);
     } finally {
       setLoading(false);
     }
@@ -127,6 +131,7 @@ const Register = () => {
             initialValues={initialValues}
             validationSchema={validationSchema}
             onSubmit={onSubmit}
+            enableReinitialize
           >
             {({ resetForm }) => (
               <Form className={styles.form}>
@@ -243,10 +248,18 @@ const Register = () => {
                       className={styles.input}
                       id={styles.input}
                     >
-                      <option className={styles.options} value="">Select User Role</option>
-                      <option className={styles.options} value="admin">Admin</option>
-                      <option className={styles.options} value="teacher">Teacher</option>
-                      <option className={styles.options} value="student">Student</option>
+                      <option className={styles.options} value="">
+                        Select User Role
+                      </option>
+                      <option className={styles.options} value="admin">
+                        Admin
+                      </option>
+                      <option className={styles.options} value="teacher">
+                        Teacher
+                      </option>
+                      <option className={styles.options} value="student">
+                        Student
+                      </option>
                     </Field>
                     <label>User Role</label>
                     <ErrorMessage
@@ -303,32 +316,6 @@ const Register = () => {
                   </div>
 
                   <div className={styles.inputGroup}>
-                    <i className={`fa-solid fa-lock ${styles.inputIcon}`}></i>
-                    <Field
-                      type={confirmPasswordDisplay}
-                      name="confirmPassword"
-                      className={styles.input}
-                      placeholder="Enter Confirm Password"
-                    />
-                    <label>Confirm Password</label>
-                    <i
-                      onClick={handleConfirmPasswordDisplay}
-                      className={`fa-solid fa-eye ${styles.inputIconEye}`}
-                      ref={eyeConRef}
-                    ></i>
-                    <i
-                      onClick={handleConfirmPasswordDisplay}
-                      className={`fa-solid fa-eye-slash ${styles.inputIconEye}`}
-                      ref={eyeSlashConRef}
-                    ></i>
-                    <ErrorMessage
-                      name="confirmPassword"
-                      component="div"
-                      className={styles.errorMessage}
-                    />
-                  </div>
-
-                  <div className={styles.inputGroup}>
                     <i
                       className={`fa-solid fa-image ${styles.inputIcon}`}
                       style={{ cursor: "pointor" }}
@@ -352,12 +339,6 @@ const Register = () => {
                     />
                   </div>
                 </div>
-                <p className={styles.signupText}>
-                  Already Registered!{" "}
-                  <Link href="/">
-                    <span>Login Now</span>
-                  </Link>
-                </p>
 
                 <div className={styles.buttonGroup}>
                   <button
@@ -371,7 +352,7 @@ const Register = () => {
                     type="submit"
                     className={styles.btn + " " + styles.submit}
                   >
-                    Register
+                    Update
                   </button>
                 </div>
               </Form>
@@ -383,4 +364,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default EditProfile;

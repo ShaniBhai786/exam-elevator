@@ -3,8 +3,14 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "../utills.module.css";
 import logo from "@/logo.jpeg"
+import Link from "next/link";
 
 const Page = () => {
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    window.location.assign("/");
+  }; 
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -20,7 +26,7 @@ const Page = () => {
 
     <div className={styles.imageWrapper}>
       <Image
-        src={user?.Profile}
+        src={user?.Profile || logo}
         alt="Profile"
         width={120}
         height={120}
@@ -45,8 +51,8 @@ const Page = () => {
     </div>
 
     <div className={styles.btnGroup}>
-      <button className={styles.editBtn}>Edit Profile</button>
-      <button className={styles.logoutBtn}>Logout</button>
+      <Link href="/edit-profile"><button className={styles.editBtn} >Edit Profile</button></Link>
+      <button className={styles.logoutBtn} onClick={handleLogout}>Logout</button>
     </div>
 
   </div>

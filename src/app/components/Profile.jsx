@@ -37,13 +37,13 @@ const Profile = ({ setIsProfileOpen }) => {
       <div className={styles.userInfo}>
         {isLoggedIn ? (
           <>
-            <Image src={masterUser.Profile} width={1024} height={768} className={styles.image} alt="profile" />
+            <Image src={masterUser?.Profile} width={1024} height={768} className={styles.image} alt="profileImage" />
             <Link href="/profile">
             <h3 className={styles.profileName}>{masterUser.subscription === "verified" ? (
               <>
               {masterUser.fullName}{" "} <i className="fa fa-circle-check"></i>
               </>
-            ): (masterUser.subscription)}</h3>
+            ): (masterUser.fullName)}</h3>
             </Link>
 
             <h3>{masterUser.email}</h3>

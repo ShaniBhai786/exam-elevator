@@ -1031,7 +1031,15 @@ input:checked + .question {
   width: 20rem;
   /* background-color: #00796b; */
 }
-
+#inputGroup{
+  position: relative;
+  margin-bottom: 26px;
+  width: 20rem;
+}
+.options{
+  cursor: pointer;
+  align-self: center;
+}
 .input {
   width: 100%;
   padding: 1px;
@@ -1042,7 +1050,9 @@ input:checked + .question {
   transition: 0.3s;
   color: #333;
 }
-
+#input{
+  height: 3rem;
+}
 .input:focus {
   border-color: #4facfe;
 }
@@ -1135,7 +1145,7 @@ input:checked + .question {
   position: absolute;
   flex-direction: column;
   top: 6rem;
-  left: 0.1%;
+  left: -3%;
   width: 65px;
   height: 80%;
   border-radius: 5px;
@@ -1149,13 +1159,20 @@ input:checked + .question {
   transition: all 0.1s ease-in-out;
   overflow: hidden;
 }
-.sideBar.active {
+.sideBar:hover{
+  left: 0%;
+}
+.sideBar:hover {
   width: 250px;
 }
 .topSection{
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  overflow: hidden;
+}
+.topSection h1{
+  width: 100%;
 }
 .bars{
   margin-left: 5px;
@@ -1552,6 +1569,12 @@ input:checked + .question {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  margin-bottom: 10px;
+  top: 0px;
+  background-color: #06453b;
+  width: 100%;
+  z-index: 99;
 }
 .select{
   font-size: 17px;

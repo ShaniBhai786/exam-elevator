@@ -15,7 +15,7 @@ const SideBar = () => {
   return (
     <div className={styles.sideBar} ref={sideBar}>
         <div className={styles.topSection}>
-            <i className={`fa fa-bars ${styles.bars}`} onClick={handleSideBar}></i>
+            <h1>UNISOFT EXAM ELEVATOR</h1>
         </div>
         <div className={styles.sideMenu} >
             <Link href="/semester" className={styles.sideButtons}><i className='fa fa-print'></i><div className={styles.sideLinks}><p>Generate Paper</p></div></Link>
