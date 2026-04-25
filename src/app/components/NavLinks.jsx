@@ -2,10 +2,10 @@ import React from 'react'
 import Link from "next/link"
 import styles from "../utills.module.css"
 
-const NavLinks = () => {
+const NavLinks = ({handleDropDown}) => {
   return (
     <div>
-      <nav className={styles.navLinks}>
+      <nav className={styles.navLinks} onClick={handleDropDown}>
         <Link className={styles.links} href="/">
         <i className="fa-solid fa-house"></i> HOME
         </Link>

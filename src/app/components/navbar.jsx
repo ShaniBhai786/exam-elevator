@@ -60,7 +60,7 @@ function Navbar() {
       </div>
     </div>
     {isProfileOpen && <Profile setIsProfileOpen={setIsProfileOpen} />}
-    {showNav && <NavLinks />}
+    {showNav && <NavLinks handleDropDown={handleDropDown} />}
     </>
   )
 }
