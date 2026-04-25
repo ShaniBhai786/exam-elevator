@@ -6,14 +6,17 @@ import Link from "next/link"
 
 const SideBar = () => {
     const [openNav, setOpenNav] = useState(false)
+    const [arrow, setArrow] = useState("right")
     let sideBar = useRef()
     const handleSideBar = () => {
         if (sideBar.current) {
             sideBar.current.classList.toggle(styles.active)
         }
+        setArrow(arrow === "left" ? "right" : "left")
     }
   return (
-    <div className={styles.sideBar} ref={sideBar}>
+    <div className={styles.newSideBar}>
+        <div className={styles.sideBar} ref={sideBar}>
         <div className={styles.topSection}>
             <h1>UNISOFT EXAM ELEVATOR</h1>
         </div>
@@ -24,6 +27,8 @@ const SideBar = () => {
             <Link href="/semester" className={styles.sideButtons}><i className='fa fa-print'></i><div className={styles.sideLinks}  ><p>Generate</p></div></Link>
             <Link href="/semester" className={styles.sideButtons}><i className='fa fa-print'></i><div className={styles.sideLinks}  ><p>Generate</p></div></Link>
         </div>
+        <i className={`fa fa-arrow-${arrow} ${styles.openArrow}`} onClick={handleSideBar}></i>
+    </div>
     </div>
 )
 }

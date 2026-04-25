@@ -33,7 +33,7 @@ const Page = () => {
     <>
       <SideBar />
       <div className={styles.semestersDiv}>
-        <h1>BSCS all Semesters</h1>
+        <h1 id={styles.classTitle}>BSCS all Semesters</h1>
         <div className={styles.userDiv}>
           <p>Master User: </p>
           <span>{masterUser.fullName}</span>

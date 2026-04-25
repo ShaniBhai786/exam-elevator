@@ -1,22 +1,36 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from "next/link"
 import styles from "../utills.module.css"
 import Image from 'next/image'
 import logo from "@/logo.jpeg"
-import Profile from './Profile'
+import Profile from './Profile' 
+import newLogo from "../../newlogo.png"
+import NavLinks from "./NavLinks"
 
 function Navbar() {
+  const [user, setUser] = useState(null)
   const [isProfileOpen, setIsProfileOpen] = useState(false);
-
+  const [showNav, setShowNav] = useState(false)
+  useEffect(() => {
+    const user = localStorage.getItem("user")
+    if (user) {
+      const parsedUser = JSON.parse(user)
+      setUser(parsedUser)
+    }
+  }, [])
   const toggleProfile = () => {
     setIsProfileOpen(!isProfileOpen);
   };
+  const handleDropDown = () => {
+    setShowNav(showNav === false ? true : false)
+  }
   return (
     <>
     <div className={styles.navbar}>
-    <div className={styles.logoSection}>
+      <i className={`${styles.bars} fa fa-bars`} onClick={handleDropDown}></i>
+      <div className={styles.logoSection}>
       <div className={styles.logoDiv}>
         <Link href="/"><Image src={logo} alt='logo' className={styles.logo} /></Link>
       </div>
@@ -42,10 +56,11 @@ function Navbar() {
         </Link>
       </nav>
       <div className={styles.heroBtn} onClick={toggleProfile}>
-        <button>Profile</button>
+        <button><Image src={user?.Profile || logo} alt='profile' width={50} height={30} className={styles.userImage}/></button>
       </div>
     </div>
     {isProfileOpen && <Profile setIsProfileOpen={setIsProfileOpen} />}
+    {showNav && <NavLinks />}
     </>
   )
 }
