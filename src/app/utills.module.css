@@ -1037,7 +1037,34 @@ input:checked + .question {
   color: #ffff;
   font-size: 0.95rem;
 }
-
+@media (max-width:768px) {
+  .homeContainer{
+    display: block;
+    position: relative;
+    width: 100vw;
+  }
+  .hero{
+    width: 100%;
+  }
+  .hero h1 {
+    width: 100%;
+    font-size: 35px;
+    line-height: 40px;
+  }
+  .btnGroup{
+    flex-direction: column;
+  }
+  .btnGroup button{
+    height: 4rem;
+    width: 15rem;
+  }
+  .hero p{
+    text-align: left;
+    gap: 0;
+    line-height: 22px;
+    font-size: 17px;
+  }
+}
 /* ==================== Register Page=================== */
 .container {
   display: flex;

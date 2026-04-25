@@ -17,11 +17,8 @@ const Home = () => {
 }, []);
   return (
     <div className={styles.homeContainer}>
-      
       <div className={styles.hero}>
-        {/* <strong>{data}</strong> */}
-        <h2>Welcome: {data?.fullName || "Guest"}</h2>
-        <h1>Welcome to uniSoft Exam Elevator  🚀</h1>
+        <h1>Welcome to UniSoft Exam Elevator  <span className={styles.plane}>🚀</span></h1>
         <p>
           Empowering students with structured learning, semester-wise resources, 
           and a modern digital experience. 
