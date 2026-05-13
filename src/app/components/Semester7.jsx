@@ -6,7 +6,7 @@ function Semester7() {
   return (
     <div className={styles.semestersDiv}>
       <h1>Welcome to BSCS Semester 7</h1>
-      <div className={styles.coursesCard}>
+        <div className={styles.coursesCard}>
         <h1>Courses</h1>
         <div className={styles.courses}>
           <Link href="/semester/7/sqa" className={styles.crs}>Software Quality Assurance</Link>

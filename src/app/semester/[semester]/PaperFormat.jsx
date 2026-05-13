@@ -5,7 +5,8 @@ import styles from "../../utills.module.css";
 import Image from "next/image";
 import logo from "../../../logo.jpeg"
 
-const PaperFormat = ({ shortQuestions = [], longQuestions = [], setDisplay, subject , noSQs, noLQs, shortMarks, longMarks }) => {
+const PaperFormat = ({ shortQuestions = [], longQuestions = [], setDisplay, subject , noSQs, noLQs, shortMarks, longMarks}) => {
+  const currentDate = new Date().toLocaleString();
   const handlePrint = () => {
     window.print()
   }
@@ -19,7 +20,7 @@ const PaperFormat = ({ shortQuestions = [], longQuestions = [], setDisplay, subj
     noLQs,
     shortMarks,
     longMarks,
-    date: new Date().toLocaleString(),
+    date: currentDate,
   };
 
   const existing = JSON.parse(localStorage.getItem("papers")) || [];
@@ -41,6 +42,7 @@ const PaperFormat = ({ shortQuestions = [], longQuestions = [], setDisplay, subj
           <div className={styles.headerUtils}>
             <h1>unisoft exam elevator</h1>
           <h2 className={styles.subject}>{subject}</h2>
+          <p>{currentDate}</p>
           <p>Attempt all questions</p>
           <strong>Total Marks: {(shortMarks * noSQs) + (longMarks * noLQs)}</strong>
           </div>
@@ -57,7 +59,7 @@ const PaperFormat = ({ shortQuestions = [], longQuestions = [], setDisplay, subj
           ) : (
             <ol className={styles.questionList}>
               {shortQuestions.map((q, i) => (
-                <li key={i} contentEditable={true} suppressContentEditableWarning={true} className={styles.li} >
+                <li key={i}  className={styles.li} >
                   {i+1}. {q}
                 </li>
               ))}
@@ -76,7 +78,7 @@ const PaperFormat = ({ shortQuestions = [], longQuestions = [], setDisplay, subj
           ) : (
             <ol className={styles.questionList}>
               {longQuestions.map((q, i) => (
-                <li key={i} className={styles.li} suppressContentEditableWarning={true} contentEditable={true}>
+                <li key={i} className={styles.li}>
                   {i+1}. {q}
                 </li>
               ))}
