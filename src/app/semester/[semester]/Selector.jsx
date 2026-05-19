@@ -38,10 +38,11 @@ const Selector = ({semesterSeven, subject}) => {
   return (
       <>
       <div className={styles.generator}>
-        <div className={styles.selected}><h2>Short Questions</h2> <span className={styles.select}>Selected: {noSQs}</span></div>
+      {/* <div className={styles.overlay}> */}
+        <div className={styles.selectedBar}><h2>Short Questions</h2> <span className={styles.select}>Selected: {noSQs}</span></div>
         {/* <p>Slected Short: <strong>{shortQuestions}</strong></p> */}
         {/* <p>Slected Long: <strong>{longQuestions}</strong></p> */}
-      {
+        {
         semesterSeven.filter(item => item.Subject === subject && item.category === "short").map((item, index) => {
             return (
                 <div key={index} className={styles.questionsDiv}>
@@ -66,7 +67,7 @@ const Selector = ({semesterSeven, subject}) => {
       }
 
       {/* <p>Slected: <strong>{questions.join(",")}</strong></p> */}
-        <div className={styles.selected}><h2>Long Questions</h2> <span className={styles.select}>Selected: {noLQs}</span></div>
+        <div className={styles.selectedBar}><h2>Long Questions</h2> <span className={styles.select}>Selected: {noLQs}</span></div>
       {
         semesterSeven.filter(item => item.Subject === subject && item.category === "long").map((item, index) => {
             return (
@@ -90,9 +91,10 @@ const Selector = ({semesterSeven, subject}) => {
             )
         })
       }
-    </div>
-    <button className={styles.previewBtn} onClick={() => setDisplay(true)}>Generate</button>
+      </div>
+    {/* </div> */}
     {display && <PaperFormat shortQuestions={shortQuestions} subject={subject} longQuestions={longQuestions} setDisplay={setDisplay} noLQs={noLQs} noSQs={noSQs} shortMarks={shortMarks} longMarks={longMarks} />}
+    <button className={styles.previewBtn} onClick={() => setDisplay(true)}>Generate</button>
       </>
   )
 }
