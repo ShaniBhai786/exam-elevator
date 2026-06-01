@@ -6,6 +6,7 @@ import SideBar from '../../../components/SideBar'
 import Selector from '../Selector'
 import Generator from '../Generator'
 import AiGenerator from '../AiGenerator'
+import { NumericalComputing } from './outline'
 
 const page = () => {
   const [isSelected, setIsSelected] = useState(false)
@@ -22,11 +23,11 @@ const page = () => {
             </div>
                 {
                 isSelected === 1 ? 
-                <Selector semesterSeven={semesterSeven} subject={subject} /> :
+                <Selector semesterSeven={semesterSeven} subject={subject} setIsSelected={setIsSelected} /> :
                 isSelected === 2 ?
-                <Generator semesterSeven={semesterSeven} subject={subject}/> : 
+                <Generator semesterSeven={semesterSeven} subject={subject} setIsSelected={setIsSelected} /> : 
                 isSelected === 3 ? 
-                <AiGenerator /> : null
+                <AiGenerator CourseOutline={NumericalComputing} subject={subject} setIsSelected={setIsSelected} /> : null
                 }
             <SideBar />
         </>

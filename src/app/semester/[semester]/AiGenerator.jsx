@@ -4,9 +4,8 @@ import React, { useState } from "react";
 import styles from "../../utills.module.css";
 import PaperFormat from "./PaperFormat";
 
-const AiGenerator = () => {
+const AiGenerator = ({subject, CourseOutline, setIsSelected}) => {
   const [outline, setOutline] = useState("");
-
   const [shortQuestions, setShortQuestions] = useState([]);
   const [longQuestions, setLongQuestions] = useState([]);
   const [selectedShort, setSelectedShort] = useState([]);
@@ -17,12 +16,11 @@ const AiGenerator = () => {
   const [display, setDisplay] = useState(false);
   const [noSQs, setNoSQs] = useState(0);
   const [noLQs, setNoLQs] = useState(0);
-
-  const subject = "Numerical Computing";
+  // const subject = "Numerical Computing";
   // ================= API CALL =================
   const handleGenerate = async () => {
     if (!outline.trim()) {
-      setError("Please enter an outline first.");
+      setError("Please enter an outline first....");
       return;
     }
 
@@ -51,21 +49,27 @@ if (data.warning) setWarning(data.warning);
 
 const allQuestions = data.questions || [];
 
-// SPLIT LOGIC (AUTO CLASSIFICATION)
 const short = [];
 const long = [];
 
 allQuestions.forEach((q) => {
   const text = q.toLowerCase();
 
-  // simple rule: short questions = short answers / brief questions
-  if (
-    !text.includes("explain") ||
-    !text.includes("describe")
-  ) {
-    short.push(q);
-  } else {
+  const longKeywords = [
+    "explain",
+    "describe",
+    "discuss",
+    "compare",
+    "differentiate",
+    "analyze"
+  ];
+
+  const isLong = longKeywords.some(word => text.includes(word));
+
+  if (isLong) {
     long.push(q);
+  } else {
+    short.push(q);
   }
 });
 
@@ -126,9 +130,15 @@ setLongQuestions(long);
     setNoLQs(0);
   };
 
+  const pasteOutline =() => {
+    setOutline(CourseOutline.outline);
+  }
+
   // ================= UI =================
   return (
     <div className={styles.aiWrapper}>
+        
+        <i className={`fa fa-arrow-left ${styles.back}`} onClick={() => setIsSelected(0)}></i>
       {/* HEADER */}
       <div className={styles.aiHeader}>
         <h1>AI Exam Paper Generator</h1>
@@ -165,8 +175,11 @@ setLongQuestions(long);
             className={styles.clearBtn}
             onClick={clearSelection}
             >
-            Clear
+            Clear Selection
           </button>
+          <button onClick={() => setOutline("")} className={styles.clearBtn}>Clear Outline</button>
+          <button onClick={pasteOutline} className={styles.pasteBtn}>Paste Outline</button>
+          <button className={styles.printBtn} onClick={() => setDisplay(true)} >Print Paper</button>
         </div>
               {/* SUMMARY */}
             {(selectedShort.length > 0 || selectedLong.length > 0) && (
@@ -174,6 +187,7 @@ setLongQuestions(long);
                 <h2>Paper Summary</h2>
                 <p><b>Short Selected:</b> {selectedShort.length}</p>
                 <p><b>Long Selected:</b> {selectedLong.length}</p>
+                
               </div>
             )}
 
@@ -227,7 +241,7 @@ setLongQuestions(long);
           </ol>
         </div>
       )}
-      <button className={styles.previewBtn} onClick={() => setDisplay(true)} >Print Paper</button>
+      
       {display && <PaperFormat shortQuestions={selectedShort} longQuestions={selectedLong} setDisplay={setDisplay} shortMarks={5} longMarks={10} noSQs={noSQs} noLQs={noLQs} subject={subject} />}
     </div>
   );

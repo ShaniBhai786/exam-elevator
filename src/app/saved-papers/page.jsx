@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "../utills.module.css";
 import PaperFormat from "../semester/[semester]/PaperFormat";
+import SideBar from "../components/SideBar";
 
 
 const Page = () => {
@@ -32,6 +33,7 @@ const Page = () => {
   return (
     <>
     <div className={styles.wrapper}>
+      <SideBar />
       <h1 className={styles.saveheading}>Saved Papers</h1>
 
       <div className={styles.grid}>

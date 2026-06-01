@@ -5,6 +5,8 @@ import styles from '../../../utills.module.css'
 import { semesterSeven } from '../../../components/7/7thsemsterpastpaper'
 import SideBar from '../../../components/SideBar'
 import Selector from '../Selector'
+import AiGenerator from '../AiGenerator'
+import { TechnicalReportWriting } from './outline'
 
 const page = () => {
     const [isSelected, setIsSelected] = useState(false)
@@ -12,17 +14,20 @@ const page = () => {
     return (
         <>
         <div className={styles.container}>
-            <h1>Techniqal & Business Writing</h1>
+            <h1>Technical & Business Writing</h1>
             <div className={styles.selection}>
                     <button onClick={() => setIsSelected(1)}>Self-Selection</button>
                     <button onClick={() => setIsSelected(2)}>Random-Selection</button>
+                    <button onClick={() => setIsSelected(3)}>AI-Generated</button>
                 </div>
             </div>
                 {
                 isSelected === 1 ? 
-                <Selector semesterSeven={semesterSeven} subject={subject} /> :
+                <Selector semesterSeven={semesterSeven} subject={subject} setIsSelected={setIsSelected} /> :
                 isSelected === 2 ?
-                <Generator semesterSeven={semesterSeven} subject={subject}/> : null
+                <Generator semesterSeven={semesterSeven} subject={subject} setIsSelected={setIsSelected} /> : 
+                isSelected === 3 ?
+                <AiGenerator CourseOutline={TechnicalReportWriting} subject={subject} setIsSelected={setIsSelected} /> : null
                 }
         <SideBar />
         </>

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import styles from '../../utills.module.css'
 import PaperFormat from './PaperFormat'
 
-const Selector = ({semesterSeven, subject}) => {
+const Selector = ({semesterSeven, subject, setIsSelected}) => {
     const [shortQuestions, setShortQuestions] = useState([])
     const [longQuestions, setLongQuestions] = useState([])
     const [display, setDisplay] = useState(false)
@@ -38,6 +38,7 @@ const Selector = ({semesterSeven, subject}) => {
   return (
       <>
       <div className={styles.generator}>
+        <i className={`fa fa-arrow-left ${styles.backIcon}`} onClick={() => setIsSelected(0)}></i>
       {/* <div className={styles.overlay}> */}
         <div className={styles.selectedBar}><h2>Short Questions</h2> <span className={styles.select}>Selected: {noSQs}</span></div>
         {/* <p>Slected Short: <strong>{shortQuestions}</strong></p> */}
@@ -91,10 +92,10 @@ const Selector = ({semesterSeven, subject}) => {
             )
         })
       }
+    <button className={styles.previewBtnPaper} onClick={() => setDisplay(true)}>Generate</button>
       </div>
     {/* </div> */}
     {display && <PaperFormat shortQuestions={shortQuestions} subject={subject} longQuestions={longQuestions} setDisplay={setDisplay} noLQs={noLQs} noSQs={noSQs} shortMarks={shortMarks} longMarks={longMarks} />}
-    <button className={styles.previewBtn} onClick={() => setDisplay(true)}>Generate</button>
       </>
   )
 }

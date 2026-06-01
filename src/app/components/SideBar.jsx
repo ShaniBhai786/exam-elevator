@@ -27,7 +27,7 @@ const SideBar = () => {
             <Link href="/semester" className={styles.sideButtons}><i className='fa fa-print'></i><div className={styles.sideLinks}  ><p>Generate</p></div></Link>
             <Link href="/semester" className={styles.sideButtons}><i className='fa fa-print'></i><div className={styles.sideLinks}  ><p>Generate</p></div></Link>
         </div>
-        <i className={`fa fa-arrow-${arrow} ${styles.openArrow}`} onClick={handleSideBar}></i>
+        {/* <i className={`fa fa-arrow-${arrow} ${styles.openArrow}`} onClick={handleSideBar}></i> */}
     </div>
     </div>
 )
