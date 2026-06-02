@@ -138,7 +138,7 @@ setLongQuestions(long);
   return (
     <div className={styles.aiWrapper}>
         
-        <i className={`fa fa-arrow-left ${styles.back}`} onClick={() => setIsSelected(0)}></i>
+        <i className={`fa fa-arrow-left ${styles.backIcon}`} onClick={() => setIsSelected(0)}></i>
       {/* HEADER */}
       <div className={styles.aiHeader}>
         <h1>AI Exam Paper Generator</h1>

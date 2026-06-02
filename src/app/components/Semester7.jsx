@@ -9,10 +9,10 @@ function Semester7() {
         <div className={styles.coursesCard}>
         <h1>Courses</h1>
         <div className={styles.courses}>
-          <Link href="/semester/7/sqa" className={styles.crs}>Software Quality Assurance</Link>
-          <Link href="/semester/7/spm" className={styles.crs}>Software Project Management</Link>
-          <Link href="/semester/7/tabw" className={styles.crs}>Technical & Business Writing</Link>
-          <Link href="/semester/7/nc" className={styles.crs}>Numerical Computing</Link>
+          <Link href="/semester/7/sem7/sqa" className={styles.crs}>Software Quality Assurance</Link>
+          <Link href="/semester/7/sem7/spm" className={styles.crs}>Software Project Management</Link>
+          <Link href="/semester/7/sem7/tabw" className={styles.crs}>Technical & Business Writing</Link>
+          <Link href="/semester/7/sem7/nc" className={styles.crs}>Numerical Computing</Link>
         </div>
       </div>
     </div>
