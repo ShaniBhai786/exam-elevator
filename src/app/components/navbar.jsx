@@ -54,6 +54,7 @@ function Navbar() {
         <Link className={styles.links} href="/semester">
         <i className="fa-solid fa-school"></i> Semesters
         </Link>
+          
       </nav>
       <div className={styles.heroBtn} onClick={toggleProfile}>
         <button><Image src={user?.Profile || logo} alt='profile' width={50} height={30} className={styles.userImage}/></button>

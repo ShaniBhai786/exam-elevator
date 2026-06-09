@@ -584,13 +584,12 @@
 /* ===== SECTION HEADER ===== */
 .selectedBar{
     position: sticky;
-    top: 1px;
     z-index: 10;
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    margin: 20px 0;
+    margin: 50px 0;
     padding: 18px 24px;
     border-radius: 20px;
     background: rgba(15, 23, 42, 0.838);
@@ -2253,7 +2252,7 @@
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 0.7px;
-    text-transform: uppercase;
+    text-transform: uppercase ;
 
     cursor: pointer;
 
@@ -2836,3 +2835,4 @@
     max-width: 320px;
   }
 }
+

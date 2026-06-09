@@ -48,6 +48,9 @@ const Profile = ({ setIsProfileOpen }) => {
 
             <h3>{masterUser.email}</h3>
             <p className={styles.subscription}><span>{masterUser.subscription} <i className="fa-solid fa-circle-check"></i></span>{" "} <span className={styles.userRole}><span>{masterUser.userRole}</span></span></p>
+            <Link className={styles.link} href="/admin-dashboard">
+              <i className="fa-solid fa-user-shield"></i>View Dashboard
+            </Link>
           </>
         ) : (
           "user not logged in!"

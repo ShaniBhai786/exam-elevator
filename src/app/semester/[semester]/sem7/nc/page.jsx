@@ -12,7 +12,7 @@ const page = () => {
   const [isSelected, setIsSelected] = useState(false)
     let subject = "numerical computing";
     return (
-        <>
+        <> 
             <div className={styles.container}>
                 <h1>Numerical Computing</h1>
                 <div className={styles.selection}>

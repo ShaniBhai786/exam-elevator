@@ -1,8 +1,8 @@
 "use client"
 import React, {useState} from 'react'
 import styles from '../../../../utills.module.css'
-import {semesterSeven} from "../../../../components/7/7thsemsterpastpaper"
 import SideBar from '../../../../components/SideBar'
+import { semesterEight } from '../../../../components/8/8thSemesterPastpaper'
 import Selector from '../../Selector'
 import Generator from '../../Generator'
 import AiGenerator from '../../AiGenerator'
@@ -11,7 +11,7 @@ import { ArabicLanguageCourse } from './outline'
 
 const page = () => {
     const [isSelected, setIsSelected] = useState(false)
-    let subject = "Arabic language";
+  let subject = "Arabic language";
   return (
     <>
     <div className={styles.container}>
@@ -24,9 +24,9 @@ const page = () => {
             </div>
       {
         isSelected === 1 ?
-          <Selector semesterSeven={semesterSeven} subject={subject} setIsSelected={setIsSelected} /> :
+          <Selector semesterSeven={semesterEight} subject={subject} setIsSelected={setIsSelected} /> :
           isSelected === 2 ?
-            <Generator semesterSeven={semesterSeven} subject={subject} setIsSelected={setIsSelected} /> :
+            <Generator semesterSeven={semesterEight} subject={subject} setIsSelected={setIsSelected} /> :
             isSelected === 3 ?
               <AiGenerator subject={subject} CourseOutline={ArabicLanguageCourse} setIsSelected={setIsSelected} /> : null
       }

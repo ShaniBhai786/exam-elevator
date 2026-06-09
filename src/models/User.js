@@ -6,14 +6,14 @@ const userSchema = new mongoose.Schema({
         required: true,
         trim: true,
         index: true,
-        lowerCase: true,
+        lowercase: true,
     },
     email:{
         type: String,
         required: true,
         trim: true,
         index: true,
-        lowerCase: true,
+        lowercase: true,
     },
     fullName:{
         type: String,
@@ -40,8 +40,6 @@ const userSchema = new mongoose.Schema({
     Contact:{
         type: Number,
         required: true,
-        trim: true,
-        index: true,
     },
     Profile:{
         type: String,
