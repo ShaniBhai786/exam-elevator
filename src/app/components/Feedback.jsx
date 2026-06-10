@@ -52,54 +52,75 @@ const Feedback = ({ setLoading }) => {
         validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
-        <Form ref={form} className={styles.form}>
-          <div className={styles.inputsDiv}>
-            <h1 className={styles.heading}>Feedback</h1>
+        <Form ref={form} className={styles.feedbackFormContainer}>
+          <div className={styles.feedbackHeader}>
+            <span className={styles.feedbackTag}>
+              We'd Love to Hear From You
+            </span>
 
-            <div className={styles.input}>
-              <Field
-                name="name"
-                placeholder="Your Name"
-                className={styles.inputField}
-              />
-              <ErrorMessage
-                name="name"
-                component="div"
-                className={styles.error}
-              />
-            </div>
+            <h2>Send Your Feedback</h2>
 
-            <div className={styles.input}>
-              <Field
-                name="email"
-                placeholder="Your Email"
-                className={styles.inputField}
-              />
-              <ErrorMessage
-                name="email"
-                component="div"
-                className={styles.error}
-              />
-            </div>
-
-            <div className={styles.input}>
-              <Field
-              as="textarea"
-                name="message"
-                placeholder="Your Message"
-                className={styles.inputField}
-              />
-              <ErrorMessage
-                name="message"
-                component="div"
-                className={styles.error}
-              />
-            </div>
-
-            <button type="submit" className={styles.submitBtn}>
-              Send Message
-            </button>
+            <p>
+              Share your thoughts, suggestions, or report an issue.
+              Your feedback helps us improve UniSoft Exam Elevator.
+            </p>
           </div>
+
+          <div className={styles.formGroup}>
+            <i className={`fa-solid fa-user ${styles.fieldIcon}`}></i>
+
+            <Field
+              type="text"
+              name="name"
+              placeholder="Full Name"
+              className={styles.inputField}
+            />
+
+            <ErrorMessage
+              name="name"
+              component="div"
+              className={styles.error}
+            />
+          </div>
+
+          <div className={styles.formGroup}>
+            <i className={`fa-solid fa-envelope ${styles.fieldIcon}`}></i>
+
+            <Field
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              className={styles.inputField}
+            />
+
+            <ErrorMessage
+              name="email"
+              component="div"
+              className={styles.error}
+            />
+          </div>
+
+          <div className={styles.formGroup}>
+            <i className={`fa-solid fa-comment ${styles.fieldIcon}`}></i>
+
+            <Field
+              as="textarea"
+              name="message"
+              placeholder="Write your message..."
+              className={`${styles.inputField} ${styles.textarea}`}
+            />
+
+            <ErrorMessage
+              name="message"
+              component="div"
+              className={styles.error}
+            />
+          </div>
+
+          <button type="submit" className={styles.submitBtn}>
+            <i className="fa-solid fa-paper-plane"></i>
+            Send Feedback
+          </button>
         </Form>
       </Formik>
     </div>

@@ -20,11 +20,6 @@ function Contact() {
       {/* Back Icon */}
 
       <div className={styles.contact} id="contact">
-      <i
-        className={`fa-solid fa-arrow-left ${styles.backIcon}`}
-        title="Back"
-        onClick={handleBackClick}
-      ></i>
         <div className={styles.feedback}>
           <Feedback setLoading={setLoading} />
         </div>
