@@ -4,10 +4,10 @@ import styles from '../../../../utills.module.css'
 import SideBar from '../../../../components/SideBar'
 import { semesterFour } from '../../../../components/4/4semesterpastpaper'
 // import Selector from '../../Selector'
-import Selector from "../../Selector.jsx"
-import Generator from '../../Generator.jsx'
-import AiGenerator from '../../AiGenerator.jsx'
-import { DataStructuresAndAlgorithmsCourse } from './outline.js'
+import Selector from "../../Selector"
+import Generator from '../../Generator'
+import AiGenerator from '../../AiGenerator'
+import { DataStructuresAndAlgorithmsCourse } from './outline'
 
 const page = () => {
     const [isSelected, setIsSelected] = useState(false)
