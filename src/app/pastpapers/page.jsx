@@ -28,7 +28,7 @@ function Page() {
       },
     ]);
 
-    setLongQuestions([]); // keep empty for now
+    setLongQuestions([]);
   };
 
   return (
