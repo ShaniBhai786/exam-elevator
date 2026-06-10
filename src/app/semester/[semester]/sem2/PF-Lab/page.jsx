@@ -6,7 +6,7 @@ import { semesterTwo } from '../../../../components/2/semesterTwo'
 import Selector from '../../Selector'
 import Generator from '../../Generator'
 import AiGenerator from '../../AiGenerator'
-import { ProgrammingFundamentalsCourse } from './outline'
+import { ProgrammingFundamentalsII_Course } from './outline'
 
 const page = () => {
     const [isSelected, setIsSelected] = useState(false)
@@ -27,7 +27,7 @@ const page = () => {
                     isSelected === 2 ?
                         <Generator semesterSeven={semesterTwo} subject={subject} setIsSelected={setIsSelected} /> :
                         isSelected === 3 ?
-                            <AiGenerator CourseOutline={ProgrammingFundamentalsCourse} subject={subject} setIsSelected={setIsSelected} /> : null
+                            <AiGenerator CourseOutline={ProgrammingFundamentalsII_Course} subject={subject} setIsSelected={setIsSelected} /> : null
             }
             <SideBar />
         </>

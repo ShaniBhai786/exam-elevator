@@ -28,7 +28,7 @@ const page = () => {
           isSelected === 2 ?
             <Generator semesterSeven={semesterFour} subject={subject} setIsSelected={setIsSelected} /> :
             isSelected === 3 ?
-            <AiGenerator subject={subject} CourseOutline={DataStructuresAndAlgorithmsCourse} setIsSelected={setIsSelected} /> : null
+              <AiGenerator subject={subject} CourseOutline={DataStructuresAndAlgorithmsCourse} setIsSelected={setIsSelected} /> : null
       }
       <SideBar />
     </>

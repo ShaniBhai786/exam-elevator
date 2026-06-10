@@ -6,7 +6,8 @@ import { semesterFour } from '../../../../components/4/4semesterpastpaper'
 import Selector from '../../Selector'
 import Generator from '../../Generator'
 import AiGenerator from '../../AiGenerator'
-import { DataStructuresAndAlgorithmsCourse } from './outline'
+// import { DataStructuresAndAlgorithmsCourse } from './outline'
+import { DataStructuresAndAlgorithmsCourse } from '../dsa/outline'
 
 const page = () => {
   const [isSelected, setIsSelected] = useState(false)
