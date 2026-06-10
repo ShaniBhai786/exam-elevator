@@ -14,14 +14,13 @@ function Page() {
   const [noLQs, setNoLQs] = useState(0);
   const [shortMarks, setShortMarks] = useState(0);
   const [longMarks, setLongMarks] = useState(0);
-
+ 
   const [selectedSubject, setSelectedSubject] = useState("");
 
   const openPaper = (paper) => {
     setSelectedSubject(paper.Subject);
     setDisplay(true);
 
-    // ✅ FIX: pass ONLY question text (not whole object)
     setShortQuestions([
       {
         id: paper.id,
