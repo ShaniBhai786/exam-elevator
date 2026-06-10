@@ -1,7 +1,8 @@
+import { v4 as uuidv4 } from "uuid";
 const semesterOne = [
   {
-    id: 1,
     question: "What is the importance of a recount essay?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -13,8 +14,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 2,
     question: "What is the difference between an explanation and informative essay?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -26,8 +27,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 3,
     question: "Discuss the significance of character development in a narrative essay.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -39,8 +40,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 4,
     question: "Discuss why punctuation is important in written communication.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -52,8 +53,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 5,
     question: "Differentiate between personal and professional application writing.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -65,8 +66,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 6,
     question: "What is a thesis statement and where is it used in an essay?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -78,8 +79,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 7,
     question: "Write a letter to your cousin/friend and discuss the importance of justice in life.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -91,8 +92,8 @@ const semesterOne = [
     "marks": 10
   },
   {
-    id: 8,
     question: "Write an essay on 'A big salary is more important than job satisfaction/learning.'",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -104,8 +105,8 @@ const semesterOne = [
     "marks": 10
   },
   {
-    id: 9,
     question: "Write a funny horror story. Develop a creative plot and write appropriate dialogues.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -118,8 +119,8 @@ const semesterOne = [
   }
   ,
   {
-    id: 1,
     question: "A positive charge moving with a constant velocity v enters a region of a uniform magnetic field pointing to the top of the page. What is the direction of the magnetic force on the charge?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -131,8 +132,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 2,
     question: "Define conservative field.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -144,8 +145,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 3,
     question: "If current in a conductor increases, then according to Lenz's law self-induced voltage will?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -157,8 +158,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 4,
     question: "A straight wire of length 4 m carries a current of 0.5 A. Find the magnetic field at a point along the axis of the wire at a distance of 3 m from either end of the wire.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -170,8 +171,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 5,
     question: "Which law of conservation best explains and justifies the direction of induced Electromotive Force (EMF) in a circuit?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -183,8 +184,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 6,
     question: "A 2 micro-coulomb point charge is located at a distance d away from a 3 micro-coulomb point charge. What would be the ratio of F12 / F21?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -196,8 +197,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 7,
     question: "A cylindrical wire of length l moving in magnetic field B with velocity v. On which parameters does the induced emf depend?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -209,8 +210,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 8,
     question: "What is the relation between electric field and electric potential?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -222,8 +223,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 9,
     question: "Describe Hall effect.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -235,8 +236,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 10,
     question: "What will happen if you place an insulator in an external electric field?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -248,8 +249,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 11,
     question: "Give some examples of diffraction in daily life.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -261,8 +262,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 12,
     question: "Where do you see examples of total internal reflection in today's science?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -274,8 +275,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 13,
     question: "Is light an electromagnetic wave? Explain.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -287,8 +288,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 14,
     question: "The average distance r between electron and proton in the hydrogen atom is 5.3 × 10^-11 m. What is the Coulomb force between them?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -300,8 +301,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 15,
     question: "State Ohm's law.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -327,8 +328,8 @@ const semesterOne = [
     "marks_per_question": 2
   },
   {
-    id: 1,
     question: "If a conductor is moved in a magnetic field, what will be its effect? Derive a mathematical expression explaining Faraday’s Law of induction in detail.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -340,8 +341,8 @@ const semesterOne = [
     "marks": 7
   },
   {
-    id: 2,
     question: "A spherical shell has a positive charge of 1.25 nC at its center; find flux through the whole shell.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -353,8 +354,8 @@ const semesterOne = [
     "marks": 3
   },
   {
-    id: 3,
     question: "Derive the expression for the electric force due to a ring of positive charge q, placed along the z-axis at distance z from the test charge.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -366,8 +367,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 4,
     question: "Suppose that we have 2.10 × 10⁶ doubly charged positive ions per cubic centimeter, all moving north with a speed of 1.40 × 10⁵ m/s. Calculate the current density in magnitude and direction.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -379,8 +380,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 5,
     question: "What is an electric dipole. Find electric field due to a dipole along its perpendicular bisector.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -392,8 +393,8 @@ const semesterOne = [
     "marks": 7
   },
   {
-    id: 6,
     question: "An electric field of 1.5 kV/m and a magnetic field of 0.44 T acts on a moving charge to have no net force. Calculate the electron speed and draw all the vectors.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -405,8 +406,8 @@ const semesterOne = [
     "marks": 3
   },
   {
-    id: 7,
     question: "Define diffraction, give its example. Explain double slit diffraction in detail.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -418,9 +419,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 8,
-    question: "Suppose you pass light from a He-Ne laser through two slits separated by 0.0100 cm and find that the third bright line on a screen is formed at an angle of 10.95° relative to the incident beam. What is the wavelength of the light?",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2021,
@@ -431,8 +431,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 9,
     question: "Describe interference of light. Give the detailed explanation of Young’s double slit experiment.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -444,8 +444,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 10,
     question: "A ray of light makes a transition from a sample of benzene to water. What is the minimum angle the light must make with respect to the normal in order for the light to be completely reflected back into the sample of benzene? (The index of refraction for water is 1.33 and for benzene is 1.50.)",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -457,8 +457,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 1,
     question: "What is difference between electric potential and electric potential energy?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -470,8 +470,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 2,
     question: "What is the magnitude of the electric field at the point (2i – 3j + 4k) m if the electric potential is given by V = 10xy²z²?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -483,8 +483,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 3,
     question: "What is equipotential surface, derive expression for it?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -496,8 +496,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 4,
     question: "Why electric field is zero in an isolated conductor?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -509,9 +509,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 5,
-    question: "Describe a solenoid and a toroid and sketch their magnetic field lines.",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2024,
@@ -522,8 +521,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 6,
     question: "What is the Hall Effect and Hall EMP?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -535,8 +534,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 7,
     question: "How is induced electric field produced?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -548,9 +547,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 8,
-    question: "Why might Gauss’s law be considered a more effective approach than Coulomb’s law for certain electric field calculations?",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2024,
@@ -561,8 +559,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 9,
     question: "What conclusion can be drawn about the electric potential energy U when a positive charge q₁ and a negative charge q₂ move close together?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -574,8 +572,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 10,
     question: "A 6 μC point charge q₁ is located at a distance d away from a 3 μC point charge q₂. What is the ratio F₁₂ / F₂₁?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -587,8 +585,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 11,
     question: "If a closed surface surrounds a charge of +q, represented by six field lines, what would the net electric flux through the surface generated between two charges +2q and –q?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -600,8 +598,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 12,
     question: "What is the difference between interference generated from single slit and double slit interference?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -613,8 +611,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 13,
     question: "What do you understand by diffraction of waves?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -626,8 +624,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 14,
     question: "What is difference between Ampere’s law and the Biot–Savart law as both are used to calculate magnetic field?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -639,8 +637,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 15,
     question: "How is current different from current density?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -652,8 +650,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 16,
     question: "Define electric field and electric field intensity? Evaluate electric field intensity due to assembly of point charges? Calculate the electric field at a point “p” a distance x from the center of disk along its axis?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -665,8 +663,8 @@ const semesterOne = [
     "marks": 6
   },
   {
-    id: 17,
     question: "Two charged concentric spherical shells have radii 10.0 cm and 15.0 cm. The charge on the inner shell is 4×10⁻⁶ C, and that on the outer shell is 2×10⁻⁶ C. Find the electric field (a) at r = 12.0 cm and (b) at r = 20.0 cm.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -678,9 +676,8 @@ const semesterOne = [
     "marks": 4
   },
   {
-    id: 1,
-    question: "Define Clipping and Compounding as word formation processes, and provide two examples of each.",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2024,
@@ -691,9 +688,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 2,
-    question: "Explain the difference between Complex and Compound-complex sentences. Provide relevant examples.",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2024,
@@ -704,9 +700,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 3,
-    question: "In the context of sound production and pronunciation, explain the difference between Voiced and Voiceless sounds. Provide two examples for each.",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2024,
@@ -717,8 +712,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 4,
     question: "What is Subject-verb Agreement? Explain its significance with examples.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -730,8 +725,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 5,
     question: "In the word formation process, what do Affixations do? Explain with examples.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -743,8 +738,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 6,
     question: "What are some key protocols of Active Listening?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -756,8 +751,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 7,
     question: "Write a Formal Letter to the Incharge of Student Affairs, requesting permission to hold a literary festival on campus.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -769,9 +764,8 @@ const semesterOne = [
     "marks": 15
   },
   {
-    id: 8,
-    question: "Prepare a guide on effective communication for new interns, covering the Core Principles of Communication (clarity, coherence, conciseness, courteousness, correctness, etc.).",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2024,
@@ -782,8 +776,8 @@ const semesterOne = [
     "marks": 15
   },
   {
-    id: 1,
     question: "Explain the superposition principle for electric forces.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -795,8 +789,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 2,
     question: "What is an electric dipole moment?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -808,8 +802,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 3,
     question: "A closed surface contains two charges: +4q and –q. What is the total electric flux through the surface?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -821,8 +815,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 4,
     question: "What is equipotential surface, draw an equipotential surface.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -834,8 +828,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 5,
     question: "State Faraday’s law of induction.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -847,8 +841,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 6,
     question: "What is meant by a grounded conductor?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -860,8 +854,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 7,
     question: "What is the magnitude of the electric field at the point (–1i+2j–3k) m if the electric potential is given by V=5.00xyz²?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -873,8 +867,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 8,
     question: "State the Biot–Savart law.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -886,8 +880,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 9,
     question: "What is an induced magnetic field?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -899,8 +893,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 10,
     question: "Explain total internal reflection.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -912,8 +906,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 11,
     question: "Define diffraction.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -925,8 +919,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 12,
     question: "Which of the basic equations of electromagnetism were modified by Maxwell, and what is its modified form?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -938,8 +932,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 13,
     question: "Explain Lenz’s law and its importance in predicting the direction of induced current.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -951,8 +945,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 14,
     question: "A +10 μC charge is placed 0.5 m away from a –5 μC charge. What is the ratio of the force exerted on the first charge to the force exerted on the second charge?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -964,8 +958,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 15,
     question: "What is difference between patterns generated from single slit and double slit interference?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -977,8 +971,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 16,
     question: "Explain Gauss’s law and apply it to find the electric field due to a uniformly charged spherical shell.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -990,8 +984,8 @@ const semesterOne = [
     "marks": 6
   },
   {
-    id: 17,
     question: "Find the electric potential at point P, located at the center of the square of charged particles. The distance is 1.3 m, and the charges are q₁=+12 nC, q₂=–24 nC, q₃=+31 nC, q₄=+17 nC.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1003,8 +997,8 @@ const semesterOne = [
     "marks": 4
   },
   {
-    id: 18,
     question: "Explain the potential energy of a two-charge system and its relation to the work done in assembling the system of charged particles.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1016,9 +1010,8 @@ const semesterOne = [
     "marks": 6
   },
   {
-    id: 19,
-    question: "Explain Amperes law and use it to find the magnetic field inside a long solenoid.",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2025,
@@ -1029,8 +1022,8 @@ const semesterOne = [
     "marks": 4
   },
   {
-    id: 1,
     question: "Define subject-verb agreement with examples of common errors and their corrections.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1042,8 +1035,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 2,
     question: "What is affixation in word formation? Give four examples.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1055,8 +1048,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 3,
     question: "Distinguish between skimming and scanning with appropriate examples.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1068,8 +1061,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 4,
     question: "Briefly describe gender-neutral language with examples.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1081,8 +1074,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 5,
     question: "What are the elements of effective listening and why is active listening important in communication?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1094,9 +1087,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 6,
-    question: "Use the following words in sentences to show their idiomatic usage: Break the ice, Under the weather.",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2025,
@@ -1107,8 +1099,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 7,
     question: "Explain with examples the key principles of effective communication (clarity, coherence, conciseness, etc.). How can these be applied in both academic and professional settings?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1120,9 +1112,8 @@ const semesterOne = [
     "marks": 10
   },
   {
-    id: 8,
-    question: "Analyze a short passage (provided in the exam) for tone, bias, assumptions, and inferences. Explain the significance of these elements in critical reading.",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2025,
@@ -1133,8 +1124,8 @@ const semesterOne = [
     "marks": 10
   },
   {
-    id: 9,
     question: "Write a formal business email to a potential employer requesting an internship opportunity. Focus on structure, tone, and clarity.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1146,9 +1137,8 @@ const semesterOne = [
     "marks": 10
   },
   {
-    id: 10,
-    question: "Define Clipping and Compounding as word formation processes, and provide examples of each.",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2024,
@@ -1159,9 +1149,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 11,
-    question: "Explain the difference between Complex and Compound-complex sentences. Provide relevant examples.",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2024,
@@ -1173,8 +1162,8 @@ const semesterOne = [
   }
   ,
   {
-    id: 1,
     question: "Define subject-verb agreement with examples of common errors and their corrections.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1186,8 +1175,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 2,
     question: "What is affixation in word formation? Give four examples.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1199,8 +1188,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 3,
     question: "Distinguish between skimming and scanning with appropriate examples.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1212,8 +1201,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 4,
     question: "Briefly describe gender-neutral language with examples.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1225,8 +1214,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 5,
     question: "What are the elements of effective listening and why is active listening important in communication?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1238,9 +1227,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 6,
-    question: "Use the following words in sentences to show their idiomatic usage: Break the ice, Under the weather.",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2025,
@@ -1251,8 +1239,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 7,
     question: "Explain with examples the key principles of effective communication (clarity, coherence, conciseness, etc.). How can these be applied in both academic and professional settings?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1264,9 +1252,8 @@ const semesterOne = [
     "marks": 10
   },
   {
-    id: 8,
-    question: "Analyze a short passage (provided in the exam) for tone, bias, assumptions, and inferences. Explain the significance of these elements in critical reading.",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2025,
@@ -1277,8 +1264,8 @@ const semesterOne = [
     "marks": 10
   },
   {
-    id: 9,
     question: "Write a formal business email to a potential employer requesting an internship opportunity. Focus on structure, tone, and clarity.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1291,8 +1278,8 @@ const semesterOne = [
   }
   ,
   {
-    id: 1,
     question: "An aircraft seam requires 25 rivets. The seam will have to be reworked if any of these rivets is defective. Suppose rivets are defective independently of one another, each with the same probability. If 20% of all seams need reworking, what is the probability that a rivet is defective?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1304,8 +1291,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 2,
     question: "The cumulative probability density function is F(x) = {0, x < -1; (1/4)(x+1), -1 ≤ x < 2; 1, x ≥ 2}. Find P(0 < x ≤ 1).",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1317,8 +1304,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 3,
     question: "The random variable X, representing the number of cherries in a cherry puff, has the following probability distribution: X={4,5,6,7}, P(X)={0.3,0.4,0.2,0.1}. Find the mean μx and the variance σx of the mean X̄ for random samples of 30 cherry puffs.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1330,8 +1317,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 4,
     question: "Find P(-z0.85 < z < z0.85).",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1343,8 +1330,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 5,
     question: "For 5 pairs of observations the following results are obtained: ΣX=15, ΣY=25, ΣX²=55, ΣY²=135, ΣXY=83. Find the equation of the lines of regression and estimate the value of X on the first line when Y=12 and value of Y on the second line when X=8.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1356,9 +1343,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 6,
-    question: "How many ways are there to select 3 candidates from 8 equally qualified recent graduates for openings in an accounting firm?",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2024,
@@ -1369,8 +1355,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 7,
     question: "The joint p.d.f of f(X,Y) is given by f(X,Y) = (1/4)(1+xy), |x|<1, |y|<1; 0 otherwise. Check whether X and Y are independent?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1382,8 +1368,8 @@ const semesterOne = [
     "marks": 10
   },
   {
-    id: 8,
     question: "From past experiences a stockbroker believes that under present economic conditions a customer will invest in tax-free bonds with probability 0.6, mutual funds with probability 0.3, and both with probability 0.15. Find the probability that a customer will invest (a) in either tax-free bonds or mutual funds, (b) in neither tax-free bonds nor mutual funds.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1395,8 +1381,8 @@ const semesterOne = [
     "marks": 10
   },
   {
-    id: 9,
     question: "The CEO of a light bulbs manufacturing company claims that an average light bulb lasts 300 days. A researcher randomly selects 15 bulbs for testing. The sampled bulbs last an average of 290 days, with a standard deviation of 50 days. If the CEO’s claim were true, what is the probability that 15 randomly selected bulbs would have an average life of no more than 290 days?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1409,8 +1395,8 @@ const semesterOne = [
   }
   ,
   {
-    id: 1,
     question: "How many permutations of 4 different letters are there, chosen from the twenty six letters of the alphabet?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1422,8 +1408,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 2,
     question: "One card is drawn from a deck of 52 cards, well-shuffled. Calculate the probability that the card will not be an ace.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1435,8 +1421,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 3,
     question: "Find the range and coefficient of range of the data: 63, 89, 98, 125, 79, 108, 117, 687.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1448,8 +1434,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 4,
     question: "Given the normally distributed variable X with mean 18 and standard deviation 2.5, find the value of k such that P(X < k) = 0.22367.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1461,8 +1447,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 5,
     question: "A teacher asked the students to complete 60 pages of a record notebook. Eight students have completed only 32, 35, 37, 30, 33, 36, 35 and 37 pages. Find the standard deviation of the pages yet to be completed by them.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1474,8 +1460,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 6,
     question: "Let X be a continuous random variable with PDF f(x) = {x, 0 ≤ x ≤ 1; 0, otherwise}. Find the expected value of X.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1487,8 +1473,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 7,
     question: "A large chain retailer purchases a certain kind of electronic device from a manufacturer. The manufacturer indicates that the defective rate of the device is 3%. The inspector of the retailer randomly picks 20 items from a shipment. What is the probability that there will be at least one defective item among these 20?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1500,8 +1486,8 @@ const semesterOne = [
     "marks": 10
   },
   {
-    id: 8,
     question: "Given a random variable X having a normal distribution with mean 50 and standard deviation 10, find the probability that X assumes a value between 45 and 65.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1513,8 +1499,8 @@ const semesterOne = [
     "marks": 10
   },
   {
-    id: 9,
     question: "Calculate mean deviation and coefficient of mean deviation from mean in continuous grouped case, showing the weights of 60 apples. Also draw the histogram of the data. Weights (grams): 65–84, 85–104, 105–124, 125–144, 145–164, 165–184, 185–204. Frequencies: 09, 10, 17, 13, 04, 05, 02.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1527,8 +1513,8 @@ const semesterOne = [
   }
   ,
   {
-    id: 1,
     question: "Each of 11 linguists translates at least one of the languages Urdu and Punjabi into English. The numbers who translate only Urdu or Punjabi are both odd primes. More linguists translate Burmese than Amharic. How many can translate Urdu?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1540,8 +1526,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 2,
     question: "Find Big-O of the function 5x² + 10x log x.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1553,8 +1539,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 3,
     question: "List all the subsets of the set {1, 2, 3}. How many subsets are there of a set with n elements?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1566,8 +1552,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 4,
     question: "Find the number of distinct positive integer multiples of 2, 3, 5, 7 or 11 not exceeding 3000.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1579,8 +1565,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 5,
     question: "Find a general function for the following sequence: 0, 2, 3, 5, 8, 6.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1592,8 +1578,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 6,
     question: "How many edges are there in a complete graph with 6 vertices?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1605,9 +1591,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 7,
-    question: "Consider the function f: N → N given by f(x) = x² + 1 for every x ∈ N. a) What is the domain of this function? b) What is the range of this function? c) Is the function one-to-one? d) Is the function onto?",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2024,
@@ -1618,9 +1603,8 @@ const semesterOne = [
     "marks": 10
   },
   {
-    id: 8,
-    question: "In how many ways can a photographer at a wedding arrange 6 people in a row from a group of 10 people, where the bride and the groom are among these 10 people, if (a) the bride must be in the picture? (b) both the bride and groom must be in the picture? (c) exactly one of the bride and the groom is in the picture?",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2024,
@@ -1631,8 +1615,8 @@ const semesterOne = [
     "marks": 10
   },
   {
-    id: 9,
     question: "Prove by mathematical induction that the sum of the first n positive odd integers is n², that is, 1 + 3 + 5 + ⋯ + (2n − 1) = n².",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1644,8 +1628,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 10,
     question: "Translate each of these statements into logical expressions: i) A student in your school has lived in Vietnam. ii) A student in your school knows Java, Prolog, and C++.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1658,9 +1642,8 @@ const semesterOne = [
   }
   ,
   {
-    id: 1,
-    question: "Let A be the set {2,3,5,7,9}. In A×A, which order pair in relation R = {(a,b) | b+2 divides a}. Determine whether the relation R on the set A is reflexive, symmetric or transitive.",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2023,
@@ -1671,8 +1654,8 @@ const semesterOne = [
     "marks": 3
   },
   {
-    id: 2,
     question: "Evaluate the Cartesian product (E₁ ⊕ E₂).",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1684,8 +1667,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 3,
     question: "Find the first seven terms of given sequence a(n) = (3ⁿ + 1) where n ≥ 1.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1697,8 +1680,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 4,
     question: "Let f : Z → Z be such that f(x) = x + 3. Is f invertible, and if it is, what is its inverse?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1710,8 +1693,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 5,
     question: "Find the greatest common divisor (345,345) using trial division algorithm.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1723,8 +1706,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 6,
     question: "Prove whether the given statement (p → q) ∧ (q → r) → (p → r) is a tautology or not using laws of logic.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1736,8 +1719,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 7,
     question: "Find the least common multiple (LCM) of 200, 25 and 1457.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1749,8 +1732,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 8,
     question: "Evaluate the following summation using x=2, y=3, b=2.5 and c=3: Σ(i=1 to 3) Σ(j=1 to 2) x_i y_j + 4b_i + 2c.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1762,8 +1745,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 9,
     question: "What rules of inference are used in the given argument: 'Linda is an excellent swimmer. If Linda is an excellent swimmer then she can work as a lifeguard. Therefore, Linda can work as a lifeguard.'",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1775,8 +1758,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 10,
     question: "Prove that if n is a positive integer, then n² is odd if and only if 5n + 6 is odd using contrapositive.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1788,8 +1771,8 @@ const semesterOne = [
     "marks": 3
   },
   {
-    id: 11,
     question: "What is the prime factorization of 2022?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1801,8 +1784,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 12,
     question: "Use mathematical induction to prove that for any positive integer number n, n² − n is divisible by 3.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1814,8 +1797,8 @@ const semesterOne = [
     "marks": 8
   },
   {
-    id: 13,
     question: "Determine the chromatic number of given Graph and then calculate the degree of each vertex. Furthermore, determine whether the graph contains Euler circuit/Euler path/Hamiltonian circuit/path. Clearly highlight the path and/or circuit if any. Also, draw W₅ graph.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1827,8 +1810,8 @@ const semesterOne = [
     "marks": 13
   },
   {
-    id: 14,
     question: "Using counting and probability concepts: (a) Find the minimum number of people required in a fruit shop to be sure that at least six will receive the same fruits, if there are five possible types of fruits. (b) How many ways are there to select six players from a 13-member football team to make a trip to a match at Qatar? (c) How many different strings can be made by reordering the letters of word 'KINDERGARTEN'? (d) How many numbers from 1500 to 2500 are divisible by 7 or 9?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1841,8 +1824,8 @@ const semesterOne = [
   }
   ,
   {
-    id: 1,
     question: "Translate the following statement into logic: ∃x∃y (x > 0) ∨ (y > 0) → (xy < 0).",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1854,8 +1837,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 2,
     question: "What is the least common multiple and greatest common divisor of 2³×3²×5⁴ and 2⁵×3³×5²?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1867,8 +1850,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 3,
     question: "Find that sum of rational and irrational number will always be irrational.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1880,9 +1863,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 4,
-    question: "Let A be the set {2, 3, 4, 5}. In A×A: Which ordered pairs are in the relation R = {(a, b) | a divides b}? Write down the relation matrix.",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2024,
@@ -1893,8 +1875,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 5,
     question: "Evaluate the following relations: (a) {1, 2, 3, 4, 5, 6, 118} (b) {1, 2, 3, 4, 5, 6, 118}.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1906,8 +1888,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 6,
     question: "Evaluate following function: f(x) = 3x² + 2x + 1, for x = 1, 2, 3.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1919,8 +1901,8 @@ const semesterOne = [
     "marks": 3
   },
   {
-    id: 7,
     question: "What is the minimum number of students required in a discrete structures class to be sure that at least two students get the same grade, if there are five grades, A, B, C, D, and F?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1932,8 +1914,8 @@ const semesterOne = [
     "marks": 3
   },
   {
-    id: 8,
     question: "The argument 'All happy men are married. John is happy. Therefore, John is married.' Write symbolic form of inference.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1945,8 +1927,8 @@ const semesterOne = [
     "marks": 3
   },
   {
-    id: 9,
     question: "Use Mathematical Induction to prove the following formula for non-negative integers n: 1 + 3 + 5 + ... + (2n - 1) = n².",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1958,9 +1940,8 @@ const semesterOne = [
     "marks": 8
   },
   {
-    id: 10,
-    question: "Draw dual graph corresponding to the following map as in Figure a. Then represent graph G using adjacency matrix and incidence matrix. Also calculate the degree of each vertex. Furthermore, determine whether the graph contains Euler circuit/Euler path, Hamiltonian circuit/Hamiltonian path. Clearly highlight the path/circuit if any.",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2024,
@@ -1971,8 +1952,8 @@ const semesterOne = [
     "marks": 13
   },
   {
-    id: 11,
     question: "Using counting and probability concepts: (a) How many different strings can be made by reordering the letters of the word SUCCESS? (b) Suppose that there are eight runners in a race. The winner receives a gold medal, the second place receives a silver medal, and the third-place finisher receives a bronze medal. How many different ways are there to award these medals? (c) How many permutations of the letters ABCDEFGH contain the string ABC? (d) A group of 30 people have been trained as IT specialists to go to a specific assignment. When they are to select a crew of six people to go on this assignment, how many different selections are possible? (e) What is the chance that after rolling a die, we’ll get value greater than three?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1985,8 +1966,8 @@ const semesterOne = [
   }
   ,
   {
-    id: 1,
     question: "What is difference between System Software and Application Software?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -1998,8 +1979,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 2,
     question: "What is meant by Expansion Slots?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2011,9 +1992,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 3,
-    question: "Differentiate between Bandwidth and Throughput?",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2021,
@@ -2024,8 +2004,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 4,
     question: "What are Registers? Which register is used to hold address of Next Executable Instruction?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2037,8 +2017,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 5,
     question: "What is Pipelining?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2050,8 +2030,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 6,
     question: "What is purpose of VeriChip?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2063,9 +2043,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 7,
-    question: "What is Radio Frequency Identification (RFID) Readers?",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2021,
@@ -2076,8 +2055,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 8,
     question: "What are Multimedia elements?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2089,8 +2068,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 9,
     question: "What is difference between HTML and XHTML?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2102,8 +2081,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 10,
     question: "How will you differentiate between Half Duplex and Full Duplex Transmission?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2115,8 +2094,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 11,
     question: "Name two commands used to create a file in Linux Terminal.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2128,8 +2107,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 12,
     question: "List the problems faced by humanity which could be solved using Information Technology.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2141,8 +2120,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 13,
     question: "Convert 1001110 in base 2 into a decimal number.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2154,8 +2133,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 14,
     question: "What is a Hot-swappable device?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2167,9 +2146,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 15,
-    question: "What is the difference between a Bridge and Repeater?",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2021,
@@ -2180,8 +2158,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 16,
     question: "List several types of networking hardware and explain the purpose of each.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2193,9 +2171,8 @@ const semesterOne = [
     "marks": 10
   },
   {
-    id: 17,
-    question: "Identify the major parts of a personal computer and enlist their features and examples. Explain the structure of Magnetic Hard Disks in terms of sectors, tracks, clusters, and cylinders.",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2021,
@@ -2206,9 +2183,8 @@ const semesterOne = [
     "marks": 10
   },
   {
-    id: 18,
-    question: "Describe device and connection options for connecting to the Internet, as well as some considerations to keep in mind when selecting an ISP.",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2021,
@@ -2220,8 +2196,8 @@ const semesterOne = [
   }
   ,
   {
-    id: 1,
     question: "Discuss output devices briefly.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2233,8 +2209,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 2,
     question: "Discuss briefly Fiber-Optic Cable.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2246,8 +2222,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 3,
     question: "What are the IP Addresses and Domain Names?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2259,8 +2235,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 4,
     question: "Define a computer and describe its primary operations.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2272,8 +2248,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 5,
     question: "What is Cache Memory? And its role in computer system.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2285,8 +2261,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 6,
     question: "Discuss the various types of optical discs available today and how they differ from each other.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2298,8 +2274,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 7,
     question: "Discuss briefly Network Topologies with figures.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2311,9 +2287,8 @@ const semesterOne = [
     "marks": 10
   },
   {
-    id: 8,
-    question: "Describe briefly components inside the system unit.",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2023,
@@ -2324,8 +2299,8 @@ const semesterOne = [
     "marks": 10
   },
   {
-    id: 9,
     question: "Explain the different functions of an operating system.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2338,8 +2313,8 @@ const semesterOne = [
   }
   ,
   {
-    id: 1,
     question: "What is a communication protocol in computer networks?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2351,8 +2326,8 @@ const semesterOne = [
     "marks": 3
   },
   {
-    id: 2,
     question: "What is a disk pack?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2364,8 +2339,8 @@ const semesterOne = [
     "marks": 3
   },
   {
-    id: 3,
     question: "What is the printing mechanism of a drum printer?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2377,8 +2352,8 @@ const semesterOne = [
     "marks": 3
   },
   {
-    id: 4,
     question: "Differentiate between star and bus topology.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2390,8 +2365,8 @@ const semesterOne = [
     "marks": 3
   },
   {
-    id: 5,
     question: "Differentiate between inkjet printers and dot matrix printers.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2403,8 +2378,8 @@ const semesterOne = [
     "marks": 3
   },
   {
-    id: 6,
     question: "What are the types of system software?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2416,9 +2391,8 @@ const semesterOne = [
     "marks": 3
   },
   {
-    id: 7,
-    question: "How do you define the term ‘network bandwidth’?",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2022,
@@ -2429,8 +2403,8 @@ const semesterOne = [
     "marks": 3
   },
   {
-    id: 8,
     question: "What are plotters and where they are used?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2442,8 +2416,8 @@ const semesterOne = [
     "marks": 3
   },
   {
-    id: 9,
     question: "Differentiate between synchronous and asynchronous data transmission.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2455,8 +2429,8 @@ const semesterOne = [
     "marks": 3
   },
   {
-    id: 10,
     question: "What is distributed computing?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2468,8 +2442,8 @@ const semesterOne = [
     "marks": 3
   },
   {
-    id: 11,
     question: "Write a note on input devices. Discuss various input devices and their applications.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2481,8 +2455,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 12,
     question: "Discuss the brief history of internet. Also discuss basic services of the internet.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2494,9 +2468,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 13,
-    question: "Provide a detailed discussion on the storage organization and access mechanism of optical discs.",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2022,
@@ -2507,8 +2480,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 14,
     question: "What is ROM? Discuss the importance of ROM and its various types.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2520,8 +2493,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 15,
     question: "Discuss the three data transmission modes with examples.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2533,8 +2506,8 @@ const semesterOne = [
     "marks": 4
   },
   {
-    id: 16,
     question: "Write a detailed note on data transmission media.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2547,8 +2520,8 @@ const semesterOne = [
   }
   ,
   {
-    id: 1,
     question: "Differentiate between the following terms by giving suitable examples of each: (i) Discrete & continuous random variables, (ii) Type-I & Type-II errors, (iii) Mutually exclusive & non-mutually exclusive events.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2560,8 +2533,8 @@ const semesterOne = [
     "marks": 6
   },
   {
-    id: 2,
     question: "An electric firm manufactures light bulbs that have mean lifetime of 800 hours with standard deviation of 40 hours. If a random sample of 30 bulbs have an average life of 785 hours, then test the hypothesis that μ = 800 against the alternative that μ < 800.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2573,9 +2546,8 @@ const semesterOne = [
     "marks": 6
   },
   {
-    id: 3,
-    question: "Suppose that the error in the reaction temperature, in °C, for a controlled laboratory experiment is a random variable X having the probability density function f(x) = (x² / 3), -1 < x < 2. (i) Verify that f(x) is a valid density function. (ii) Compute the mathematical expectation of the random variable X.",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2025,
@@ -2586,8 +2558,8 @@ const semesterOne = [
     "marks": 6
   },
   {
-    id: 4,
     question: "Briefly explain one-tailed and two-tailed tests with the help of examples.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2599,8 +2571,8 @@ const semesterOne = [
     "marks": 6
   },
   {
-    id: 5,
     question: "Suppose that in a senior college class of 500 students it is found that 210 smoke, 258 drink alcoholic beverages, 216 eat between meals, and 83 eat between meals and drink alcoholic beverages. If a member of this senior class is selected at random, find the probability that the person: (i) neither smokes nor drinks alcoholic beverages, (ii) neither smokes nor eats between meals.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2612,9 +2584,8 @@ const semesterOne = [
     "marks": 6
   },
   {
-    id: 6,
-    question: "Consider a phase II clinical trial designed to investigate the effectiveness of a new drug to reduce the symptoms of asthma in kids. The participants were randomly assigned to receive either the new drug or the placebo. Participants were asked to record the number of episodes of shortness of breath over a two-week period. Is the new drug effective to cure asthma? Assume the data to be normally distributed.",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2025,
@@ -2626,8 +2597,8 @@ const semesterOne = [
   }
   ,
   {
-    id: 1,
     question: "State Coulomb’s law and mention its limitations.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2639,8 +2610,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 2,
     question: "What is the difference between electric potential and electric potential energy?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2652,8 +2623,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 3,
     question: "Calculate the electric flux through a spherical surface enclosing a charge of 3 μC.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2665,8 +2636,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 4,
     question: "What is meant by quantization of charge?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2678,8 +2649,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 5,
     question: "Why do electric field lines never intersect?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2691,8 +2662,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 6,
     question: "What is polarization of a dielectric?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2704,8 +2675,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 7,
     question: "Why does Hall voltage appear across a current-carrying conductor placed in a magnetic field?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2717,8 +2688,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 8,
     question: "Define electric current. What is meant by current density?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2730,8 +2701,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 9,
     question: "A current of 5 A flows in a long straight wire. Find the magnetic field placed at a distance of 10 cm.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2743,8 +2714,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 10,
     question: "State Biot–Savart law.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2756,8 +2727,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 11,
     question: "How Lenz’s law determines the direction of the induced current?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2769,8 +2740,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 12,
     question: "What is displacement current?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2782,8 +2753,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 13,
     question: "Define refractive index.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2795,8 +2766,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 14,
     question: "Differentiate between interference and diffraction.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2808,8 +2779,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 15,
     question: "What is thin film interference?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2821,8 +2792,8 @@ const semesterOne = [
     "marks": 2
   },
   {
-    id: 16,
     question: "Derive the electric field due to a charged disk.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2834,8 +2805,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 17,
     question: "Derive the expression for the electric field due to an electric dipole.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2847,9 +2818,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 18,
-    question: "State and explain Ampère’s law. Using it, derive the expression for the magnetic field inside a long solenoid and discuss the factors affecting the field strength.",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2025,
@@ -2860,8 +2830,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 19,
     question: "Explain Faraday’s experiments and derive Faraday’s law of electromagnetic induction.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2873,8 +2843,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 20,
     question: "Explain polarization of electromagnetic waves. Describe different methods of producing polarized light.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2886,8 +2856,8 @@ const semesterOne = [
     "marks": 6
   },
   {
-    id: 1,
     question: "A, B, C, D are sets such that A∪B = C∪D, and both A∩B and C∩D are empty. Show by examples that A∩C and B∩D can be empty.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2899,8 +2869,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 2,
     question: "For the relation (a,b) ∈ R if a < 3b on N, determine whether the relation is reflexive, symmetric, or transitive.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2912,8 +2882,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 3,
     question: "Check if the function y = x² from N to N is one-to-one correspondence?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2925,8 +2895,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 4,
     question: "Find (210, 858). Determine integers x and y such that (210, 858) = 210x + 858y. Hence, give the general solution of the equation in integers x and y.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2938,8 +2908,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 5,
     question: "Determine whether the following sequence can represent the degree sequence of a simple graph: (3,3,2,2,2,2).",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2951,8 +2921,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 6,
     question: "The chairs of an auditorium are to be labeled with an uppercase English letter followed by a positive integer not exceeding 100. What is the largest number of chairs that can be labeled differently?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2964,8 +2934,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 7,
     question: "The sequence aₙ is defined recursively for n ∈ N by a₁ = 3, a₂ = 5, and aₙ = 3aₙ₋₁ − 2aₙ₋₂ for n ≥ 3. Prove that aₙ = 2ⁿ + 1 for every n ∈ N.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2977,8 +2947,8 @@ const semesterOne = [
     "marks": 10
   },
   {
-    id: 8,
     question: "Calculate the number of distinct natural numbers not exceeding 1000 which are multiples of 10, 15, or 35.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -2990,9 +2960,8 @@ const semesterOne = [
     "marks": 10
   },
   {
-    id: 9,
-    question: "For each of the following, decide whether the statement is true or false, and justify your assertion: (a) If p is true and q is false, then p ∧ q is true. (b) If p is true, q is false and r is false, then p ∨ (q ∧ r) is true. (c) The sentence (p ↔ q) ↔ (q ↔ p) is a tautology. (d) The sentences p ∧ (q ∨ r) and (p ∨ q) ∧ (p ∨ r) are logically equivalent.",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2025,
@@ -3004,8 +2973,8 @@ const semesterOne = [
   }
   ,
   {
-    id: 1,
     question: "What is the difference between a phrase and a clause? Give examples of each.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -3017,8 +2986,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 2,
     question: "Define collocation and illustrate with four examples used in academic writing.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -3030,8 +2999,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 3,
     question: "Differentiate between denotation and connotation with suitable examples.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -3043,8 +3012,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 4,
     question: "What is paraphrasing? Why is it important in academic writing?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -3056,8 +3025,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 5,
     question: "Mention the features of non-verbal communication. How can gestures complement verbal messages?",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -3069,9 +3038,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 6,
-    question: "Use the following idioms in meaningful sentences: Cut corners, Spill the beans.",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2025,
@@ -3082,8 +3050,8 @@ const semesterOne = [
     "marks": 5
   },
   {
-    id: 7,
     question: "Discuss the barriers to effective communication and suggest strategies to overcome them, citing examples from daily academic life.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",
@@ -3095,9 +3063,8 @@ const semesterOne = [
     "marks": 10
   },
   {
-    id: 8,
-    question: "Explain how a reader can identify a writer’s main argument, supporting evidence, and logical fallacies in a passage. Why are these analytical skills essential for developing critical reading and comprehension? Illustrate your answer with suitable examples.",
     "index": true,
+    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2025,
@@ -3108,8 +3075,8 @@ const semesterOne = [
     "marks": 10
   },
   {
-    id: 9,
     question: "Write a formal letter to the editor of a national newspaper expressing your opinion about the looming climate / smog crisis in Pakistan. Focus on coherence, tone, and persuasive reasoning.",
+    id: uuidv4(),
     "index": true,
     "trim": true,
     "type": "past-paper",

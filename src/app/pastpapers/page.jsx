@@ -1,31 +1,37 @@
 "use client";
 
-import React from "react";
-import Link from "next/link";
+import React, { useState } from "react";
 import styles from "../utills.module.css";
+import { semesterOne } from "../components/1/semesterOne";
+import PaperFormat from "../semester/[semester]/PaperFormat";
 
-const papers = [
-  {
-    id: 1,
-    title: "Applied Physics",
-    semester: "Semester 1",
-    year: "2025",
-  },
-  {
-    id: 2,
-    title: "Introduction to ICT",
-    semester: "Semester 1",
-    year: "2024",
-  },
-  {
-    id: 3,
-    title: "Probability & Statistics",
-    semester: "Semester 1",
-    year: "2025",
-  },
-];
+function Page() {
+  const [shortQuestions, setShortQuestions] = useState([]);
+  const [longQuestions, setLongQuestions] = useState([]);
+  const [display, setDisplay] = useState(false);
 
-function page() {
+  const [noSQs, setNoSQs] = useState(0);
+  const [noLQs, setNoLQs] = useState(0);
+  const [shortMarks, setShortMarks] = useState(0);
+  const [longMarks, setLongMarks] = useState(0);
+
+  const [selectedSubject, setSelectedSubject] = useState("");
+
+  const openPaper = (paper) => {
+    setSelectedSubject(paper.Subject);
+    setDisplay(true);
+
+    // ✅ FIX: pass ONLY question text (not whole object)
+    setShortQuestions([
+      {
+        id: paper.id,
+        question: paper.question,
+      },
+    ]);
+
+    setLongQuestions([]); // keep empty for now
+  };
+
   return (
     <div className={styles.pastPaperContainer}>
       <div className={styles.pastPaperHero}>
@@ -37,27 +43,41 @@ function page() {
       </div>
 
       <div className={styles.paperGrid}>
-        {papers.map((paper) => (
-          <div key={paper.id} className={styles.paperCard}>
+        {semesterOne.map((paper, index) => (
+          <div key={index} className={styles.paperCard}>
             <span className={styles.paperSemester}>
-              {paper.semester}
+              {paper.term} {paper.year}
             </span>
 
-            <h2>{paper.title}</h2>
+            <h2>{paper.Subject}</h2>
+            <h3>{paper.course_code}</h3>
 
-            <p>Examination Year: {paper.year}</p>
-
-            <Link
-              href={`/pastpapers/${paper.id}`}
+            <button
+              onClick={() => openPaper(paper)}
               className={styles.paperBtn}
             >
               View Paper
-            </Link>
+            </button>
           </div>
         ))}
       </div>
+
+      {display && (
+        <div className="paper-Div">
+          <PaperFormat
+            shortQuestions={shortQuestions}
+            longQuestions={longQuestions}
+            setDisplay={setDisplay}
+            noSQs={noSQs}
+            noLQs={noLQs}
+            shortMarks={shortMarks}
+            longMarks={longMarks}
+            subject={selectedSubject}
+          />
+        </div>
+      )}
     </div>
   );
 }
 
-export default page;
+export default Page;
