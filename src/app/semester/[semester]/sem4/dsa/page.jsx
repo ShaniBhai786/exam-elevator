@@ -3,10 +3,11 @@ import React, {useState} from 'react'
 import styles from '../../../../utills.module.css'
 import SideBar from '../../../../components/SideBar'
 import { semesterFour } from '../../../../components/4/4semesterpastpaper'
-import Selector from '../../Selector'
-import Generator from '../../Generator'
-import AiGenerator from '../../AiGenerator'
-import { DataStructuresAndAlgorithmsCourse } from './outline'
+// import Selector from '../../Selector'
+import Selector from "../../Selector.jsx"
+import Generator from '../../Generator.jsx'
+import AiGenerator from '../../AiGenerator.jsx'
+import { DataStructuresAndAlgorithmsCourse } from './outline.js'
 
 const page = () => {
     const [isSelected, setIsSelected] = useState(false)
@@ -27,7 +28,7 @@ const page = () => {
           isSelected === 2 ?
             <Generator semesterSeven={semesterFour} subject={subject} setIsSelected={setIsSelected} /> :
             isSelected === 3 ?
-              <AiGenerator subject={subject} CourseOutline={DataStructuresAndAlgorithmsCourse} setIsSelected={setIsSelected} /> : null
+            <AiGenerator subject={subject} CourseOutline={DataStructuresAndAlgorithmsCourse} setIsSelected={setIsSelected} /> : null
       }
       <SideBar />
     </>
