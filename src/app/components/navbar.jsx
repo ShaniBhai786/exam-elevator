@@ -94,7 +94,7 @@ function Navbar() {
 
       {/* MOBILE NAV */}
       {showNav && (
-        <div className={styles.mobileNav}>
+        <div className={styles.mobileNav} onClick={handleDropDown}>
           <NavLinks handleDropDown={handleDropDown} />
         </div>
       )}
