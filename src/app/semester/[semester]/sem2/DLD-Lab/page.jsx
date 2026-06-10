@@ -8,6 +8,7 @@ import Generator from '../../Generator'
 import AiGenerator from '../../AiGenerator'
 import { DigitalLogicDesignCourse } from './outline'
 
+
 const page = () => {
     const [isSelected, setIsSelected] = useState(false)
     let subject = "Digital Logic Design";

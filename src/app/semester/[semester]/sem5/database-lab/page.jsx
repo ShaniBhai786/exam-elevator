@@ -7,7 +7,6 @@ import Selector from '../../Selector'
 import Generator from '../../Generator'
 import AiGenerator from '../../AiGenerator'
 import { SQLCourse } from './outline'
-import { OperatingSystemsCourse } from '../web-tech-lab/outline'
 
 const page = () => {
   const [isSelected, setIsSelected] = useState(false)
