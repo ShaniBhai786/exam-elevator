@@ -28,7 +28,7 @@ export default function UsersPage() {
             if (data.success) {
                 setUsers(data.users);
             }
-            setUserRole(res.users.userRole)
+            // setUserRole(res.users.userRole)
             console.log(userRole)
         } catch (error) {
             console.error(error);

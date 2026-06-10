@@ -2,9 +2,6 @@
 import React, { useEffect, useState } from 'react'
 import styles from "../utills.module.css"
 import Link from "next/link"
-import Image from 'next/image'
-import logo from "../../logo.jpeg"
-
 const Home = () => {
   const [data, setData] = useState(null)
   useEffect(() => {

@@ -5,6 +5,7 @@ import styles from "../../app/utills.module.css";
 import LoginError from "../components/LoginError";
 import Loading from "../components/Loading";
 import SideBar from "../components/SideBar";
+import { FaGraduationCap } from "react-icons/fa";
 
 const Page = () => {
   const [masterUser, setMasterUser] = useState("");
@@ -46,6 +47,8 @@ const Page = () => {
               key={value}
               className={styles.semesters}
             >
+              <FaGraduationCap size={24} />
+
               Semester: {value}
             </Link>
           ))}

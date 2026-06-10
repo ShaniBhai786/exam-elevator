@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import "../../generatoor.css"
 import PaperFormat from "./PaperFormat";
+import { useRouter } from "next/navigation";
 
 const Generator = ({ semesterSeven, subject }) => {
   const [shortQuestions, setShortQuestions] = useState([]);
@@ -56,7 +57,11 @@ const Generator = ({ semesterSeven, subject }) => {
     setDisplay(true)
     window.scrollTo(0, 0)
   }
+  const router = useRouter();
 
+  const handleBack = () => {
+    router.back();
+  };
   return (
     <>
     {display && (
@@ -65,6 +70,7 @@ const Generator = ({ semesterSeven, subject }) => {
       </div>
     )}
     <div className="generator-container">
+      <i className="fa fa-arrow-left backBtn" onClick={handleBack}></i>
       <motion.div
         className="generator-card"
         initial={{ opacity: 0, y: 80 }}
