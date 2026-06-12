@@ -37,33 +37,18 @@ const Page = () => {
 
             <div className="stats-grid">
                 <div className="stat-card">
-                    <h2>1,250</h2>
+                    <h2>100</h2>
                     <p>Total Students</p>
                 </div>
 
                 <div className="stat-card">
-                    <h2>85</h2>
+                    <h2>15</h2>
                     <p>Total Teachers</p>
-                </div>
-
-                <div className="stat-card">
-                    <h2>42</h2>
-                    <p>Total Staff</p>
                 </div>
 
                 <div className="stat-card">
                     <h2>Rs. 850K</h2>
                     <p>Monthly Revenue</p>
-                </div>
-
-                <div className="stat-card">
-                    <h2>96%</h2>
-                    <p>Attendance Rate</p>
-                </div>
-
-                <div className="stat-card">
-                    <h2>15</h2>
-                    <p>Pending Admissions</p>
                 </div>
             </div>
 

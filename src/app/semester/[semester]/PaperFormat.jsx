@@ -10,27 +10,40 @@ const PaperFormat = ({ shortQuestions = [], longQuestions = [], setDisplay, subj
   const handlePrint = () => {
     window.print()
   }
-  const handleSave = () => {
-  const paper = {
-    id: Date.now(),
-    subject,
-    shortQuestions,
-    longQuestions,
-    noSQs,
-    noLQs,
-    shortMarks,
-    longMarks,
-    date: currentDate,
+  const handleSave = async () => {
+    try {
+      const user = JSON.parse(localStorage.getItem("user"));
+
+      const paper = {
+        userId: user.id,
+        subject,
+        shortQuestions,
+        longQuestions,
+        noSQs,
+        noLQs,
+        shortMarks,
+        longMarks,
+        year: new Date().getFullYear().toString(),
+        semester: "1",
+        term: "Mid",
+      };
+
+      const res = await fetch("/api/papers", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(paper),
+      });
+
+      const data = await res.json();
+      console.log("Saved to DB:", data);
+
+      alert("Paper Saved to Database ✅");
+    } catch (error) {
+      console.log(error);
+    }
   };
-
-  const existing = JSON.parse(localStorage.getItem("papers")) || [];
-
-  const updated = [...existing, paper];
-
-  localStorage.setItem("papers", JSON.stringify(updated));
-
-  alert("Paper Saved ✅");
-};
   return (
     <div className={styles.paperWrapper}>
         <i className={`fa fa-close ${styles.closeIcon} `} onClick={() => setDisplay(false)}>close</i>

@@ -8,7 +8,7 @@ body {
 .navbar {
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 99;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -911,10 +911,9 @@ body {
 /* ===== MAIN CONTAINER ===== */
 .generator {
   width: 100%;
-  /* max-width: 1200px; */
   margin: 0px auto;
   padding: 35px;
-  padding-left: 70px;
+  padding-left: 100px;
   border-radius: 28px;
   background: linear-gradient(145deg, #0f172a, #111827);
   box-shadow:
@@ -924,6 +923,7 @@ body {
   position: absolute;
   overflow-x: hidden;
   height: 100vh;
+  z-index: 999;
 }
 
 /* glowing background */
@@ -1780,7 +1780,7 @@ body {
 /* FORM CARD */
 .formBox {
   width: 100%;
-  max-width: 850px;
+  max-width: 1100px;
   padding: 40px 30px;
   border-radius: 28px;
   background: rgba(255, 255, 255, 0.06);
@@ -1811,8 +1811,8 @@ body {
 /* GRID INPUT LAYOUT */
 .inputsDivReg {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 35px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
 }
 
 
@@ -2430,28 +2430,21 @@ body {
   position: fixed;
   top: 25px;
   left: 25px;
-
   width: 44px;
   height: 44px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
+  align-content: center;
   border-radius: 50%;
-
   background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(18px);
-
   border: 1px solid rgba(255, 255, 255, 0.10);
-
   color: #cbd5e1;
-
   cursor: pointer;
-
   transition: 0.3s;
-
   z-index: 1000;
+  text-align: center;
 }
 
 .backIcon:hover {
@@ -3424,7 +3417,7 @@ body {
 /* ====================== saved papers ========================== */
 .wrapper {
   min-height: 100vh;
-  padding: 40px 60px;
+  padding: 40px 90px;
   background: linear-gradient(135deg, #0f172a, #0ea5a4);
   color: white;
 }
@@ -3448,7 +3441,7 @@ body {
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   transition: 0.3s;
-  width: 360px;
+  width: 340px;
 }
 
 .savedCard:hover {
@@ -3546,4 +3539,121 @@ body {
     width: 100%;
     max-width: 320px;
   }
+}
+
+
+/* =====================user Profile======================= */
+.userProfileContainer {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+.userProfileCard {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.userProfileCard:hover {
+  transform: translateY(-5px);
+}
+
+.imageWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.image {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #3b82f6;
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.5);
+}
+
+.name {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-top: 10px;
+}
+
+.role {
+  font-size: 14px;
+  color: #93c5fd;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.badge {
+  margin-left: 8px;
+  color: #22c55e;
+  font-size: 18px;
+}
+
+.infoBox {
+  text-align: left;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.infoBox p {
+  color: #e2e8f0;
+  font-size: 14px;
+  margin: 6px 0;
+}
+
+.infoBox strong {
+  color: #60a5fa;
+}
+
+.btnGroup {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.editBtn,
+.logoutBtn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.editBtn {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+}
+
+.editBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+}
+
+.logoutBtn {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+}
+
+.logoutBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(239, 68, 68, 0.4);
 }
