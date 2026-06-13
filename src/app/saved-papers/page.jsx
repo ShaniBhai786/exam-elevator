@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import styles from "../utills.module.css";
 import PaperFormat from "../semester/[semester]/PaperFormat";
 import SideBar from "../components/SideBar";
+import Loading from "../components/Loading"
 
 const Page = () => {
   const [papers, setPapers] = useState([]);
@@ -19,7 +20,6 @@ const Page = () => {
 
         console.log("Stored User:", user);
 
-        // Your localStorage contains `id`, not `_id`
         if (!user?.id) {
           console.log("User not found");
           setLoading(false);
@@ -61,23 +61,27 @@ const Page = () => {
 
   const deletePaper = async (paperId) => {
     try {
-      setDeletingId(paperId);
-
-      const res = await fetch(`/ api / papers / ${ paperId } `, {
+      setLoading(true)
+      const res = await fetch(`/api/papers/${paperId}`, {
         method: "DELETE",
       });
 
-      if (!res.ok) {
-        throw new Error("Failed to delete paper");
-      }
+      const data = await res.json();
 
+      if (!res.ok) {
+        throw new Error(data.message);
+      }
       setPapers((prev) =>
         prev.filter((paper) => paper._id !== paperId)
       );
+
+      console.log(data.message);
     } catch (error) {
-      console.error("Delete error:", error);
-    } finally {
-      setDeletingId(null);
+      console.error("Delete Error:", error);
+      setLoading(false)
+    }
+    finally{
+      setLoading(false)
     }
   };
 
@@ -89,7 +93,7 @@ const Page = () => {
         <h1 className={styles.saveheading}>Saved Papers</h1>
 
         {loading ? (
-          <p>Loading papers...</p>
+          <Loading />
         ) : papers.length === 0 ? (
           <p>No saved papers found.</p>
         ) : (
@@ -134,7 +138,7 @@ const Page = () => {
                   disabled={deletingId === item._id}
                 >
                   {deletingId === item._id
-                    ? "Deleting..."
+                    ? <Loading />
                     : "Delete"}
                 </button>
               </div>

@@ -10,7 +10,7 @@ export async function GET(req) {
         const { searchParams } = new URL(req.url);
         const userId = searchParams.get("userId");
 
-        const papers = await Paper.find(userId ? { userId } : {});
+        const papers = await Paper.find(userId ? { userId } : {}).sort({createdAt: -1});
 
         return NextResponse.json({ papers });
     } catch (error) {

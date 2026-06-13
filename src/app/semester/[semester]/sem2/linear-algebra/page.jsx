@@ -8,13 +8,14 @@ import Generator from '../../Generator'
 import AiGenerator from '../../AiGenerator'
 import { LinearAlgebraCourse } from './outline'
 
+
 const page = () => {
     const [isSelected, setIsSelected] = useState(false)
-    let subject = "linear algebra";
+    let subject = "Linear Algebra";
     return (
         <>
         <div className={styles.container}>
-            <h1>Linear Algebra</h1>
+                <h1>Linear Algebra</h1>
             <div className={styles.selection}>
                     <button onClick={() => setIsSelected(1)}>Self-Selection</button>
                     <button onClick={() => setIsSelected(2)}>Random-Selection</button>

@@ -1,8 +1,8 @@
 "use client"
 import React, { useState } from 'react'
 import styles from '../../../../utills.module.css'
-import { semesterSeven } from "../../../../components/7/7thsemsterpastpaper"
 import SideBar from '../../../../components/SideBar'
+import { semesterThree } from '../../../../components/3/semesterThree'
 import Selector from '../../Selector'
 import Generator from '../../Generator'
 import AiGenerator from '../../AiGenerator'
@@ -12,7 +12,7 @@ const page = () => {
     const [isSelected, setIsSelected] = useState(false)
     let subject = "Calculus and Analytical Geometry";
     return (
-        <>
+        <> 
         <div className={styles.container}>
             <h1>Calculus and Analytical Geometry</h1>
             <div className={styles.selection}>

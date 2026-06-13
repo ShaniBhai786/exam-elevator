@@ -55,7 +55,7 @@ export async function PUT(req, { params }) {
 
         const currentUser = await User.findById(decodedToken._id);
 
-        if (!currentUser || currentUser.userRole !== "admin") {
+        if (!currentUser || currentUser.userRole.toLowerCase() !== "admin") {
             return NextResponse.json(
                 { success: false, message: "Access denied" },
                 { status: 403 }

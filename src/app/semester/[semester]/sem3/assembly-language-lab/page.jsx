@@ -1,16 +1,16 @@
 "use client"
 import React, {useState} from 'react'
 import styles from '../../../../utills.module.css'
-import {semesterSeven} from "../../../../components/7/7thsemsterpastpaper"
 import SideBar from '../../../../components/SideBar'
+import { semesterThree } from '../../../../components/3/semesterThree'
 import Selector from '../../Selector'
 import Generator from '../../Generator'
 import AiGenerator from '../../AiGenerator'
-import { ComputerArchitectureCourse } from './outline'
+import { ComputerArchitectureCourse } from './outline' 
 
 const page = () => {
   const [isSelected, setIsSelected] = useState(false)
-    let subject = "assembly language and computer architecture lab";
+    let subject = "Computer Organization & Assembly Language";
     return (
         <>
             <div className={styles.container}>
@@ -23,9 +23,9 @@ const page = () => {
             </div>
                 {
                 isSelected === 1 ? 
-                <Selector semesterSeven={semesterSeven} subject={subject} setIsSelected={setIsSelected} /> :
+                <Selector semesterSeven={semesterThree} subject={subject} setIsSelected={setIsSelected} /> :
                 isSelected === 2 ?
-                <Generator semesterSeven={semesterSeven} subject={subject} setIsSelected={setIsSelected} /> : 
+                <Generator semesterSeven={semesterThree} subject={subject} setIsSelected={setIsSelected} /> : 
                 isSelected === 3 ? 
                 <AiGenerator CourseOutline={ComputerArchitectureCourse} subject={subject} setIsSelected={setIsSelected} /> : null
                 }

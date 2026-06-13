@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import styles from "../utills.module.css";
-import Link from "next/link";
 import axios from "axios";
 import Loading from "../components/Loading";
 
@@ -14,121 +13,136 @@ const EditProfile = () => {
   const [storedUser, setStoredUser] = useState(null);
   const [initialValues, setInitialValues] = useState(null);
 
+  // Load user from localStorage
   useEffect(() => {
     const user = localStorage.getItem("user");
+
     if (!user) {
       window.location.assign("/");
-    } else {
-      const parsedUser = JSON.parse(user);
-      setStoredUser(parsedUser);
-      setInitialValues({
-        username: parsedUser.username || "",
-        email: parsedUser.email || "",
-        fullName: parsedUser.fullName || "",
-        Contact: parsedUser.Contact || "",
-        CNIC: parsedUser.CNIC || "",
-        userRole: parsedUser.userRole || "",
-        subscription: parsedUser.subscription || "",
-        password: parsedUser.password || "",
-        Profile: null,
-      });
+      return;
     }
+
+    const parsedUser = JSON.parse(user);
+
+    setStoredUser(parsedUser);
+
+    setInitialValues({
+      username: parsedUser.username || "",
+      email: parsedUser.email || "",
+      fullName: parsedUser.fullName || "",
+      Contact: parsedUser.Contact || "",
+      CNIC: parsedUser.CNIC || "",
+      userRole: parsedUser.userRole || "",
+      subscription: parsedUser.subscription || "",
+      password: "",
+      Profile: null,
+    });
   }, []);
 
+  // Validation
   const validationSchema = Yup.object({
-    Contact: Yup.string().min(11),
-    username: Yup.string().min(5),
-    fullName: Yup.string().min(3),
+    Contact: Yup.string().min(11, "Invalid contact"),
+    username: Yup.string().min(5, "Minimum 5 characters"),
+    fullName: Yup.string().min(3, "Minimum 3 characters"),
     email: Yup.string().email("Invalid email"),
-    CNIC: Yup.string()
-      .min(13)
-      .matches(/^\d{5}-\d{7}-\d{1}$/, "Invalid CNIC format"),
-    password: Yup.string().min(8),
-    Profile: Yup.mixed().required("Profile Picture is mandatory"),
+    CNIC: Yup.string().matches(
+      /^\d{5}-\d{7}-\d{1}$/,
+      "Invalid CNIC format"
+    ),
+    password: Yup.string().min(8, "Minimum 8 characters"),
+    Profile: Yup.mixed().notRequired(),
     subscription: Yup.string(),
     userRole: Yup.string(),
   });
 
-  const registerUser = async (values) => {
+  // Update profile API (FIXED fetch → axios)
+  const updateProfile = async (values) => {
     try {
       setLoading(true);
+
       const formData = new FormData();
+
       formData.append("username", values.username);
       formData.append("email", values.email);
-      formData.append("password", values.password);
       formData.append("fullName", values.fullName);
       formData.append("Contact", values.Contact);
       formData.append("CNIC", values.CNIC);
       formData.append("userRole", values.userRole);
       formData.append("subscription", values.subscription);
-      formData.append("Profile", values.Profile);
 
-      const res = await axios.post("/api/auth/register", formData);
+      if (values.password) {
+        formData.append("password", values.password);
+      }
+
+      if (values.Profile) {
+        formData.append("Profile", values.Profile);
+      }
+
+      const token = localStorage.getItem("accessToken");
+
+      const res = await axios.put(
+        `/api/users/${storedUser.id}`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
       localStorage.setItem("user", JSON.stringify(res.data.user));
 
-      alert("Registration Successful");
+      alert("Profile updated successfully");
+
+      window.location.reload();
     } catch (error) {
-      console.log("FULL ERROR:", error);
-      console.log("RESPONSE:", error?.response?.data);
+      console.log(error);
 
-      const message =
-        error?.response?.data?.message ||
-        error.message ||
-        "Something went wrong";
-      setLoading(false);
-
-      alert(message);
-      console.log(message);
+      alert(
+        error?.response?.data?.message || "Failed to update profile"
+      );
     } finally {
       setLoading(false);
     }
   };
+
+  // Submit handler
   const onSubmit = async (values, { resetForm }) => {
-    console.table(values);
-    await registerUser(values);
+    await updateProfile(values);
     resetForm();
   };
 
-  const eyeRef = useRef();
-  const eyeSlashRef = useRef();
-
-  const eyeConRef = useRef();
-  const eyeSlashConRef = useRef();
-
-  const handlePasswordDisplay = () => {
-    if (passwordDisplay === "password") {
-      setPasswordDisplay("text");
-      eyeSlashRef.current.style.display = "none";
-      eyeRef.current.style.display = "block";
-    } else {
-      setPasswordDisplay("password");
-      eyeSlashRef.current.style.display = "block";
-      eyeRef.current.style.display = "none";
-    }
-  };
-
-  const handleConfirmPasswordDisplay = () => {
-    if (confirmPasswordDisplay === "password") {
-      setConfirmPasswordDisplay("text");
-      eyeSlashConRef.current.style.display = "none";
-      eyeConRef.current.style.display = "block";
-    } else {
-      setConfirmPasswordDisplay("password");
-      eyeSlashConRef.current.style.display = "block";
-      eyeConRef.current.style.display = "none";
-    }
+  // Password toggle (FIXED React way)
+  const togglePassword = () => {
+    setPasswordDisplay((prev) =>
+      prev === "password" ? "text" : "password"
+    );
   };
 
   return (
     <>
       {loading && <Loading />}
+
       <div className={styles.container}>
         <div className={styles.formBox}>
-          <h1>register user!</h1>
-          <h2>Create Account</h2>
+          <h1>Edit Profile</h1>
+          <h2>Update Account Details</h2>
 
           <Formik
-            initialValues={initialValues}
+            initialValues={
+              initialValues || {
+                username: "",
+                email: "",
+                fullName: "",
+                Contact: "",
+                CNIC: "",
+                userRole: "",
+                subscription: "",
+                password: "",
+                Profile: null,
+              }
+            }
             validationSchema={validationSchema}
             onSubmit={onSubmit}
             enableReinitialize
@@ -136,86 +150,73 @@ const EditProfile = () => {
             {({ resetForm }) => (
               <Form className={styles.form}>
                 <div className={styles.inputsDivReg}>
+
+                  {/* Full Name */}
                   <div className={styles.inputGroup}>
-                    <i className={`fa-solid fa-user ${styles.inputIcon}`}></i>
                     <Field
                       type="text"
                       name="fullName"
                       className={styles.input}
-                      placeholder="Enter Full Name"
+                      placeholder="Full Name"
                     />
                     <label>Full Name</label>
-                    <ErrorMessage
-                      name="fullName"
-                      component="div"
-                      className={styles.errorMessage}
-                    />
+                    <ErrorMessage name="fullName" component="div" />
                   </div>
 
+                  {/* Email */}
                   <div className={styles.inputGroup}>
-                    <i
-                      className={`fa-solid fa-envelope ${styles.inputIcon}`}
-                    ></i>
                     <Field
                       type="email"
                       name="email"
                       className={styles.input}
-                      placeholder="Enter Email"
+                      placeholder="Email"
                     />
                     <label>Email</label>
-                    <ErrorMessage
-                      name="email"
-                      component="div"
-                      className={styles.errorMessage}
-                    />
+                    <ErrorMessage name="email" component="div" />
                   </div>
 
+                  {/* Username */}
                   <div className={styles.inputGroup}>
-                    <i className={`fa-solid fa-user ${styles.inputIcon}`}></i>
                     <Field
                       type="text"
                       name="username"
                       className={styles.input}
-                      placeholder="Enter username"
+                      placeholder="Username"
                     />
                     <label>Username</label>
-                    <ErrorMessage
-                      name="username"
-                      component="div"
-                      className={styles.errorMessage}
-                    />
+                    <ErrorMessage name="username" component="div" />
                   </div>
 
+                  {/* Contact */}
                   <div className={styles.inputGroup}>
-                    <i className={`fa-solid fa-phone ${styles.inputIcon}`}></i>
                     <Field
                       type="text"
                       name="Contact"
                       className={styles.input}
-                      placeholder="Enter Contact#"
+                      placeholder="Contact"
                     />
                     <label>Contact</label>
-                    <ErrorMessage
-                      name="Contact"
-                      component="div"
-                      className={styles.errorMessage}
-                    />
+                    <ErrorMessage name="Contact" component="div" />
                   </div>
 
+                  {/* CNIC */}
                   <div className={styles.inputGroup}>
-                    <i
-                      className={`fa-solid fa-id-card ${styles.inputIcon}`}
-                    ></i>
                     <Field name="CNIC">
                       {({ field, form }) => (
                         <input
                           {...field}
+                          className={styles.input}
+                          placeholder="xxxxx-xxxxxxx-x"
                           maxLength={15}
                           onChange={(e) => {
                             let value = e.target.value.replace(/\D/g, "");
-                            if (value.length > 5 && value.length <= 12) {
-                              value = value.slice(0, 5) + "-" + value.slice(5);
-                            } else if (value.length > 12) {
+
+                            if (value.length <= 5) {
+                              value = value;
+                            } else if (value.length <= 12) {
+                              value =
+                                value.slice(0, 5) + "-" + value.slice(5);
+                            } else {
                               value =
                                 value.slice(0, 5) +
                                 "-" +
@@ -223,123 +224,75 @@ const EditProfile = () => {
                                 "-" +
                                 value.slice(12, 13);
                             }
+
                             form.setFieldValue("CNIC", value);
                           }}
-                          type="text"
-                          className={styles.input}
-                          placeholder="Enter CNIC/ B-Form"
                         />
                       )}
                     </Field>
-                    <label>CNIC/ B-Form</label>
-                    <ErrorMessage
-                      name="CNIC"
-                      component="div"
-                      className={styles.errorMessage}
-                    />
+                    <label>CNIC</label>
+                    <ErrorMessage name="CNIC" component="div" />
                   </div>
 
-                  <div className={styles.inputGroup} id={styles.inputGroup}>
-                    <i className={`fa-solid fa-user ${styles.inputIcon}`}></i>
-                    <Field
-                      as="select"
-                      type="text"
-                      name="userRole"
-                      className={styles.input}
-                      id={styles.input}
-                    >
-                      <option className={styles.options} value="">
-                        Select User Role
-                      </option>
-                      <option className={styles.options} value="admin">
-                        Admin
-                      </option>
-                      <option className={styles.options} value="teacher">
-                        Teacher
-                      </option>
-                      <option className={styles.options} value="student">
-                        Student
-                      </option>
+                  {/* Role */}
+                  <div className={styles.inputGroup}>
+                    <Field as="select" name="userRole" className={styles.input}>
+                      <option value="">Select Role</option>
+                      <option value="admin">Admin</option>
+                      <option value="teacher">Teacher</option>
+                      <option value="student">Student</option>
                     </Field>
                     <label>User Role</label>
-                    <ErrorMessage
-                      name="userRole"
-                      component="div"
-                      className={styles.errorMessage}
-                    />
                   </div>
 
+                  {/* Subscription */}
                   <div className={styles.inputGroup}>
-                    <i className={`fa-solid fa- ${styles.inputIcon}`}></i>
-                    <Field
-                      as="select"
-                      type="text"
-                      name="subscription"
-                      className={styles.input}
-                    >
-                      <option value="">Subscription Status</option>
+                    <Field as="select" name="subscription" className={styles.input}>
+                      <option value="">Subscription</option>
                       <option value="verified">Verified</option>
                       <option value="trial">Trial</option>
                     </Field>
-                    <label>Subscription Status</label>
-                    <ErrorMessage
-                      name="subscription"
-                      component="div"
-                      className={styles.errorMessage}
-                    />
+                    <label>Subscription</label>
                   </div>
 
+                  {/* Password */}
                   <div className={styles.inputGroup}>
-                    <i className={`fa-solid fa-lock ${styles.inputIcon}`}></i>
                     <Field
                       type={passwordDisplay}
                       name="password"
                       className={styles.input}
-                      placeholder="Enter Password"
+                      placeholder="Password"
                     />
+
                     <label>Password</label>
+
                     <i
-                      onClick={handlePasswordDisplay}
-                      className={`fa-solid fa-eye ${styles.inputIconEye}`}
-                      ref={eyeRef}
-                    ></i>
-                    <i
-                      onClick={handlePasswordDisplay}
-                      className={`fa-solid fa-eye-slash ${styles.inputIconEye}`}
-                      ref={eyeSlashRef}
-                    ></i>
-                    <ErrorMessage
-                      name="password"
-                      component="div"
-                      className={styles.errorMessage}
+                      onClick={togglePassword}
+                      className={`fa-solid ${passwordDisplay === "password"
+                          ? "fa-eye-slash"
+                          : "fa-eye"
+                        }`}
+                      style={{ cursor: "pointer" }}
                     />
                   </div>
 
+                  {/* Profile Image */}
                   <div className={styles.inputGroup}>
-                    <i
-                      className={`fa-solid fa-image ${styles.inputIcon}`}
-                      style={{ cursor: "pointor" }}
-                    ></i>
-                    <Field name="Profile" className={styles.input}>
-                      {({ form }) => (
-                        <input
-                          type="file"
-                          accept="image/*"
-                          onChange={(e) => {
-                            form.setFieldValue("Profile", e.target.files[0]);
-                          }}
-                        />
-                      )}
-                    </Field>
-                    <label>Profile</label>
-                    <ErrorMessage
-                      name="Profile"
-                      component="div"
-                      className={styles.errorMessage}
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={(e) => {
+                        setInitialValues((prev) => ({
+                          ...prev,
+                          Profile: e.target.files[0],
+                        }));
+                      }}
                     />
+                    <label>Profile Image</label>
                   </div>
                 </div>
 
+                {/* Buttons */}
                 <div className={styles.buttonGroup}>
                   <button
                     type="button"
@@ -348,11 +301,13 @@ const EditProfile = () => {
                   >
                     Reset
                   </button>
+
                   <button
                     type="submit"
                     className={styles.btn + " " + styles.submit}
+                    disabled={loading}
                   >
-                    Update
+                    {loading ? "Updating..." : "Update"}
                   </button>
                 </div>
               </Form>

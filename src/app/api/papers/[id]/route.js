@@ -2,16 +2,32 @@ import { NextResponse } from "next/server";
 import { connectDB } from "../../../../lib/db";
 import { Paper } from "../../../../models/Database";
 
-export async function DELETE(req, { params }) {
+export async function DELETE(req, context) {
     try {
         await connectDB();
 
-        await Paper.findByIdAndDelete(params.id);
+        const { id } = await context.params;
 
-        return NextResponse.json({ message: "Deleted" });
-    } catch (error) {
+        console.log("Deleting Paper ID:", id);
+
+        const deletedPaper = await Paper.findByIdAndDelete(id);
+
+        if (!deletedPaper) {
+            return NextResponse.json(
+                { message: "Paper not found" },
+                { status: 404 }
+            );
+        }
+
         return NextResponse.json(
-            { error: error.message },
+            { message: "Paper deleted successfully" },
+            { status: 200 }
+        );
+    } catch (error) {
+        console.error(error);
+
+        return NextResponse.json(
+            { message: error.message },
             { status: 500 }
         );
     }
