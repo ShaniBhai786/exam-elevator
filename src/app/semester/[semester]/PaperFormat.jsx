@@ -5,8 +5,8 @@ import styles from "../../utills.module.css";
 import Image from "next/image";
 import logo from "../../../logo.jpeg"
 
-const PaperFormat = ({ shortQuestions = [], longQuestions = [], setDisplay, subject , noSQs, noLQs, shortMarks, longMarks}) => {
-  const [paperId, setPaperId] = useState(null);
+const PaperFormat = ({ shortQuestions = [], longQuestions = [], setDisplay, subject, noSQs, noLQs, shortMarks, longMarks, paperId }) => {
+  const [savedPaperId, setSavedPaperId] = useState(paperId || null);
   const currentDate = new Date().toLocaleString();
   const handlePrint = () => {
     window.print()
@@ -39,27 +39,34 @@ const PaperFormat = ({ shortQuestions = [], longQuestions = [], setDisplay, subj
 
       const data = await res.json();
 
-      setPaperId(data.paper._id);
+      console.log("Save API Response:", data);
 
+      if (!res.ok) {
+        throw new Error(data.message || "Failed to save paper");
+      }
+
+      setSavedPaperId(data.paper._id);
+      console.log("Saved Paper ID:", data.paper._id);
       alert("Paper Saved Successfully ✅");
     } catch (error) {
       console.log(error);
     }
   };
   const handleShare = async () => {
-    if (!paperId) {
+    const id = savedPaperId || paperId;
+
+    if (!id) {
       alert("Please save the paper before sharing.");
       return;
     }
 
     const email = prompt("Enter recipient's email:");
-
     if (!email) return;
 
     try {
       const token = localStorage.getItem("token");
 
-      const res = await fetch(`/api/papers/${paperId}/share`, {
+      const res = await fetch(`/api/papers/${id}/share`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -70,10 +77,14 @@ const PaperFormat = ({ shortQuestions = [], longQuestions = [], setDisplay, subj
 
       const data = await res.json();
 
-      alert(data.message);
+      if (!res.ok) {
+        throw new Error(data.message || "Failed to share paper");
+      }
+
+      alert(data.message || "Paper shared successfully!");
     } catch (err) {
       console.error(err);
-      alert("Something went wrong.");
+      alert(err.message || "Something went wrong.");
     }
   };
   return (

@@ -67,6 +67,12 @@ const paperSchema = new mongoose.Schema(
             type: Array,
             default: [],
         },
+        sharedWith: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "User",
+            },
+        ],
     },
     {
         timestamps: true,

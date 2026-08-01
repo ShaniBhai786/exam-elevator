@@ -1,39 +1,103 @@
 import { NextResponse } from "next/server";
-import { connectDB } from "../../../lib/db";
+import { connectDB } from "../../../lib/db.js";
 import { Paper } from "../../../models/Database";
 
-// GET
-export async function GET(req) {
+export async function POST(request) {
     try {
         await connectDB();
 
-        const { searchParams } = new URL(req.url);
-        const userId = searchParams.get("userId");
+        const body = await request.json();
 
-        const papers = await Paper.find(userId ? { userId } : {}).sort({createdAt: -1});
+        const {
+            userId,
+            subject,
+            shortQuestions,
+            longQuestions,
+            noSQs,
+            noLQs,
+            shortMarks,
+            longMarks,
+            year,
+            semester,
+            term,
+        } = body;
 
-        return NextResponse.json({ papers });
-    } catch (error) {
+        if (!userId || !subject) {
+            return NextResponse.json(
+                {
+                    success: false,
+                    message: "User ID and Subject are required.",
+                },
+                { status: 400 }
+            );
+        }
+
+        const paper = await Paper.create({
+            userId,
+            subject,
+            shortQuestions,
+            longQuestions,
+            noSQs,
+            noLQs,
+            shortMarks,
+            longMarks,
+            year,
+            semester,
+            term,
+            sharedWith: [],
+        });
+
         return NextResponse.json(
-            { error: error.message },
+            {
+                success: true,
+                message: "Paper saved successfully.",
+                paper,
+            },
+            { status: 201 }
+        );
+    } catch (error) {
+        console.error("Save Paper Error:", error);
+
+        return NextResponse.json(
+            {
+                success: false,
+                message: error.message,
+            },
             { status: 500 }
         );
     }
 }
 
-// POST
-export async function POST(req) {
+export async function GET(request) {
     try {
         await connectDB();
 
-        const body = await req.json();
+        const { searchParams } = new URL(request.url);
+        const userId = searchParams.get("userId");
 
-        const paper = await Paper.create(body);
+        let papers;
 
-        return NextResponse.json({ paper }, { status: 201 });
-    } catch (error) {
+        if (userId) {
+            papers = await Paper.find({ userId }).sort({ createdAt: -1 });
+        } else {
+            papers = await Paper.find().sort({ createdAt: -1 });
+        }
+
         return NextResponse.json(
-            { error: error.message },
+            {
+                success: true,
+                papers,
+            },
+            { status: 200 }
+        );
+    } catch (error) {
+        console.error("Fetch Papers Error:", error);
+
+        return NextResponse.json(
+            {
+                success: false,
+                message: error.message,
+            },
             { status: 500 }
         );
     }
