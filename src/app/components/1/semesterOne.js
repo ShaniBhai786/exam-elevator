@@ -4,7 +4,7 @@ const semesterOne = [
     question: "What is the importance of a recount essay?",
     id: uuidv4(),
     "index": true,
-    "trim": true,
+    "trim": true, 
     "type": "past-paper",
     "year": 2022,
     "term": "Fall",
@@ -1940,18 +1940,6 @@ const semesterOne = [
     "marks": 8
   },
   {
-    "index": true,
-    id: uuidv4(),
-    "trim": true,
-    "type": "past-paper",
-    "year": 2024,
-    "term": "Spring",
-    "course_code": "CC-111",
-    "Subject": "Discrete Structures",
-    "category": "long",
-    "marks": 13
-  },
-  {
     question: "Using counting and probability concepts: (a) How many different strings can be made by reordering the letters of the word SUCCESS? (b) Suppose that there are eight runners in a race. The winner receives a gold medal, the second place receives a silver medal, and the third-place finisher receives a bronze medal. How many different ways are there to award these medals? (c) How many permutations of the letters ABCDEFGH contain the string ABC? (d) A group of 30 people have been trained as IT specialists to go to a specific assignment. When they are to select a crew of six people to go on this assignment, how many different selections are possible? (e) What is the chance that after rolling a die, we’ll get value greater than three?",
     id: uuidv4(),
     "index": true,
@@ -1992,18 +1980,6 @@ const semesterOne = [
     "marks": 2
   },
   {
-    "index": true,
-    id: uuidv4(),
-    "trim": true,
-    "type": "past-paper",
-    "year": 2021,
-    "term": "Fall",
-    "course_code": "GE-161",
-    "Subject": "Introduction to ICT",
-    "category": "short",
-    "marks": 2
-  },
-  {
     question: "What are Registers? Which register is used to hold address of Next Executable Instruction?",
     id: uuidv4(),
     "index": true,
@@ -2033,18 +2009,6 @@ const semesterOne = [
     question: "What is purpose of VeriChip?",
     id: uuidv4(),
     "index": true,
-    "trim": true,
-    "type": "past-paper",
-    "year": 2021,
-    "term": "Fall",
-    "course_code": "GE-161",
-    "Subject": "Introduction to ICT",
-    "category": "short",
-    "marks": 2
-  },
-  {
-    "index": true,
-    id: uuidv4(),
     "trim": true,
     "type": "past-paper",
     "year": 2021,
@@ -2146,18 +2110,6 @@ const semesterOne = [
     "marks": 2
   },
   {
-    "index": true,
-    id: uuidv4(),
-    "trim": true,
-    "type": "past-paper",
-    "year": 2021,
-    "term": "Fall",
-    "course_code": "GE-161",
-    "Subject": "Introduction to ICT",
-    "category": "short",
-    "marks": 2
-  },
-  {
     question: "List several types of networking hardware and explain the purpose of each.",
     id: uuidv4(),
     "index": true,
@@ -2170,30 +2122,6 @@ const semesterOne = [
     "category": "long",
     "marks": 10
   },
-  {
-    "index": true,
-    id: uuidv4(),
-    "trim": true,
-    "type": "past-paper",
-    "year": 2021,
-    "term": "Fall",
-    "course_code": "GE-161",
-    "Subject": "Introduction to ICT",
-    "category": "long",
-    "marks": 10
-  },
-  {
-    "index": true,
-    id: uuidv4(),
-    "trim": true,
-    "type": "past-paper",
-    "year": 2021,
-    "term": "Fall",
-    "course_code": "GE-161",
-    "Subject": "Introduction to ICT",
-    "category": "long",
-    "marks": 10
-  }
   ,
   {
     question: "Discuss output devices briefly.",

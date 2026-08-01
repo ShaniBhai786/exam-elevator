@@ -5,47 +5,12 @@ import styles from "../../utills.module.css";
 import Image from "next/image";
 import logo from "../../../logo.jpeg"
 
-const PaperFormat = ({ shortQuestions = [], longQuestions = [], setDisplay, subject , noSQs, noLQs, shortMarks, longMarks}) => {
+const PaperFormat = ({ shortQuestions = [], longQuestions = [], setDisplay, subject , noSQs, noLQs, shortMarks, longMarks, term, year}) => {
   const [paperId, setPaperId] = useState(null);
   const currentDate = new Date().toLocaleString();
   const handlePrint = () => {
     window.print()
   }
-  const handleSave = async () => {
-    try {
-      const user = JSON.parse(localStorage.getItem("user"));
-
-      const paper = {
-        userId: user.id,
-        subject,
-        shortQuestions,
-        longQuestions,
-        noSQs,
-        noLQs,
-        shortMarks,
-        longMarks,
-        year: new Date().getFullYear().toString(),
-        semester: "1",
-        term: "Mid",
-      };
-
-      const res = await fetch("/api/papers", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(paper),
-      });
-
-      const data = await res.json();
-
-      setPaperId(data.paper._id);
-
-      alert("Paper Saved Successfully ✅");
-    } catch (error) {
-      console.log(error);
-    }
-  };
   const handleShare = async () => {
     if (!paperId) {
       alert("Please save the paper before sharing.");
@@ -85,11 +50,16 @@ const PaperFormat = ({ shortQuestions = [], longQuestions = [], setDisplay, subj
         <div className={styles.paperHeader}>
           <div className={styles.headerLogo}><Image src={logo} className={styles.logo} alt="logo" /></div>
           <div className={styles.headerUtils}>
-            <h1>unisoft exam elevator</h1>
-          <h2 className={styles.subject}>{subject}</h2>
-          <p>{currentDate}</p>
-          <p>Attempt all questions</p>
-          <strong>Total Marks: {(shortMarks * noSQs) + (longMarks * noLQs)}</strong>
+            <h1>UniSoft Exam Elevator</h1>
+            <h2 className={styles.subject}>{subject}</h2>
+            <p>
+              <strong>{term} {year}</strong>
+            </p>
+            <p>{currentDate}</p>
+            <p>Attempt all questions</p>
+            <strong>
+              Total Marks: {(shortMarks * noSQs) + (longMarks * noLQs)}
+            </strong>
           </div>
         </div>
 
@@ -139,7 +109,6 @@ const PaperFormat = ({ shortQuestions = [], longQuestions = [], setDisplay, subj
           <div className={styles.paperButtonsDiv}>
           <button onClick={handleShare} className={styles.printBtn}>Share</button>
           <button onClick={handlePrint} className={styles.printBtn}>Print</button>
-            <button onClick={handleSave} className={styles.saveBtn}>Save</button>
           </div>
       </div>
     </div>

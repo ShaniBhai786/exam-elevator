@@ -1,82 +1,60 @@
 "use client";
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import styles from "../../app/utills.module.css";
+import LoginError from "../components/LoginError";
+import Loading from "../components/Loading";
+import SideBar from "../components/SideBar";
+import { FaGraduationCap } from "react-icons/fa";
 
-import React, { useState } from "react";
-import styles from "../utills.module.css";
-import { semesterOne } from "../components/1/semesterOne";
-import PaperFormat from "../semester/[semester]/PaperFormat";
+const Page = () => {
+  const [masterUser, setMasterUser] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(null);
 
-function Page() {
-  const [shortQuestions, setShortQuestions] = useState([]);
-  const [longQuestions, setLongQuestions] = useState([]);
-  const [display, setDisplay] = useState(false);
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    const parsedUser = JSON.parse(user)
+    if (parsedUser) {
+      setMasterUser(parsedUser);
+    }
+    setIsLoggedIn(!!user);
+  }, []);
 
-  const [noSQs, setNoSQs] = useState(0);
-  const [noLQs, setNoLQs] = useState(0);
-  const [shortMarks, setShortMarks] = useState(0);
-  const [longMarks, setLongMarks] = useState(0);
- 
-  const [selectedSubject, setSelectedSubject] = useState("");
+  const semesters = [1, 2, 3, 4, 5, 6, 7, 8];
 
-  const openPaper = (paper) => {
-    setSelectedSubject(paper.Subject);
-    setDisplay(true);
+  if (isLoggedIn === null) {
+    return <Loading />;
+  }
 
-    setShortQuestions([
-      {
-        id: paper.id,
-        question: paper.question,
-      },
-    ]);
-
-    setLongQuestions([]);
-  };
+  if (!isLoggedIn) {
+    return <LoginError />;
+  }
 
   return (
-    <div className={styles.pastPaperContainer}>
-      <div className={styles.pastPaperHero}>
-        <h1>📚 Past Papers</h1>
-        <p>
-          Prepare smarter by practicing previous examination papers.
-          Browse semester-wise and subject-wise resources.
-        </p>
-      </div>
-
-      <div className={styles.paperGrid}>
-        {semesterOne.map((paper, index) => (
-          <div key={index} className={styles.paperCard}>
-            <span className={styles.paperSemester}>
-              {paper.term} {paper.year}
-            </span>
-
-            <h2>{paper.Subject}</h2>
-            <h3>{paper.course_code}</h3>
-
-            <button
-              onClick={() => openPaper(paper)}
-              className={styles.paperBtn}
-            >
-              View Paper
-            </button>
-          </div>
-        ))}
-      </div>
-
-      {display && (
-        <div className="paper-Div">
-          <PaperFormat
-            shortQuestions={shortQuestions}
-            longQuestions={longQuestions}
-            setDisplay={setDisplay}
-            noSQs={noSQs}
-            noLQs={noLQs}
-            shortMarks={shortMarks}
-            longMarks={longMarks}
-            subject={selectedSubject}
-          />
+    <>
+      <SideBar />
+      <div className={styles.semestersDiv}>
+        <h1 id={styles.classTitle}>BSCS all Semesters</h1>
+        <div className={styles.userDiv}>
+          <p>Master User: </p>
+          <span>{masterUser.fullName}</span>
         </div>
-      )}
-    </div>
+
+        <div className={styles.class}>
+          {semesters.map((value) => (
+            <Link
+              href={`pastpapers/${value}`}
+              key={value}
+              className={styles.semesters}
+            >
+              <FaGraduationCap size={24} />
+              Semester: {value}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </>
   );
-}
+};
 
 export default Page;

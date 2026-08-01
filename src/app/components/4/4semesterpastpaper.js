@@ -559,7 +559,7 @@ export const semesterFour = [
     "type": "past-paper",
     "year": 2021,
     "category": "short",
-    "marks": 5,
+    "marks": 5, 
     "course_code": "SC-241",
     "semester": "IV",
     "Subject": "Multivariable Calculus"

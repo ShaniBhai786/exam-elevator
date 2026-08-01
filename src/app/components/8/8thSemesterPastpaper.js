@@ -8,7 +8,7 @@ const semesterEight = [
     "year": 2022,
     "CourseCode": "UE-472",
     "Subject": "principles of management",
-    "category": "short",
+    "category": "short", 
     "marks": 5
   },
   {
