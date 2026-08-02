@@ -32,11 +32,18 @@ const Page = () => {
           throw new Error("Failed to fetch papers");
         }
 
+        // const data = await res.json();
+
+        
         const data = await res.json();
+        
+        const papers = [
+          ...data.myPapers,
+          ...data.sharedPapers,
+        ];
+        console.log("Fetched Papers:", data, papers);
 
-        console.log("Fetched Papers:", data);
-
-        setPapers(data.papers || []);
+        setPapers(papers);
       } catch (error) {
         console.error("Error fetching papers:", error);
       } finally {

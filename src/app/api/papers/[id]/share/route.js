@@ -1,7 +1,36 @@
 import { NextResponse } from "next/server";
 import { connectDB } from "../../../../../lib/db";
-import { User } from "../../../../../models/User";
 import { Paper } from "../../../../../models/Database";
+
+export async function DELETE(request, { params }) {
+    try {
+        await connectDB();
+
+        const { id } = await params;
+
+        const deletedPaper = await Paper.findByIdAndDelete(id);
+
+        if (!deletedPaper) {
+            return NextResponse.json(
+                { message: "Paper not found" },
+                { status: 404 }
+            );
+        }
+
+        return NextResponse.json(
+            { message: "Paper deleted successfully" },
+            { status: 200 }
+        );
+    } catch (error) {
+        return NextResponse.json(
+            { message: error.message },
+            { status: 500 }
+        );
+    }
+}
+
+
+import { User } from "../../../../../models/User";
 import mongoose from "mongoose";
 
 export async function POST(request, context) {
