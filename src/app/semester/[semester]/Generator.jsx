@@ -17,7 +17,7 @@ const Generator = ({ semesterSeven, subject }) => {
   const [paperId, setPaperId] = useState(null);
 
   const handleShare = async () => {
-    const id = savedPaperId || paperId;
+    const id = await savedPaperId || paperId;
 
     if (!id) { 
       alert("Please save the paper before sharing.");

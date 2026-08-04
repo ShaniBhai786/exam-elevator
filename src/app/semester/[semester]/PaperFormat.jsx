@@ -96,7 +96,7 @@ const PaperFormat = ({ shortQuestions = [], longQuestions = [], setDisplay, subj
         <div className={styles.paperHeader}>
           <div className={styles.headerLogo}><Image src={logo} className={styles.logo} alt="logo" /></div>
           <div className={styles.headerUtils}>
-            <h1>unisoft exam elevator</h1>
+            <h1 className={styles.heading}>unisoft exam elevator</h1>
           <h2 className={styles.subject}>{subject}</h2>
           <p>{currentDate}</p>
           <p>Attempt all questions</p>
@@ -114,14 +114,19 @@ const PaperFormat = ({ shortQuestions = [], longQuestions = [], setDisplay, subj
             <p className={styles.empty}>No questions available</p>
           ) : (
               <ol className={styles.questionList}>
-                {shortQuestions.map((q, i) => (
-                  <li key={q.id || i} className={styles.li}>
-                    {i + 1}.{" "}
-                    {typeof q === "string"
-                      ? q
-                      : q.question || q.text || q.name || JSON.stringify(q)}
-                  </li>
-                ))}
+                {shortQuestions
+                  .filter((q) => q != null)
+                  .map((q, i) => (
+                    <li key={q?.id || i} className={styles.li}>
+                      {i + 1}.{" "}
+                      {typeof q === "string"
+                        ? q
+                        : q?.question ||
+                        q?.text ||
+                        q?.name ||
+                        "No question text available"}
+                    </li>
+                  ))}
               </ol>
           )}
         </div>
@@ -136,14 +141,19 @@ const PaperFormat = ({ shortQuestions = [], longQuestions = [], setDisplay, subj
             <p className={styles.empty}>No questions available</p>
           ) : (
               <ol className={styles.questionList}>
-                {longQuestions.map((q, i) => (
-                  <li key={q.id || i} className={styles.li}>
-                    {i + 1}.{" "}
-                    {typeof q === "string"
-                      ? q
-                      : q.question || q.text || q.name || JSON.stringify(q)}
-                  </li>
-                ))}
+                {longQuestions
+                  .filter((q) => q != null)
+                  .map((q, i) => (
+                    <li key={q?.id || i} className={styles.li}>
+                      {i + 1}.{" "}
+                      {typeof q === "string"
+                        ? q
+                        : q?.question ||
+                        q?.text ||
+                        q?.name ||
+                        "No question text available"}
+                    </li>
+                  ))}
               </ol>
           )}
         </div>

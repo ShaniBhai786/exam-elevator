@@ -3362,43 +3362,226 @@ body {
   }
 }
 
-/* ===== PRINT ===== */
+/* ===========================
+        PRINT STYLES
+=========================== */
 @media print {
 
-  body * {
-    visibility: hidden;
-  }
-
-  .paperContainer,
-  .paperContainer * {
-    visibility: visible;
-  }
-
-  .paperWrapper {
-    position: absolute;
-    inset: 0;
-    background: white;
-    padding: 0;
-  }
-
-  .paperContainer {
-    width: 100%;
-    border-radius: 0;
-    box-shadow: none;
-    padding: 20px;
-  }
-
-  .paperButtonsDiv,
-  .previewBtn,
-  .closeIcon {
-    display: none !important;
+  @page {
+    size: A4;
+    margin: 12mm;
   }
 
   html,
   body {
-    overflow: visible;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    overflow: visible !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Hide everything */
+  body * {
+    visibility: hidden;
+  }
+
+  /* Show only paper */
+  .paperWrapper,
+  .paperWrapper * {
+    visibility: visible;
+  }
+
+  .paperWrapper {
+    position: static !important;
+    width: 100%;
+    margin: 0;
+    padding: 0;
     background: white;
   }
+
+  .paperContainer {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    display: block;
+    overflow: visible;
+  }
+
+  /* Hide controls */
+  .paperButtonsDiv,
+  .closeIcon,
+  .previewBtn {
+    display: none !important;
+  }
+
+  /* ================= HEADER ================= */
+
+  .paperHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #000;
+    padding-bottom: 12px;
+    margin-bottom: 18px;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+.paperWrapper {
+  position: static !important;
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  inset: auto !important;
+  top: 0 !important;
+  left: 0 !important;
+  transform: none !important;
+}
+
+.paperContainer {
+  display: block !important;
+  position: static !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: auto !important;
+  margin: 0 !important;
+  padding: 15mm !important;
+  overflow: visible !important;
+}
+
+  .headerLogo {
+    width: 80px;
+    flex-shrink: 0;
+  }
+
+  .logo {
+    width: 70px !important;
+    height: 70px !important;
+    object-fit: contain;
+  }
+
+  .headerUtils {
+    flex: 1;
+    text-align: center;
+  }
+
+  .heading {
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+    color: #000;
+  }
+
+  .subject {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+    text-transform: uppercase;
+  }
+
+  .headerUtils p {
+    margin: 2px 0;
+    font-size: 13px;
+    color: #000;
+  }
+
+  .headerUtils strong {
+    display: block;
+    margin-top: 6px;
+    font-size: 15px;
+  }
+
+  /* ================= Sections ================= */
+
+  .section {
+    margin-top: 18px;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .paperStatement {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    border: 1px solid #000;
+    background: #f3f3f3;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .sectionTitle {
+    margin: 0;
+    font-size: 18px;
+    color: #000;
+  }
+
+  .paperStatement span {
+    font-size: 15px;
+    font-weight: bold;
+    color: #000;
+  }
+
+  /* ================= Questions ================= */
+
+  .questionList {
+    margin: 0;
+    padding-left: 22px;
+  }
+
+  .li {
+    margin-bottom: 14px;
+    line-height: 1.7;
+    font-size: 14px;
+    color: #000;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .empty {
+    color: #000;
+    font-style: italic;
+  }
+
+  /* Avoid breaking important elements */
+
+  /* h1,
+  h2,
+  h3,
+  p,
+  ol,
+  li,
+  img,
+  table,
+  tr,
+  td {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  } */
+
+  /* img {
+    max-width: 100%;
+  } */
+
+  /* Remove colors/shadows */
+
+  /* * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  } */
 }
 
 /* ===== ANIMATION ===== */
