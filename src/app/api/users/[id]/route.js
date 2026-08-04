@@ -5,20 +5,29 @@ import jwt from "jsonwebtoken";
 
 // helper function
 const getUserFromToken = (req) => {
-    const authHeader = req.headers.get("authorization");
-    if (!authHeader) return null;
+    try {
+        const authHeader = req.headers.get("authorization");
+        if (!authHeader) return null;
 
-    const token = authHeader.split(" ")[1];
-    if (!token) return null;
+        const token = authHeader.split(" ")[1];
+        if (!token) return null;
 
-    return jwt.verify(token, process.env.JWT_SECRET);
+        return jwt.verify(token, process.env.JWT_SECRET);
+    } catch {
+        return null;
+    }
 };
+
+
 
 export async function GET(req, { params }) {
     try {
         await connectDB();
 
-        const user = await User.findById(params.id).select("-password");
+        const { id } = await params;
+
+        const user = await User.findById(id)
+            .select("-password -refreshToken -accessToken");
 
         if (!user) {
             return NextResponse.json(
@@ -38,6 +47,7 @@ export async function GET(req, { params }) {
         );
     }
 }
+
 
 export async function PUT(req, { params }) {
     try {
@@ -62,16 +72,16 @@ export async function PUT(req, { params }) {
             );
         }
 
-        const body = await req.json();
+        const { id } = await params;
 
         const user = await User.findByIdAndUpdate(
-            params.id,
+            id,
             body,
             {
                 new: true,
                 runValidators: true,
             }
-        ).select("-password");
+        ).select("-password -refreshToken -accessToken");
 
         if (!user) {
             return NextResponse.json(

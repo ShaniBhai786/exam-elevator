@@ -15,7 +15,8 @@ const AiGenerator = ({subject, CourseOutline, setIsSelected}) => {
   const [warning, setWarning] = useState("");
   const [display, setDisplay] = useState(false);
   const [noSQs, setNoSQs] = useState(0);
-  const [noLQs, setNoLQs] = useState(0);
+  const [noLQs, setNoLQs] = useState(0);  const [paperId, setPaperId] = useState(null);
+  
   // const subject = "Numerical Computing";
   // ================= API CALL =================
   const handleGenerate = async () => {
@@ -242,7 +243,7 @@ setLongQuestions(long);
         </div>
       )}
       
-      {display && <PaperFormat shortQuestions={selectedShort} longQuestions={selectedLong} setDisplay={setDisplay} shortMarks={5} longMarks={10} noSQs={noSQs} noLQs={noLQs} subject={subject} />}
+      {display && <PaperFormat paperId={paperId} owner={paperId._userId} shortQuestions={selectedShort} longQuestions={selectedLong} setDisplay={setDisplay} shortMarks={5} longMarks={10} noSQs={noSQs} noLQs={noLQs} subject={subject} />}
     </div>
   );
 };

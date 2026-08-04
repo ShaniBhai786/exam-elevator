@@ -17,7 +17,7 @@ const Generator = ({ semesterSeven, subject }) => {
   const [paperId, setPaperId] = useState(null);
 
   const handleShare = async () => {
-    const id = await savedPaperId || paperId;
+    const id = await paperId;
 
     if (!id) { 
       alert("Please save the paper before sharing.");
@@ -102,7 +102,17 @@ const Generator = ({ semesterSeven, subject }) => {
     <>
     {display && (
       <div className="paper-Div">
-        <PaperFormat shortQuestions={shortQuestions} longQuestions={longQuestions} setDisplay={setDisplay} noSQs={noSQs} noLQs={noLQs} shortMarks={shortMarks} longMarks={longMarks} subject={subject} paperId={paperId} />
+          <PaperFormat
+            paperId={paperId}
+            shortQuestions={shortQuestions}
+            longQuestions={longQuestions}
+            setDisplay={setDisplay}
+            noSQs={noSQs}
+            noLQs={noLQs}
+            shortMarks={shortMarks}
+            longMarks={longMarks}
+            subject={subject}
+          />
       </div>
     )}
     <div className="generator-container">

@@ -22,14 +22,12 @@ export async function GET(request) {
         // Papers created by the user
         const myPapers = await Paper.find({
             userId,
-        }).sort({ createdAt: -1 });
+        }).populate("userId", "fullName email username").sort({ createdAt: -1 });
 
         // Papers shared with the user
         const sharedPapers = await Paper.find({
             sharedWith: userId,
-        })
-            .populate("userId", "fullName email")
-            .sort({ createdAt: -1 });
+        }).populate("userId", "fullName email username").sort({ createdAt: -1 });
 
         return NextResponse.json({
             success: true,
