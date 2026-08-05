@@ -49,30 +49,13 @@ export async function GET(req, { params }) {
 }
 
 
+
 export async function PUT(req, { params }) {
     try {
         await connectDB();
 
-        // 🔐 AUTH CHECK
-        const decodedToken = getUserFromToken(req);
-
-        if (!decodedToken) {
-            return NextResponse.json(
-                { success: false, message: "Unauthorized" },
-                { status: 401 }
-            );
-        }
-
-        const currentUser = await User.findById(decodedToken._id);
-
-        if (!currentUser || currentUser.userRole.toLowerCase() !== "admin") {
-            return NextResponse.json(
-                { success: false, message: "Access denied" },
-                { status: 403 }
-            );
-        }
-
         const { id } = await params;
+        const body = await req.json();
 
         const user = await User.findByIdAndUpdate(
             id,
@@ -85,20 +68,35 @@ export async function PUT(req, { params }) {
 
         if (!user) {
             return NextResponse.json(
-                { success: false, message: "User not found" },
-                { status: 404 }
+                {
+                    success: false,
+                    message: "User not found",
+                },
+                {
+                    status: 404,
+                }
             );
         }
 
         return NextResponse.json(
-            { success: true, user },
-            { status: 200 }
+            {
+                success: true,
+                user,
+            },
+            {
+                status: 200,
+            }
         );
 
     } catch (error) {
         return NextResponse.json(
-            { success: false, message: error.message },
-            { status: 500 }
+            {
+                success: false,
+                message: error.message,
+            },
+            {
+                status: 500,
+            }
         );
     }
 }

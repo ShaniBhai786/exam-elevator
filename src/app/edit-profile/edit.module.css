@@ -1,0 +1,131 @@
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #eef4ff, #f8fbff);
+}
+
+.card {
+    width: 100%;
+    max-width: 520px;
+    background: #fff;
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, .12);
+}
+
+.card h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #1f2937;
+    font-size: 32px;
+}
+
+.imageWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.image {
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #2563eb;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, .35);
+    width: 190px;
+    height: 190px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.field label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #374151;
+}
+
+.field input {
+    padding: 13px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: .3s;
+    outline: none;
+}
+
+.field input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, .15);
+}
+
+.buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+.cancel,
+.save {
+    flex: 1;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.cancel {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+.cancel:hover {
+    background: #d1d5db;
+}
+
+.save {
+    background: #2563eb;
+    color: #fff;
+}
+
+.save:hover:not(:disabled) {
+    background: #1d4ed8;
+}
+
+.save:disabled {
+    opacity: .7;
+    cursor: not-allowed;
+}
+
+.loader {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 600;
+    color: #2563eb;
+}
+
+@media(max-width:600px) {
+
+    .card {
+        padding: 25px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .card h1 {
+        font-size: 26px;
+    }
+
+}
