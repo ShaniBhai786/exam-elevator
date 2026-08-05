@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react'
 import styles from '../../../../utills.module.css'
-import { semesterSeven } from "../../../../components/7/7thsemsterpastpaper"
+import { semesterSix } from "../../../../components/6/6semesterpastpaper"
 import SideBar from '../../../../components/SideBar'
 import Selector from '../../Selector'
 import Generator from '../../Generator'
@@ -14,7 +14,7 @@ const page = () => {
     return (
         <>
         <div className={styles.container}>
-            <h1>Artificial Intelligence Lab</h1>
+            <h1>Artificial Intelligence</h1>
             <div className={styles.selection}>
                     <button onClick={() => setIsSelected(1)}>Self-Selection</button>
                     <button onClick={() => setIsSelected(2)}>Random-Selection</button>
@@ -23,9 +23,9 @@ const page = () => {
             </div>
                 {
                 isSelected === 1 ? 
-                <Selector semesterSeven={semesterSeven} subject={subject} setIsSelected={setIsSelected} /> :
+                <Selector semesterSeven={semesterSix} subject={subject} setIsSelected={setIsSelected} /> :
                 isSelected === 2 ?
-                <Generator semesterSeven={semesterSeven} subject={subject} setIsSelected={setIsSelected} /> : 
+                <Generator semesterSeven={semesterSix} subject={subject} setIsSelected={setIsSelected} /> : 
                 isSelected === 3 ?
                             <AiGenerator subject={subject} CourseOutline={ArtificialIntelligenceImplementation} setIsSelected={setIsSelected} /> :
                 <div className={styles.container}>

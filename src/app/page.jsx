@@ -1,7 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import Login from "./components/Login"
-import Loading from "./components/Loading"
 import Home from "./components/Home"
 
 const Main = () => {

@@ -944,7 +944,7 @@ const semesterFive = [
     semester: "V",
     category: "short",
     marks: 5,
-    course_code: "DC-321",
+    course_code: "DC-321", 
     Subject: "Design & Analysis of Algorithms"
 },
 {

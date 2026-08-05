@@ -7,7 +7,7 @@ const semesterSix = [
     id: uuidv4(),
     question: "What is a computer network? State any four advantages of networking.",
     index: true,
-    trim: true, 
+    trim: true,  
     type: "past-paper",
     year: 2021,
     semester: "VI",
