@@ -34,9 +34,9 @@ const Page = () => {
 
         // const data = await res.json();
 
-        
+
         const data = await res.json();
-        
+
         const papers = [
           ...data.myPapers,
           ...data.sharedPapers,
@@ -87,7 +87,7 @@ const Page = () => {
       console.error("Delete Error:", error);
       setLoading(false)
     }
-    finally{
+    finally {
       setLoading(false)
     }
   };
@@ -108,9 +108,8 @@ const Page = () => {
             {papers.map((item) => (
               <div
                 key={item._id}
-                className={`${ styles.savedCard } ${
-  deletingId === item._id ? styles.delete : ""
-} `}
+                className={`${styles.savedCard} ${deletingId === item._id ? styles.delete : ""
+                  } `}
               >
                 <div className={styles.cardTop}>
                   <h2>{item.subject}</h2>
@@ -156,6 +155,7 @@ const Page = () => {
 
       {showPaper && selectedPaper && (
         <PaperFormat
+          paperId={selectedPaper._id}
           shortQuestions={selectedPaper.shortQuestions}
           longQuestions={selectedPaper.longQuestions}
           subject={selectedPaper.subject}

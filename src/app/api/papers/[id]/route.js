@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import mongoose from "mongoose";
 import { connectDB } from "../../../../lib/db";
 import { Paper } from "../../../../models/Database";
+import { User } from "../../../../models/User";
 
 export async function DELETE(request, { params }) {
     try {
@@ -58,9 +59,11 @@ export async function GET(request, { params }) {
 
         const { id } = await params;
 
-        const paper = await Paper.findById(id)
-            .populate("userId", "fullName email");
-            console.log(paper.userId);
+        const paper = await Paper.findById(id).populate("userId", "fullName email");
+
+        console.log("Paper:", paper);
+        console.log("UserId:", paper?.userId);
+        console.log("Type:", typeof paper?.userId);
         if (!paper) {
             return NextResponse.json(
                 { success: false, message: "Paper not found" },

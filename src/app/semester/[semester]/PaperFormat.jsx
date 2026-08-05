@@ -18,9 +18,10 @@ const PaperFormat = ({
   setPaperId,
 }) => {
   const [savedPaperId, setSavedPaperId] = useState(paperId || null);
-  const [savedUser, setSavedUser] = useState(null);
-  const currentDate = new Date().toLocaleString();
   const [paper, setPaper] = useState(null);
+  const [loggedInUser, setLoggedInUser] = useState(null);
+
+  const currentDate = new Date().toLocaleString();
 
   useEffect(() => {
     if (!paperId) return;
@@ -34,7 +35,7 @@ const PaperFormat = ({
           setPaper(data.paper);
         }
       } catch (err) {
-        console.log(err);
+        console.error(err);
       }
     };
 
@@ -45,6 +46,8 @@ const PaperFormat = ({
   // Fetch Logged-in User From DB
   // ===============================
   useEffect(() => {
+    if (paperId) return;
+
     const fetchUser = async () => {
       try {
         const localUser = JSON.parse(localStorage.getItem("user"));
@@ -60,11 +63,10 @@ const PaperFormat = ({
         if (!userId) return;
 
         const res = await fetch(`/api/users/${userId}`);
-
         const data = await res.json();
 
         if (res.ok && data.success) {
-          setSavedUser(data.user);
+          setLoggedInUser(data.user);
         }
       } catch (error) {
         console.error("Fetch User Error:", error);
@@ -72,8 +74,7 @@ const PaperFormat = ({
     };
 
     fetchUser();
-  }, []);
-
+  }, [paperId]);
   // ===============================
   // Print
   // ===============================
@@ -86,8 +87,13 @@ const PaperFormat = ({
   // ===============================
   const handleSave = async () => {
     try {
-        const paper = {
-        userId: savedUser._id || savedUser.id,
+      if (!loggedInUser) {
+        alert("User not loaded.");
+        return;
+      }
+
+      const paperData = {
+        userId: loggedInUser._id,
         subject,
         shortQuestions,
         longQuestions,
@@ -105,29 +111,31 @@ const PaperFormat = ({
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(paper),
+        body: JSON.stringify(paperData),
       });
 
       const data = await res.json();
+      console.log("Fetched Paper:", data);
 
       if (!res.ok) {
         throw new Error(data.message || "Failed to save paper.");
       }
 
       setSavedPaperId(data.paper._id);
+      setPaperId?.(data.paper._id);
 
-      if (setPaperId) {
-        setPaperId(data.paper._id);
+      const paperRes = await fetch(`/api/papers/${data.paper._id}`);
+      const fetchedPaper = await paperRes.json();
+
+      if (fetchedPaper.success) {
+        setPaper(fetchedPaper.paper);
       }
-      setPaper(data.paper);
-
       alert("Paper Saved Successfully ✅");
     } catch (error) {
       console.error(error);
       alert(error.message);
     }
   };
-
   // ===============================
   // Share Paper
   // ===============================
@@ -167,7 +175,14 @@ const PaperFormat = ({
       alert(error.message);
     }
   };
+  useEffect(() => {
+    console.log("Paper:", paper);
 
+    if (paper?.userId) {
+      console.log("Owner:", paper.userId);
+      console.log("Owner Name:", paper.userId.fullName);
+    }
+  }, [paper]);
   return (
     <div className={styles.paperWrapper}>
       <i
@@ -187,8 +202,10 @@ const PaperFormat = ({
 
           <div className={styles.headerUtils}>
             <span>
-              <strong>Prepared By:</strong>{" "}
-              {savedUser?.fullName ?? "Loading..."}
+              Prepared By: {" "}
+              <strong>{paper?.userId?.fullName ||
+                loggedInUser?.fullName ||
+                "Loading..."}</strong>
             </span>
 
             <h1 className={styles.heading}>UniSoft Exam Elevator</h1>
