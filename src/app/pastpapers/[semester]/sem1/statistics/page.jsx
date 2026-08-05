@@ -4,9 +4,6 @@ import styles from '../../../../utills.module.css'
 import SideBar from '../../../../components/SideBar'
 import Selector from '../../Selector'
 import { semesterOne } from '../../../../components/1/semesterOne'
-import Generator from '../../Generator'
-import AiGenerator from '../../AiGenerator'
-import { StatisticsAndDataAnalysisCourse } from './outline'
 
 const page = () => {
     const [isSelected, setIsSelected] = useState(false)
