@@ -2,7 +2,6 @@
 import React, { useState } from 'react'
 import styles from '../../../../utills.module.css'
 import SideBar from '../../../../components/SideBar'
-import Selector from '../../Selector'
 import { semesterOne } from '../../../../components/1/semesterOne'
 
 const page = () => {
