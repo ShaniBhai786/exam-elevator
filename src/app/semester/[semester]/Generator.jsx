@@ -16,42 +16,7 @@ const Generator = ({ semesterSeven, subject }) => {
   const [longMarks, setLongMarks] = useState(0)
   const [paperId, setPaperId] = useState(null);
 
-  const handleShare = async () => {
-    const id = await paperId;
-
-    if (!id) { 
-      alert("Please save the paper before sharing.");
-      return;
-    }
-
-    const email = prompt("Enter recipient's email:");
-    if (!email) return;
-
-    try {
-      const token = localStorage.getItem("token");
-
-      const res = await fetch(`/api/papers/${id}/share`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ email }),
-      });
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        throw new Error(data.message || "Failed to share paper");
-      }
-
-      alert(data.message);
-    } catch (error) {
-      console.error(error);
-      alert(error.message);
-    }
-  };
-  const generatePaper = (short, long) => {
+    const generatePaper = (short, long) => {
 
     const filteredShortQuestions = semesterSeven.filter(
       (item) =>
@@ -104,6 +69,7 @@ const Generator = ({ semesterSeven, subject }) => {
       <div className="paper-Div">
           <PaperFormat
             paperId={paperId}
+            setPaperId={setPaperId}
             shortQuestions={shortQuestions}
             longQuestions={longQuestions}
             setDisplay={setDisplay}

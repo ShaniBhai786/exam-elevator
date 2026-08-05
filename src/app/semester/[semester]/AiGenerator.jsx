@@ -243,7 +243,7 @@ setLongQuestions(long);
         </div>
       )}
       
-      {display && <PaperFormat paperId={paperId} owner={paperId._userId} shortQuestions={selectedShort} longQuestions={selectedLong} setDisplay={setDisplay} shortMarks={5} longMarks={10} noSQs={noSQs} noLQs={noLQs} subject={subject} />}
+      {display && <PaperFormat paperId={paperId} shortQuestions={selectedShort} longQuestions={selectedLong} setDisplay={setDisplay} shortMarks={5} longMarks={10} noSQs={noSQs} noLQs={noLQs} subject={subject} />}
     </div>
   );
 };

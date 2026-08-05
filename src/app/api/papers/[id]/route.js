@@ -50,3 +50,32 @@ export async function DELETE(request, { params }) {
         );
     }
 }
+
+// GET a single paper
+export async function GET(request, { params }) {
+    try {
+        await connectDB();
+
+        const { id } = await params;
+
+        const paper = await Paper.findById(id)
+            .populate("userId", "fullName email");
+            console.log(paper.userId);
+        if (!paper) {
+            return NextResponse.json(
+                { success: false, message: "Paper not found" },
+                { status: 404 }
+            );
+        }
+
+        return NextResponse.json({
+            success: true,
+            paper,
+        });
+    } catch (error) {
+        return NextResponse.json(
+            { success: false, message: error.message },
+            { status: 500 }
+        );
+    }
+}

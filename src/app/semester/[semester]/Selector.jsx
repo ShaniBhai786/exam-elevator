@@ -12,7 +12,8 @@ const Selector = ({semesterSeven, subject, setIsSelected}) => {
     const [noLQs, setNoLQs] = useState(0)
     const [shortMarks, setShortMarks] = useState(null)
     const [longMarks, setLongMarks] = useState(null)
-      const [paperId, setPaperId] = useState(null);
+    const [paperId, setPaperId] = useState(null);
+    
     
     useEffect(() => {
         setNoSQs(shortQuestions.length)
@@ -97,7 +98,7 @@ const Selector = ({semesterSeven, subject, setIsSelected}) => {
     <button className={styles.previewBtnPaper} onClick={() => setDisplay(true)}>Generate</button>
       </div>
     {/* </div> */}
-          {display && <PaperFormat paperId={paperId} owner={paperId._userId} shortQuestions={shortQuestions} subject={subject} longQuestions={longQuestions} setDisplay={setDisplay} noLQs={noLQs} noSQs={noSQs} shortMarks={shortMarks} longMarks={longMarks} />}
+          {display && <PaperFormat paperId={paperId} shortQuestions={shortQuestions} subject={subject} longQuestions={longQuestions} setDisplay={setDisplay} noLQs={noLQs} noSQs={noSQs} shortMarks={shortMarks} longMarks={longMarks} />}
       </>
   )
 }

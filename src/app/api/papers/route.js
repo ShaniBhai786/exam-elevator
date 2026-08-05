@@ -77,7 +77,7 @@ export async function POST(request) {
             );
         }
 
-        const paper = await Paper.create({
+        const newPaper = await Paper.create({
             userId,
             subject,
             shortQuestions,
@@ -91,6 +91,10 @@ export async function POST(request) {
             term,
             sharedWith: [],
         });
+
+        // Fetch the paper again with the creator populated
+        const paper = await Paper.findById(newPaper._id)
+            .populate("userId", "fullName email username");
 
         return NextResponse.json(
             {
