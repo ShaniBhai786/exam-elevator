@@ -11,36 +11,6 @@ const PaperFormat = ({ shortQuestions = [], longQuestions = [], setDisplay, subj
   const handlePrint = () => {
     window.print()
   }
-  const handleShare = async () => {
-    if (!paperId) {
-      alert("Please save the paper before sharing.");
-      return;
-    }
-
-    const email = prompt("Enter recipient's email:");
-
-    if (!email) return;
-
-    try {
-      const token = localStorage.getItem("token");
-
-      const res = await fetch(`/api/papers/${paperId}/share`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ email }),
-      });
-
-      const data = await res.json();
-
-      alert(data.message);
-    } catch (err) {
-      console.error(err);
-      alert("Something went wrong.");
-    }
-  };
   return (
     <div className={styles.paperWrapper}>
         <i className={`fa fa-close ${styles.closeIcon} `} onClick={() => setDisplay(false)}>close</i>
@@ -107,7 +77,6 @@ const PaperFormat = ({ shortQuestions = [], longQuestions = [], setDisplay, subj
           )}
         </div>
           <div className={styles.paperButtonsDiv}>
-          <button onClick={handleShare} className={styles.printBtn}>Share</button>
           <button onClick={handlePrint} className={styles.printBtn}>Print</button>
           </div>
       </div>
