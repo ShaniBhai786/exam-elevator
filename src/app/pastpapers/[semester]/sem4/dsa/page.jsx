@@ -15,8 +15,8 @@ const Page = () => {
     const questions = semesterFour.filter(
       (q) =>
         q.Subject === subject &&
-        q.year === year &&
-        q.term.toLowerCase() === term.toLowerCase()
+        q.year === year ||
+        q.term?.toLowerCase() === term.toLowerCase()
     );
 
     const shortQuestions = questions.filter(
