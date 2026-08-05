@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import styles from "../../../../utills.module.css";
 import SideBar from "../../../../components/SideBar";
-import { semesterFor } from "../../../../components/4/4semesterpastpaper";
+import { semesterFour } from "../../../../components/4/4semesterpastpaper";
 import PaperFormat from "../../PaperFormat";
 
 const Page = () => {
@@ -12,7 +12,7 @@ const Page = () => {
     const subject = "Software Engineering";
 
     const openPaper = (year, term) => {
-        const questions = semesterThree.filter(
+        const questions = semesterFour.filter(
             (q) =>
                 q.Subject === subject &&
                 q.year === year &&
