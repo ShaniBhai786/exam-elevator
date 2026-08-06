@@ -1,5 +1,8 @@
-// app/api/generate-questions/route.js
-import { GoogleGenAI } from "@google/genai";
+import Groq from "groq-sdk";
+
+const groq = new Groq({
+  apiKey: process.env.GROQ_API_KEY,
+});
 
 export async function POST(req) {
   try {
@@ -7,61 +10,81 @@ export async function POST(req) {
 
     if (!outline || outline.trim() === "") {
       return new Response(
-        JSON.stringify({ questions: [], message: "Please provide an outline" }),
-        { status: 400, headers: { "Content-Type": "application/json" } }
+        JSON.stringify({
+          questions: [],
+          message: "Please provide an outline",
+        }),
+        {
+          status: 400,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
       );
     }
 
-
-    const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
-
     const prompt = `
 You are an expert exam question generator.
-Given the following outline, generate a list of clear, exam‑style questions.
-Provide each question on its own line.
+
+Generate high-quality university exam questions from the following outline.
+
+Rules:
+- Return only questions.
+- One question per line.
+- Do not add numbering, explanations, headings, or markdown.
+- Questions should be suitable for university examinations.
 
 Outline:
 ${outline}
 `;
 
-    try {
-      const response = await ai.models.generateContent({
-        model: "gemini-2.5-flash",
-        contents: [
-          { type: "text", text: prompt }
-        ],
-        config: {
-          systemInstruction: "Generate exam questions only — list them clearly without extra commentary.",
-          temperature: 0.6,
+    const completion = await groq.chat.completions.create({
+      model: "llama-3.3-70b-versatile",
+
+      messages: [
+        {
+          role: "system",
+          content:
+            "You are an expert university exam paper generator.",
         },
-      });
+        {
+          role: "user",
+          content: prompt,
+        },
+      ],
 
-      // Gemini response text
-      const text = response.output_text || response.text || "";
-      const questions = text
-        .split(/\n|•|-/)
-        .map(q => q.trim())
-        .filter(q => q.length > 0);
+      temperature: 0.6,
+    });
 
-      return new Response(
-        JSON.stringify({ questions }),
-        { status: 200, headers: { "Content-Type": "application/json" } }
-      );
+    const text = completion.choices[0].message.content || "";
 
-    } 
-    catch (error) {
-      console.error("Gemini API error:", error);
-      return new Response(
-        JSON.stringify({ error: error.message }),
-        { status: 500, headers: { "Content-Type": "application/json" } }
-      );
-    }
+    const questions = text
+      .split("\n")
+      .map((q) => q.replace(/^\d+\.\s*/, "").trim())
+      .filter(Boolean);
 
-  } catch (err) {
-    console.error("Server error:", err);
     return new Response(
-      JSON.stringify({ error: err.message }),
-      { status: 500, headers: { "Content-Type": "application/json" } }
+      JSON.stringify({ questions }),
+      {
+        status: 200,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+  } catch (error) {
+    console.error("Groq API Error:", error);
+
+    return new Response(
+      JSON.stringify({
+        error: error.message,
+      }),
+      {
+        status: 500,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
     );
   }
 }

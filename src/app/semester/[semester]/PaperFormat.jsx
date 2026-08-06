@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "../../utills.module.css";
 import logo from "../../../logo.jpeg";
+import AnswerGenerator from "./AnswerGenerator";
 
 const PaperFormat = ({
   shortQuestions = [],
@@ -20,6 +21,7 @@ const PaperFormat = ({
   const [savedPaperId, setSavedPaperId] = useState(paperId || null);
   const [paper, setPaper] = useState(null);
   const [loggedInUser, setLoggedInUser] = useState(null);
+  const [showAnswers, setShowAnswers] = useState(false)
 
   const currentDate = new Date().toLocaleString();
 
@@ -134,7 +136,7 @@ const PaperFormat = ({
     } catch (error) {
       console.error(error);
       alert(error.message);
-    }
+    } 
   };
   // ===============================
   // Share Paper
@@ -183,6 +185,10 @@ const PaperFormat = ({
       console.log("Owner Name:", paper.userId.fullName);
     }
   }, [paper]);
+  const generateAnswers = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setShowAnswers(true);
+  }
   return (
     <div className={styles.paperWrapper}>
       <i
@@ -292,8 +298,16 @@ const PaperFormat = ({
           <button onClick={handleSave} className={styles.saveBtn}>
             Save
           </button>
+          <button onClick={generateAnswers} className={styles.saveBtn}>Generate Answers</button>
         </div>
       </div>
+      {showAnswers && <AnswerGenerator
+        questions={[
+          ...shortQuestions.filter(Boolean),
+          ...longQuestions.filter(Boolean),
+        ]}
+        setShowAnswers={setShowAnswers}
+      />}
     </div>
   );
 };
