@@ -15,7 +15,6 @@ const Register = () => {
   const [loading, setLoading] = useState(false);
 
   const initialValues = {
-    username: "",
     email: "",
     fullName: "",
     Contact: "",
@@ -29,7 +28,6 @@ const Register = () => {
 
   const validationSchema = Yup.object({
     Contact: Yup.string().min(11).required("Contact is mandatory"),
-    username: Yup.string().min(5).required("Username is mandatory"),
     fullName: Yup.string().min(3).required("Full Name is mandatory"),
     email: Yup.string().email("Invalid email").required("Email is required"),
     CNIC: Yup.string()
@@ -49,7 +47,6 @@ const Register = () => {
     try {
       setLoading(true);
       const formData = new FormData();
-      formData.append("username", values.username);
       formData.append("email", values.email);
       formData.append("password", values.password);
       formData.append("fullName", values.fullName);
@@ -160,22 +157,6 @@ const Register = () => {
                     <label>Email</label>
                     <ErrorMessage
                       name="email"
-                      component="div"
-                      className={styles.errorMessage}
-                    />
-                  </div>
-
-                  <div className={styles.inputGroup}>
-                    <i className={`fa-solid fa-user ${styles.inputIcon}`}></i>
-                    <Field
-                      type="text"
-                      name="username"
-                      className={styles.input}
-                      placeholder="Enter username"
-                    />
-                    <label>Username</label>
-                    <ErrorMessage
-                      name="username"
                       component="div"
                       className={styles.errorMessage}
                     />

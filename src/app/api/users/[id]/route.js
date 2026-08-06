@@ -25,10 +25,7 @@ export async function GET(req, { params }) {
         await connectDB();
 
         const { id } = await params;
-
-        const user = await User.findById(id)
-            .select("-password -refreshToken -accessToken");
-
+        const user = await User.findById(id).select("-password -refreshToken -accessToken");
         if (!user) {
             return NextResponse.json(
                 { success: false, message: "User not found" },

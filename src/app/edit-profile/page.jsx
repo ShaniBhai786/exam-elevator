@@ -73,10 +73,7 @@ export default function EditProfile() {
         throw new Error(data.message);
       }
 
-      setForm((prev) => ({
-        ...prev,
-        Profile: data.url,
-      }));
+      setForm((prev) => ({...prev, Profile: data.url, }));
 
       setImageError(false);
 

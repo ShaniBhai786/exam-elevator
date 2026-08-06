@@ -7,10 +7,15 @@ import * as Yup from "yup";
 import Link from "next/link";
 import axios from "axios";
 import Loading from "./Loading";
+import { useRouter } from "next/navigation";
 
 const Login = ({ onLogin }) => {
+  const router = useRouter();
   const [isLogin, setIsLogin] = useState(false);
   const [passwordDisplay, setPasswordDisplay] = useState("password");
+  const [showForgotModal, setShowForgotModal] = useState(false);
+  const [forgotEmail, setForgotEmail] = useState("");
+  const [sendingOTP, setSendingOTP] = useState(false);
   const initialValues = {
     email: "",
     password: "",
@@ -68,7 +73,44 @@ const Login = ({ onLogin }) => {
       eyeRef.current.style.display = "none";
     }
   };
+  const handleForgetPassword = async () => {
+    if (!forgotEmail) {
+      return alert("Please enter your email.");
+    }
 
+    setSendingOTP(true);
+
+    try {
+      const res = await fetch("/api/users/forget-password", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: forgotEmail,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message);
+      }
+
+      alert(data.message);
+      console.log(data.message, data.otp ? ` Your OTP is: ${data.otp}` : "");
+      router.push(`/verify-otp?email=${encodeURIComponent(forgotEmail)}`);
+
+      setShowForgotModal(false);
+      setForgotEmail("");
+
+    } catch (error) {
+      console.error("Password Forget Error:", error);
+      alert(error.message);
+    } finally {
+      setSendingOTP(false);
+    }
+  };
   return (
     <>
       {isLogin && <Loading />}
@@ -120,7 +162,12 @@ const Login = ({ onLogin }) => {
               </div>
 
               <div className={styles.loginOptions}>
-                <span className={styles.forgot}>Forgot Password?</span>
+                <span
+                  className={styles.forgot}
+                  onClick={() => setShowForgotModal(true)}
+                >
+                  Forgot Password?
+                </span>
               </div>
 
               <button type="submit" className={styles.loginBtn}>
@@ -146,6 +193,46 @@ const Login = ({ onLogin }) => {
           </div>
         </div>
       </div>
+      {showForgotModal && (
+        <div
+          className={styles.modalOverlay}
+          onClick={() => setShowForgotModal(false)}
+        >
+          <div
+            className={styles.modal}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className={styles.closeBtn}
+              onClick={() => setShowForgotModal(false)}
+            >
+              ✕
+            </button>
+
+            <h2>Forgot Password</h2>
+
+            <p>
+              Enter your registered email address to receive an OTP.
+            </p>
+
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className={styles.modalInput}
+              value={forgotEmail}
+              onChange={(e) => setForgotEmail(e.target.value)}
+            />
+
+            <button
+              className={styles.modalButton}
+              onClick={handleForgetPassword}
+              disabled={sendingOTP}
+            >
+              {sendingOTP ? "Sending..." : "Send OTP"}
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 };
